@@ -1,0 +1,16 @@
+Sliver template v.2 2011-10-30
+
+Sidebars left, Sidebars right, no Sidebars via templates config.
+Additional middle, top, footer Sidebars via admin panel plugin section.
+                  
+Uses HTML5 and CSS3 features, ships with some external libs (for example PIE) 
+Please copy the js/libs/PIE.htc file to your domain root / to let MS-IE 6/7/8 versions benefit from CSS3 border, shadow, gradients features
+
+Original based on Bulletproof and Boilerplate-1/2
+Name: Sliver 2011
+Author: Ian & HTML5 boilerplate-initializr-1.5
+Date: 2011-08-12
+engine: new_default,default
+Require Serendipity: 1.5.5
+Description: Sidebars left, Sidebars right and no Sidebars via templates config. Additional middle, top, footer Sidebars via admin panel plugin section/
+
