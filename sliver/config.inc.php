@@ -279,5 +279,4 @@ serendipity_loadGlobalThemeOptions($template_config, $template_loaded_config, $t
 /************************************************************************
  * vor release aufräumen 
  * auf mobiles prüfen
- $serendipity['capabilities']['jquery'] = false;
 *************************************************************************/

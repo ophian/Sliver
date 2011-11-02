@@ -4,7 +4,7 @@ Sidebars left, Sidebars right, no Sidebars via templates config.
 Additional middle, top, footer Sidebars via admin panel plugin section.
                   
 Uses HTML5 and CSS3 features, ships with some external libs (for example PIE) 
-Please copy the js/libs/PIE.htc file to your domain root / to let MS-IE 6/7/8 versions benefit from CSS3 border, shadow, gradients features
+Please copy the PIE.htc file in js/libs/ to your domain root / to let MS-IE 6/7/8 versions benefit from CSS3 borders, shadows, gradient features
 
 Original based on Bulletproof and Boilerplate-1/2
 Name: Sliver 2011
