@@ -1,0 +1,7 @@
+Name: Sliver 2011 v.2
+Author: Ian 
+Version: 2.0
+Date: 2011-08-12
+engine: new_default,default
+Require Serendipity: 1.6
+Description: Sidebars left, Sidebars right and no Sidebars via templates config. Additional middle, top, footer Sidebars via admin panel plugin section
