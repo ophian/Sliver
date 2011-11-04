@@ -476,6 +476,15 @@ h3 {
 h4, h5, h6, p, ol, ul, dl, address, pre, table {
     margin-bottom: 1em;
 }
+code {
+    color: #008000; /* green */
+}
+code, kbd, pre, samp {
+    font-family: Menlo,Monaco,'DejaVu Sans Mono','Bitstream Vera Sans Mono','Consolas','Courier New',Courier,monospace;
+    font-size: 92.308%;
+    line-height: 1.35;
+    overflow-x: auto; /* Use horizontal scroller if needed; for Firefox 2, not needed in Firefox 3 */
+}
 /* Code snippets */
 /*
     <pre>
@@ -484,9 +493,6 @@ h4, h5, h6, p, ol, ul, dl, address, pre, table {
         </code>
     </pre>
 */
-pre {
-    line-height: 1.6;
-}
 .code-html, .code-css, .code-php, .code-smarty, .code-jquery, .code-bash, .code-sql, .code-conf, .code-htaccess {
     background: none repeat scroll 0 0 #EEEEEE;
     border: 0.1em solid #CCCCCC;
