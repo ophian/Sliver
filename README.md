@@ -54,10 +54,7 @@ Sliver also adds some backend CSS additions to the default admin styles in `admi
 * The Archives page supports an additional staticpage file text & link for further or internal archive listings. Please customize and enable them in lang files.
 * This template is not supposed to use header images. It makes use of some pre-configured `<pre` and `<code` CSS styles to be used out the box (see `sliver_styles.css`).
 * If you need to set some (google) webfonts, please investigate the header part of `index.tpl`.
-* It is supposed to include your own JavaScript additions into (enable `user.css` option in template config)
-
-    js/scripts.js
-	css/user.css
+* It is supposed to include your own JavaScript additions into `js/scripts.js` and `css/user.css` (enable user stylesheets in template config)
 
 ## Errors:
 
