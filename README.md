@@ -13,7 +13,7 @@ Author: Ian
 
 ## Requirement:
 
-Serendipity: 1.6 and up 
+Serendipity: 1.6 and up
 
 ## About:
 
@@ -39,9 +39,9 @@ Sliver comes with nearly full boilerplate supported template root files, as ther
 
 All Boilerplate and Sliver includement files (like js, css) are found in these dirs.
 
-    `js/*`
-	`js/libs/*`
-	`css/*`
+    js/*
+	js/libs/*
+	css/*
 
 Sliver also adds some backend CSS additions to the default admin styles in `admin/style.css` .
 
@@ -56,8 +56,8 @@ Sliver also adds some backend CSS additions to the default admin styles in `admi
 * If you need to set some (google) webfonts, please investigate the header part of `index.tpl`.
 * It is supposed to include your own JavaScript additions into (enable `user.css` option in template config)
 
-    `js/scripts.js`
-	`css/user.css`
+    js/scripts.js
+	css/user.css
 
 ## Errors:
 
