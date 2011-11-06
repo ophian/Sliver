@@ -4,8 +4,11 @@ Sliver template v.2 2011-10-30
 ### Name: Sliver 2011
 
 Left/right 4 Sidebar Theme for Serendipity Blog system [S9y] (http://www.s9y.org/)
+
 Date: 2011-08-12
+
 Original based on S9y standard theme [Bulletproof] (http://www.s9y.org/) and [Boilerplate-2] (http://html5boilerplate.com/)
+
 Author: Ian
 
 
@@ -17,6 +20,7 @@ Serendipity: 1.6
 ### About:
 
 Sidebars left, Sidebars right, no Sidebars via templates config.
+
 Additional middle, top, footer Sidebars via admin panel plugin section.
 
 
