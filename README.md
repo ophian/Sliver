@@ -19,19 +19,31 @@ Serendipity: 1.6 and up
 
 * Developing very slowly, but already usable, HTML5 will become the new standard of the good old HTML and XHTML web. 
 * All modern browsers support it more or less. With boilerplates help, we already can use it in the wild.
+<<<<<<< HEAD
 * Its most outstanding feature allows every document element in HTML5 to have a corresponding JavaScript API, that describes how that element should behave in response to user actions and other events. Its up to you how to use them in this template.
+=======
+* Its most outstanding feature allows every document element in HTML5 to have a corresponding JavaScript API that describes how that element should behave in response to user actions and other events.
+>>>>>>> fe7deeff6dd9b3a7b20729b7293c8938101c8d49
 
 ## About:
 
 * Sidebars left, Sidebars right, no Sidebars via templates config.
 * Additional middle, top, footer Sidebars via admin panel plugin section.
+<<<<<<< HEAD
 * Use new HTML5 semantic as general structure wrappers, be ready for new media elements, offering rich, interactive experience, and use new CSS3 features
+=======
+* Use new HTML5 semantic as wrappers, be ready for elements offering rich, interactive experience, and use new CSS3 features
+>>>>>>> fe7deeff6dd9b3a7b20729b7293c8938101c8d49
 
 ## Setup:
 
 Sliver uses HTML5 and CSS3 features and ships with some external libs (for example PIE).
 
+<<<<<<< HEAD
 * **File:** Please copy the PIE.htc file in Sliver/js/libs/ to your domain root /, to let MS-IE <9 benefit from CSS3 borders, shadows, gradient features
+=======
+* **File:** Please copy the PIE.htc file in Sliver/js/libs/ to your domain root /, to let MS-IE (6)/7/8 versions benefit from CSS3 borders, shadows, gradient features
+>>>>>>> fe7deeff6dd9b3a7b20729b7293c8938101c8d49
 * **Dir:** Both dirs (`/sliver` and `/default_new`) are supposed to be copied to your template dir `/serendipity/templates`. 
 * **Config:** Sliver has multiple options to configure your template, as using jquery, google analytics etc. 
 
@@ -39,7 +51,11 @@ Sliver uses HTML5 and CSS3 features and ships with some external libs (for examp
 
 Sliver comes with nearly full boilerplate supported template root files, as there are 
 
+<<<<<<< HEAD
     .htaccess (added Slivers AddType text/x-component .htc)
+=======
+    .htaccess (which has an activated mod_rewrite option to turn `www.domain.ext` into `domain.ext`)
+>>>>>>> fe7deeff6dd9b3a7b20729b7293c8938101c8d49
 	404.html (unused)
 	humans.txt 
 	robots.txt 
@@ -57,7 +73,10 @@ Sliver also adds some backend CSS additions to the default admin styles in `admi
 * The new_default dir is a dependency template of Sliver and both dirs and are not supposed to be used standalone!
 * This template is not supposed to use any header images.
 * The `index.tpl` file has included a prompt to install Chrome Frame by default for IE6 users.
+<<<<<<< HEAD
 * The `.htaccess` file has an activated mod_rewrite option to turn `www.domain.ext` into `domain.ext`.
+=======
+>>>>>>> fe7deeff6dd9b3a7b20729b7293c8938101c8d49
 
 ## Tweaking:
 
