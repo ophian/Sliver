@@ -3,7 +3,7 @@ Sliver template v.2 | 2011-10-30
 
 ## Name: Sliver 2011
 
-Silver slivered left/right, up to 4 Sidebars #Coding-Theme# for the Serendipity Blog system [S9y] (http://www.s9y.org/)
+Silver slivered left/right, up to 4 Sidebars **Coding-Theme** for the Serendipity Blog system [S9y] (http://www.s9y.org/)
 
 Date: 2011-08-12
 
