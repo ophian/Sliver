@@ -3,7 +3,7 @@ Sliver template v.2 | 2011-10-30
 
 ## Name: Sliver 2011
 
-Left/right 4 Sidebar Theme for Serendipity Blog system [S9y] (http://www.s9y.org/)
+Silver slivered left/right, up to 4 Sidebars #Coding-Theme# for the Serendipity Blog system [S9y] (http://www.s9y.org/)
 
 Date: 2011-08-12
 
@@ -64,7 +64,7 @@ Sliver also adds some backend CSS additions to the default admin styles in `admi
 * **Archive:** The Archives page supports an additional staticpage file text & link for further or internal archive listings. Please customize and enable them in lang files and in your archive staticpage.
 * **Code:** This template makes use of some pre-configured `<pre` and `<code` CSS styles to be used out the box (see `sliver_styles.css`).
 * **Fonts:** If you need to set some (google) webfonts, please investigate the header part of `index.tpl`.
-* **Customize:** It is supposed to include your own JavaScript additions into `js/scripts.js` and `css/user.css` (enable user stylesheets in template config).
+* **Customize:** It is supposed to include your own JavaScript/CSS additions into `js/scripts.js` and `css/user.css` (enable user stylesheets in template config).
 
 ## Errors:
 
