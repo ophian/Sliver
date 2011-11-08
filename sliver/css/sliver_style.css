@@ -11,9 +11,12 @@
 /* Main Template stylesheet blocks surrounded by Boilerplate          */
 /* ****** starter styles                                              */
 /* ****** screen styles                                               */
+/* ****** coding styles                                               */
 /* ****** general styles                                              */
 /* ****** extended styles                                             */
+/* ****** sidebar container styles                                    */
 /* ****** additional styles (plugins, extras, etc)                    */
+/* ****** special styles (nav transition)                             */
 /*                                                                    */
 /* To amend, please use the user.css preferentially                   */
 /**********************************************************************/
@@ -476,6 +479,60 @@ h3 {
 h4, h5, h6, p, ol, ul, dl, address, pre, table {
     margin-bottom: 1em;
 }
+input, textarea {
+    padding: 3px;
+}
+.belowentry .editentrylink, .staticpage_metainfo_editlink {
+    float: right;
+    font-size: 8pt;
+    margin: 3px 2px 0 0;
+    padding: 0;
+}
+p.whiteline {
+    margin-bottom: 1em;
+    margin-top: 0;
+}
+p.break {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+br.clear {
+    clear: both;
+} 
+blockquote {
+    border-left: 4px solid #2a5a8a;
+    padding-left: 10px;
+}
+em { font-style: italic; }
+
+/**********************************************************************/
+/* 2. Screen styles end                                               */
+/**********************************************************************/
+
+
+
+/**********************************************************************/
+/* 3. Coding boxed styles                                             */
+/**********************************************************************/
+
+/* To be used in column styled boxes <div id="boxed"><pre> */
+#boxed pre {
+    background-clip: padding-box;
+    background-color: #FAFAFB;
+    border: 1px solid #CACACA;
+    /* rounded corners */
+    -webkit-border-radius: 1em 1em 1em 1em;
+    -moz-border-radius: 1em 1em 1em 1em;
+    -o-border-radius: 1em 1em 1em 1em;
+    border-radius: 1em 1em 1em 1em; /* html5 standard */
+    color: #393939;
+    font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+    margin: 0;
+    overflow: auto;
+    padding: 10px;
+    position: relative; /* IE PIE lt 9, we need this here */
+    behavior: url("/PIE.htc"); /* found best in root */
+}
 code {
     color: #008000; /* green */
 }
@@ -552,40 +609,15 @@ samp {
 samp.courier {
     /* continue */
 }
-input, textarea {
-    padding: 3px;
-}
-.belowentry .editentrylink, .staticpage_metainfo_editlink {
-    float: right;
-    font-size: 8pt;
-    margin: 3px 2px 0 0;
-    padding: 0;
-}
-p.whiteline {
-    margin-bottom: 1em;
-    margin-top: 0;
-}
-p.break {
-    margin-bottom: 0;
-    margin-top: 0;
-}
-br.clear {
-    clear: both;
-} 
-blockquote {
-    border-left: 4px solid #2a5a8a;
-    padding-left: 10px;
-}
-em { font-style: italic; }
 
 /**********************************************************************/
-/* 2. Screen styles end                                               */
+/* 3. Coding boxed styles end                                         */
 /**********************************************************************/
 
 
 
 /**********************************************************************/
-/* 3. General styles extends starter styles -> new_default/style.css  */
+/* 4. General styles extends starter styles -> new_default/style.css  */
 /**********************************************************************/
 body {
     background: none repeat scroll 0 0 #DCDCDC;
@@ -1035,7 +1067,7 @@ a:hover, a:active, a:focus {
     padding-left: 0;
 }
 /**********************************************************************/
-/* 3. General styles end                                              */
+/* 4. General styles end                                              */
 /**********************************************************************/
 
 
@@ -1064,7 +1096,7 @@ box-shadow: 0px -2px 2px rgba(34,34,34,0.6); */ /* 'blurry' top-edge */
 ***********************************************************************************/
 
 /**********************************************************************/
-/* 3. Extended styles extend general styles                           */
+/* 5. Extended styles extend general styles start                     */
 /*    CSS3 ++ section                                                 */
 /**********************************************************************/
 body {
@@ -1335,6 +1367,7 @@ section#blog {
     /** do not use filter, while having PIE gradients **/
     /** filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ffffff',GradientType=0 ); **//* IE6-9 */
     background: linear-gradient(top, rgba(237,237,237,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
+    /** this works in IE7, IE8, and IE9 Compat Mode only, not in IE9 default mode */
     -pie-background: linear-gradient(#EDEDED, #FFFFFF);
     border: 1px solid #CCC;
     /* rounded corners */
@@ -1533,11 +1566,14 @@ ul.staticpage_navigation li {
     font-weight: normal;
 }
 
+/**********************************************************************/
+/* 5. Extended styles extend general styles end                       */
+/**********************************************************************/
 
 
 
 /************************************************************************/
-/* sitebar container_serendipity_xxx serendipity_edit_nugget start      */
+/* 6. Sidebar container styles start                                    */
 /************************************************************************/
 
 /* syndication, quicksearch, archives, categories, authors, superuser, etc.
@@ -1568,14 +1604,14 @@ ul.staticpage_navigation li {
 }
 
 /************************************************************************/
-/* sitebar container_serendipity_xxx serendipity_edit_nugget end        */
+/* 6. Sidebar container styles end                                      */
 /************************************************************************/
 
 
 
 
 /***********************************************************************/
-/* Additional Plugin styles start                                      */
+/* 7. Additional plugin styles start                                   */
 /***********************************************************************/
 
 .innerbox {
@@ -1596,12 +1632,12 @@ ul.staticpage_navigation li {
 
 
 /***********************************************************************/
-/* Additional Plugin styles end                                        */
+/* 7. Additional Plugin styles end                                     */
 /***********************************************************************/
 
 
 /***********************************************************************/
-/* Special styles to use transitions in navbar buttons start           */
+/* 8 Special styles to use transitions in navbar buttons start         */
 /***********************************************************************/
 
 #fast1 {
@@ -1652,6 +1688,10 @@ ul.staticpage_navigation li {
   -o-transition-timing-function: ease-out;
   font-size: 24px;
 }
+
+/***********************************************************************/
+/* 8 Special styles end                                                */
+/***********************************************************************/
 
 /***********************************************************************/
 /* sliver_styles.css end                                               */

@@ -69,7 +69,9 @@ section#blog {
     background: #fcfcfc;
     height: 100%
 }
-
+/* display: block misbehaves in IE 7 - find workaround for IE7 only
+.code-html, .code-css, .code-php, .code-smarty, .code-jquery, .code-bash, .code-sql, .code-conf, .code-htaccess {
+}*/
 /****************************************************************
  ** workaround with IE 6-8 specific browser hacks end 
  ****************************************************************/
