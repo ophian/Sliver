@@ -609,17 +609,23 @@ span.serendipityTemplateSelectName {
     background: -o-linear-gradient(#EDEDED, #FFFFFF); /* Opera 11.10 */
     /* IE gradient moved to special IE wrapper, to avoid gradient overflowing rounded corners */
     background: linear-gradient(#EDEDED, #FFFFFF); /* html5 standard */
+    -pie-background: linear-gradient(#EDEDED, #FFFFFF);
     /* rounded corners */
     -webkit-border-radius: 1em 1em 1em 1em;
     -moz-border-radius: 1em 1em 1em 1em;
+    -o-border-radius: 1em 1em 1em 1em;
     border-radius: 1em 1em 1em 1em; /* html5 standard */
     /* shadow settings */
-    -moz-box-shadow: 0 0 3px #AAAAAA inset;
     -webkit-box-shadow: 0 0 3px #AAAAAA inset;
+    -moz-box-shadow: 0 0 3px #AAAAAA inset;
+    -o-box-shadow: 0 0 3px #AAAAAA inset;
     box-shadow: 0 0 3px #AAAAAA inset; /* html5 standard */
     /* need only of IE gradient/shadowing */
     padding: 10px;
 	color: #555555;
+    /* need only of IE 6/7/8 gradient/border-radius/border-shadow */
+    position: relative; /* IE PIE lt 9, we need this here */
+    behavior: url("/PIE.htc"); /* found best in root */
 }
 /* adjust admin pluginmanager sidebars to 6 sidebars */
 td.pluginmanager_side {
@@ -631,3 +637,12 @@ td.pluginmanager_side {
 blockquote, q { quotes: none; }
 blockquote:before, blockquote:after,
 q:before, q:after { content: ''; content: none; }
+
+/* Sliversite Staticpage Simple Template */
+#backend_sp_simple { margin-top: 16px; }
+#backend_sp_simple legend { margin: 10px 0; }
+#backend_sp_simple .default_staticpage_main { width: 69%; float: left; }
+#backend_sp_simple .default_staticpage_sbar { width: 29%; float: right; }
+#backend_sp_simple .default_staticpage_button_sbar { margin: 0px auto; text-align: center; }
+#serendipityAdminFrame .default_staticpage_button_main { margin: 10px auto; text-align: center; }
+#sp_toggle_optionall { display:inline; float:right; margin-top: 0; }
