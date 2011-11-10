@@ -15,10 +15,10 @@ function showConfig(id) {
     if (document.getElementById) {
         dlm = document.getElementById(id);
         if (dlm.style.display == 'none') {
-            document.getElementById('option' + id).src = plugins_minus;
+            document.getElementById('option' + id).src = img_minus;
             dlm.style.display = '';
         } else {
-            document.getElementById('option' + id).src = plugins_plus;
+            document.getElementById('option' + id).src = img_plus;
             dlm.style.display = 'none';
         }
     }
@@ -29,14 +29,14 @@ function showConfigAll(count) {
     if (document.getElementById) {
         for (i = 1; i <= count; i++) {
             document.getElementById('dlm' + i).style.display = state;
-            document.getElementById('optiondlm' + i).src = (state == '' ? plugins_minus : plugins_plus);
+            document.getElementById('optiondlm' + i).src = (state == '' ? img_minus : img_plus);
         }
 
         if (state == '') {
-            document.getElementById('optionall').src = plugins_minus;
+            document.getElementById('optionall').src = img_minus;
             state = 'none';
         } else {
-            document.getElementById('optionall').src = plugins_plus;
+            document.getElementById('optionall').src = img_plus;
             state = '';
         }
     }

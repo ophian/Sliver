@@ -1,7 +1,7 @@
 
 <script type="text/javascript">
-    var plugins_plus = '{serendipity_getFile file="img/plus.png"}';
-    var plugins_minus = '{serendipity_getFile file="img/minus.png"}';
+    var img_plus = '{serendipity_getFile file="img/plus.png"}';
+    var img_minus = '{serendipity_getFile file="img/minus.png"}';
 </script>
 
 <script type="text/javascript" language="JavaScript" src="{serendipity_getFile file="js/plugins.js}"></script>
@@ -30,7 +30,7 @@
  {* adding META elements hack start: 2011-09-29 *}
             <div class="sp_sect">
                 Show optional Meta field entries
-				<p id="sp_toggle_optionall"><a style="border:0; text-decoration: none;" href="#" onClick="showConfig('el1'); return false" title="{$CONST.TOGGLE_OPTION}"><img src="{serendipity_getFile file="img/plus.png"}" id="optionel1" alt="+/-" border="0" />&nbsp;{$CONST.TOGGLE_ALL}</a></p>
+                <p id="sp_toggle_optionall"><a style="border:0; text-decoration: none;" href="#" onClick="showConfig('el1'); return false" title="{$CONST.TOGGLE_OPTION}"><img src="{serendipity_getFile file="img/plus.png"}" id="optionel1" alt="+/-" border="0" />&nbsp;{$CONST.TOGGLE_ALL}</a></p>
             </div>
 
             <div id="el1">
@@ -57,7 +57,7 @@
             <legend>{$CONST.STATICPAGE_SECTION_STRUCT}</legend>
             <div class="sp_sect">
                 Show Structural field options
-				<p id="sp_toggle_optionall"><a style="border:0; text-decoration: none;" href="#" onClick="showConfig('el2'); return false" title="{$CONST.TOGGLE_OPTION}"><img src="{serendipity_getFile file="img/plus.png"}" id="optionel2" alt="+/-" border="0" />&nbsp;{$CONST.TOGGLE_ALL}</a></p>
+                <p id="sp_toggle_optionall"><a style="border:0; text-decoration: none;" href="#" onClick="showConfig('el2'); return false" title="{$CONST.TOGGLE_OPTION}"><img src="{serendipity_getFile file="img/plus.png"}" id="optionel2" alt="+/-" border="0" />&nbsp;{$CONST.TOGGLE_ALL}</a></p>
             </div>
 
             <div id="el2">
