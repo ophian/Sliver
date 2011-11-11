@@ -6,6 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
     <meta charset={$head_charset}" />
+    {* Use the .htaccess and remove these lines to avoid edge case issues. More info: h5bp.com/b/378 *}
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 {if $staticpage_custom.title_element}
@@ -14,7 +15,8 @@
     <title>{$head_title|@default:$blogTitle}{if $head_subtitle} - {$head_subtitle}{/if}</title>
 {/if}
     <meta name="Powered-By" content="Serendipity v.{$head_version}" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {* Mobile viewport optimized: h5bp.com/viewport *}
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
 {if $startpage}
     <meta name="description" content="{* YOUR DESCRIPTION FOR THE STARTPAGE *}" /> 
     <meta name="keywords" content="{* YOUR KEYWORDS FOR THE STARTPAGE *}" /> 
@@ -53,6 +55,9 @@
     {* this is the end of boilerplate style and mixed print styles *}
     <link rel="stylesheet" href="{$serendipityHTTPPath}templates/{$template}/css/endandprint.css" />
     
+    {* All JavaScript at the bottom, except this Modernizr build incl. Respond.js
+         Respond is a polyfill for min/max-width media queries. Modernizr enables HTML5 elements & feature detects;
+         for optimal performance, create your own custom Modernizr build: www.modernizr.com/download/ *}
     <script src="{$serendipityHTTPPath}templates/{$template}/js/libs/modernizr-2.0.6.min.js"></script>
 
   </head>
@@ -294,8 +299,8 @@
 
 {if $template_option.use_slivers_JQueryMin}
   {* Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline *}
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="{$serendipityHTTPPath}templates/{$template}/js/libs/jquery-1.6.4.min.js"><\/script>')</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="{$serendipityHTTPPath}templates/{$template}/js/libs/jquery-1.7.0.min.js"><\/script>')</script>
 {/if}
 
   {* scripts concatenated and minified via ant build script *}
@@ -311,7 +316,6 @@
     s.parentNode.insertBefore(g,s){rdelim}(document,'script'));
   </script>
 {/if}
-
   {* Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6. See chromium.org/developers/how-tos/chrome-frame-getting-started *}
   <!--[if lt IE 7 ]>
     <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
