@@ -1320,7 +1320,7 @@ a.homelink2:hover {
 }
 /* blog entries block - horizontal linear gradient section */
 section#blog { 
-    background: rgb(200,210,220); /* Old browsers and standard color no gradient #DCDCDC; */
+    /* background: rgb(200,210,220); Old browsers and standard color no gradient #DCDCDC; but IE9 standard, not compat mode, has to disable this standard, as we dont have a PIE gradient here, like in sidebars! */
     /* IE gradientType=1 is horizontal, 0 is vertical */
     /* IE 5.5 - 7 Alpha 0.125 = 20 || Alpha 0.3 = 4c || Alpha 0.01 * 255 in hex = 02 || Alpha 0.5 * 255 in hex = 7F || Alpha 0.7 * 255 in hex = b2 || Alpha 0.8 * 255 in hex = cc || Alpha 0.9 * 255 in hex = e5 || 1.0 = ff */ 
     /* IE8 sometimes uses -ms-filter for whatever reason... */
