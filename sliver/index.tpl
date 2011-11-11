@@ -1,4 +1,4 @@
-{* Sliver 2011 template: last modified 2011-11-10 v. 2.01 - view README.md *}{if $is_embedded != true}
+{* Sliver 2011 template: last modified 2011-11-11 v. 2.02 - view README.md *}{if $is_embedded != true}
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
@@ -45,10 +45,8 @@
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&amp;subset=latin" media="screen,projection" />
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono&amp;subset=latin" media="screen,projection" />
 *}
+    {* main sliver stylesheet; also used to override selected default styles and includes conditional ieN classes *}
     <link rel="stylesheet" href="{$serendipityHTTPPath}templates/{$template}/css/sliver_style.css" />
-<!--[if lt IE 9]> 
-    <link rel="stylesheet" href="{$serendipityHTTPPath}templates/{$template}/css/ie_hacks.css" />
-<![endif]-->
     {* additional user stylesheet: this can be used to override selected styles *}
     {if $template_option.userstylesheet}<link rel="stylesheet" href="{serendipity_getFile file="css/user.css"}" media="screen" />{/if}
     

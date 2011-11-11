@@ -6,7 +6,7 @@
 /*                                                                    */
 /* Uses HTML5 and CSS3 features                                       */
 /* Original based on Bulletproof and Boilerplate-2.0                  */
-/* last modified 20011-09-05                                          */
+/* last modified 20011-11-11                                          */
 /*                                                                    */
 /* Main Template stylesheet blocks surrounded by Boilerplate          */
 /* ****** starter styles                                              */
@@ -17,6 +17,8 @@
 /* ****** sidebar container styles                                    */
 /* ****** additional styles (plugins, extras, etc)                    */
 /* ****** special styles (nav transition)                             */
+/*                                                                    */
+/* IE conditional styles used, eg .ie7, .ie8                          */
 /*                                                                    */
 /* To amend, please use the user.css preferentially                   */
 /**********************************************************************/
@@ -143,6 +145,20 @@ abbr, acronym, .help {
     background: url("../img/quicksearch.png") no-repeat scroll 97% 50% #FFFFFF;
     width: 165px;
     font-size: 100%;
+}
+/********************************************************************
+ * extended navigation bar and searchform in header
+ * IE7 troubles here with floating elements / without position fixed 
+ * and breaks our one line rule.
+ * Solution: we just float the searchform onto the navigation
+ ********************************************************************/
+.ie7 #sitenav-extended #searchform input { 
+    float: none;
+}
+
+.ie7 #sitenav-extended #searchform {
+    float: none;
+    margin: 0 0 0 20px;
 }
 #sitenav, #sitenav-extended {
     background-color: #EEEEFF;
@@ -565,6 +581,12 @@ code, kbd, pre, samp {
     font-size: 1.6em;
     text-align: right;
 }
+/* display: block misbehaves in IE 7 */
+.ie7 .code-html, .ie7 .code-css, .ie7 .code-php, .ie7 .code-smarty, .ie7 .code-jquery, .ie7 .code-bash, .ie7 .code-sql, .ie7 .code-conf, .ie7 .code-htaccess {
+    display: inline;
+    border: 0 none;
+    background-color: transparent;
+}
 .code-html:before {
     content: "HTML";
 }
@@ -650,6 +672,10 @@ body {
     border-bottom: 1px solid #AAAAAA;
     margin-bottom: 20px;
 }
+.ie7 #header,
+.ie8 #header {
+    border-radius: 1em 1em 0 0; 
+}
 #footer {
     border-bottom: 2px solid #BBBBBB;
     border-top: 0 none;
@@ -658,6 +684,10 @@ body {
     margin: 0 auto;
     padding: 10px 0;
     text-align: center;
+}
+.ie7 #footer,
+.ie8 #footer {
+    border-radius: 0 0 1em 1em;
 }
 #logo {
     display: inline;
@@ -1132,6 +1162,9 @@ body {
     position: relative; /* IE PIE lt 9, we need this here */
     behavior: url("/PIE.htc"); /* found best in root */
 }
+.ie7 #wrapper { 
+    top: 12px; /* IE7 needs a position on top (and bottom, which does not work yet) */
+}
 #serendipity_banner {
     background: none repeat scroll 0 0 transparent; /* standard color is gradient by header */
 }
@@ -1194,7 +1227,7 @@ a.homelink2:hover {
 #header, #footer { 
     /** PIE produces unwanted behaviour here in IE7 & IE8, while having roundet corners build by #wrapper **/
     /** IE filter and round corners do not properly work in IE7 and even IE8, this is why we have to workaround IE7 
-        and IE8 behaviour - see conditional style ie_hacks.css for IE versions lt IE 9 **/
+        and IE8 behaviour - see conditional style (old) ie_hacks.css for IE versions lt IE 9 **/
     background: rgb(220,220,220); /* Old browsers and standard color no gradient #DCDCDC; */
     /* moz syntax: linear-gradient( [<point> || <angle>,]? <stop>, <stop> [, <stop>]* ) */
     background: -moz-linear-gradient(top, rgba(220,220,220,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
@@ -1202,10 +1235,20 @@ a.homelink2:hover {
     background: -webkit-linear-gradient(top, rgba(220,220,220,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
     background: -o-linear-gradient(top, rgba(220,220,220,1) 0%,rgba(255,255,255,1) 100%); /* Opera11.10+ */
     background: -ms-linear-gradient(top, rgba(220,220,220,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
-    /** do not use filter, while having PIE gradients; filter: filter; resets it in IE 6-8 (see ie_hacks.css), but it has to be set in IE9 **/
+    /** do not use filter, while having PIE gradients; filter: filter; resets it in IE 6-8 (see old ie_hacks.css), but it has to be set in IE9 **/
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcdcdc', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
     background: linear-gradient(top, rgba(220,220,220,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
 }
+.ie7 #sitenav-extended ul li, 
+.ie8 #sitenav-extended ul li, 
+.ie7 #header, .ie7 #footer,
+.ie8 #header, .ie8 #footer { 
+    filter: filter;
+    -pie-background: linear-gradient(rgb(220,220,220), rgb(255,255,255));
+    position: relative; /* PIE specific */
+    behavior: url("/PIE.htc"); /* found best in root */
+}
+
 #sitenav-extended ul li {
     margin: 0;
     padding: 0; /* this is done in #sitenav-extended a ... */
@@ -1244,13 +1287,40 @@ a.homelink2:hover {
     -o-box-shadow: 0 0 1px #444444 inset;
     box-shadow: 0 0 1px #444444 inset; /* html5 standard */
 }
+/********************************************************************
+ * default & extended & simple navigation bars 
+ * corrects gradients in IE 7-8 overlapping border-radius problem
+ * and some positioning
+ ********************************************************************/
+.ie7 .snabove#nav, 
+.ie8 .snabove#nav, 
+.ie7 .snabove#sitenav, 
+.ie8 .snabove#sitenav, 
+.ie7 .snabove#sitenav-extended ,
+.ie8 .snabove#sitenav-extended { 
+    border-radius: 1em 1em 0 0; 
+    position: relative; /* PIE specific */
+    behavior: url("/PIE.htc"); /* found best in root */
+}
+.ie7 .snabove#sitenav-extended ul,
+.ie8 .snabove#sitenav-extended ul { 
+    padding-left: 10px;
+    margin: 0;
+}
+.ie7 .snabove#nav #searchform, 
+.ie8 .snabove#nav #searchform, 
+.ie7 .snabove#sitenav #searchform,
+.ie8 .snabove#sitenav #searchform { 
+    margin-right: 10px;
+}
+
 /* navigation bar extended end */
 .pagearrow {
     font-family: Arial,sans-serif;
 }
 /* blog entries block - horizontal linear gradient section */
 section#blog { 
-    /* background: rgb(200,210,220); Old browsers and standard color no gradient #DCDCDC; */
+    background: rgb(200,210,220); /* Old browsers and standard color no gradient #DCDCDC; */
     /* IE gradientType=1 is horizontal, 0 is vertical */
     /* IE 5.5 - 7 Alpha 0.125 = 20 || Alpha 0.3 = 4c || Alpha 0.01 * 255 in hex = 02 || Alpha 0.5 * 255 in hex = 7F || Alpha 0.7 * 255 in hex = b2 || Alpha 0.8 * 255 in hex = cc || Alpha 0.9 * 255 in hex = e5 || 1.0 = ff */ 
     /* IE8 sometimes uses -ms-filter for whatever reason... */
@@ -1262,6 +1332,16 @@ section#blog {
     background: -o-linear-gradient(left, rgba(255,255,255,1) 20%,rgba(200,210,220,0) 95%); /* Opera11.10+ */
     background: -ms-linear-gradient(left, rgba(255,255,255,1) 20%,rgba(200,210,220,0) 95%); /* IE10+ */
     background: linear-gradient(left, rgba(255,255,255,1) 20%,rgba(200,210,220,0) 95%); /* W3C */
+}
+/********************************************************************
+ * .ie7 and .ie8
+ * Entries content blog id sections gradient background 
+ * trying to get near by modern browser behaviour - if not good, add filter: filter; 
+ ********************************************************************/
+.ie7 section#blog,
+.ie8 section#blog { 
+    background: #FCFCFC;
+    height: 100%;
 }
 #blog {
     float: left;
@@ -1455,6 +1535,9 @@ section#blog {
 }
 #content div#center table {
     margin: auto;
+}
+.ie7 .entry-content, .ie7 .serendipity_entry_body  { 
+    margin: 0 4px; /* move away from l/r border */
 }
 #about-me h2, #social-media h2 {
     font-size: 1.5em;
