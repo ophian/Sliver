@@ -1444,11 +1444,9 @@ section#blog {
     background: -webkit-linear-gradient(top, rgba(237,237,237,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
     background: -o-linear-gradient(top, rgba(237,237,237,1) 0%,rgba(255,255,255,1) 100%); /* Opera11.10+ */
     background: -ms-linear-gradient(top, rgba(237,237,237,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
-    /** do not use filter, while having PIE gradients **/
-    /** filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ffffff',GradientType=0 ); **//* IE6-9 */
+    /* only IE9 standard, not compat mode, has this bad upper corner background bug. As a temporary workaround (20111111) we set back gradient color to Alpha 0.01 * 255 in hex = 02, which works with upper old browsers background setting! YEAH! */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#02ededed', endColorstr='#ffffffff',GradientType=0 ); /* IE6-9 */
     background: linear-gradient(top, rgba(237,237,237,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
-    /** this works in IE7, IE8, and IE9 Compat Mode only, not in IE9 default mode */
-    -pie-background: linear-gradient(#EDEDED, #FFFFFF);
     border: 1px solid #CCC;
     /* rounded corners */
     -webkit-border-radius: 1em 1em 1em 1em;
@@ -1460,10 +1458,17 @@ section#blog {
     -moz-box-shadow: #BBB 0px 2px 3px;
     -o-box-shadow: #BBB 0px 2px 3px;
     box-shadow: #BBB 0px 2px 3px; /* html5 standard */
-    /* need only if IE 6/7/8 gradient/border-radius/border-shadow */
+    /* need only if IE 7/8/9 gradient/border-radius/border-shadow */
     padding: 10px 0;
-    position: relative; /* IE PIE lt 9, we need this here */
     text-align: left; 
+}
+.ie7 #sidebar_top, .ie7 #sidebar_left, .ie7 #sidebar_middle, .ie7 #sidebar_right,
+.ie8 #sidebar_top, .ie8 #sidebar_left, .ie8 #sidebar_middle, .ie8 #sidebar_right { 
+    /** do not use filter, while having PIE gradients **/
+    filter: filter; /*filter:none !important; -ms-filter: none !important;*/
+    /** this works in IE7, IE8, and IE9 Compat Mode only, not in IE9 default mode - see temporary Alpha workaround (for now, we could put this all back to non conditional style) */
+    -pie-background: linear-gradient(#EDEDED, #FFFFFF);
+    position: relative; /* IE PIE lt 9, we need this here */
     behavior: url("/PIE.htc"); /* found best in root */
 }
 #sidebar_top, #sidebar_left, #sidebar_middle, #sidebar_right, #sidebar_footer {
