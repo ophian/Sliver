@@ -1,11 +1,11 @@
-<?php // Sliver template v.2 2011-08-12
+<?php // Sliver template v.2.03 2011-11-12
 /*
  Sidebars left, Sidebars right, no Sidebars via templates config.
  Additional middle, top, footer Sidebars via admin panel plugin section.
                   
  Uses HTML5 and CSS3 features, ships with some external libs (for example PIE) 
- Please copy the js/libs/PIE.htc file to your domain root / to let MS-IE 6/7/8 versions benefit from CSS3 border, shadow, gradients features
- Original based on Bulletproof and Boilerplate-1.5
+ Please copy the PIE.htc file in js/libs/ to your domain root / to let MS-IE 6/7/8 versions benefit from CSS3 border, shadow, gradients features
+ Original based on Bulletproof and Boilerplate-2
 */
 
 if (IN_serendipity !== true) {
@@ -206,6 +206,7 @@ $template_config = array(
     array(
         'var'           => 'sitenavpos',
         'name'          => SITENAV_POSITION,
+        'description'   => SITENAV_BLAHBLAH,
         'type'          => 'select',
         'default'       => 'none',
         'select_values' => array('none' => SITENAV_NONE,
@@ -244,15 +245,7 @@ $template_config = array(
         'description'   => SITENAV_TITLE_BLAHBLAH,
         'type'          => 'string',
         'default'       => SITENAV_TITLE_TEXT,
-    ),
-    array(
-        'var'           => 'amount',
-        'name'          => NAVLINK_AMOUNT,
-        'description'   => NAVLINK_AMOUNT_BLAHBLAH,
-        'type'          => 'string',
-        'default'       => '5',
-        'scope'         => 'global'
-        )
+    )
 );
 
 // Disable the use of Serendipity JQuery use in index header
@@ -277,6 +270,5 @@ $template_loaded_config = serendipity_loadThemeOptions($template_config, $serend
 serendipity_loadGlobalThemeOptions($template_config, $template_loaded_config, $template_global_config);
 
 /************************************************************************
- * vor release aufräumen 
- * auf mobiles prüfen
+ * ToDo: be mobile ready
 *************************************************************************/

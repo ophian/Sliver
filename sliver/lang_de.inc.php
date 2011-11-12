@@ -56,6 +56,7 @@
 @define('GOOGLE_ANALYTICS_ID', 'Google Analytics ID');
 //Sitenav
 @define('SITENAV_POSITION','Darstellung der Navigationsleiste');
+@define('SITENAV_BLAHBLAH', 'Gemeinhin wird das Static Pages Plugin (serendipity_event_staticpage) dazu benutzt, um CMS ähnliche Seiten oder Navigationsseiten herzustellen, die hier durch einen Link verlinkt werden können.');
 @define('SITENAV_NONE','Keine Navigationsleiste');
 @define('SITENAV_ABOVE','Über dem Kopfbereich');
 @define('SITENAV_BELOW','Unter dem Kopfbereich');
@@ -68,10 +69,6 @@
 @define('SITENAV_TITLE','Titel des Navigations-Menüs');
 @define('SITENAV_TITLE_BLAHBLAH','(nur bei Anzeige in der Seitenleiste)');
 @define('SITENAV_TITLE_TEXT','Hauptmenü');
-@define('NAVLINK_AMOUNT', 'Anzahl der Links in der Navigationsleiste (Styles verwalten-Seite muss danach neu geladen werden)');
-@define('NAVLINK_AMOUNT_BLAHBLAH', '(Gemeinhin wird das Static Pages Plugin - serendipity_event_staticpage - dazu benutzt, um CMS ähnliche Seiten oder Navigationsseiten herzustellen, die hier durch einen Link verlinkt werden können.)');
-@define('NAV_LINK_TEXT', 'Text des Navigationsleisten-Links');
-@define('NAV_LINK_URL', 'URL des Navigationsleisten-Links');
 
 @define('ARCHIVE_TEXT_INTRO', 'Die Archive im Sliver Template bieten verschiedene Möglichkeiten ältere Inhalte zu finden. Blog-Einträge sind in <a href="#bycats">Kategorien</a> (Anzahl der Einträge je Kategorie in Klammern) eingeordnet und mit der Häufigkeit des Vorkommens nach gewichteten <a href="#bytags">Tags</a> versehen, zudem gibt es ein nach <a href="#bydate">Datum</a> geordnetes Archiv.');
 @define('ARCHIVE_TEXT_ADD', '');//'Außerdem gibt es noch das <a href="%spages/xxx.html">XXX</a>, in dem ich lesenswerte Artikel aus dem Weblog oder anderen Seiten zu ausgewählten Themen gruppiert aufliste.');

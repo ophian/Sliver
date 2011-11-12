@@ -56,6 +56,7 @@
 @define('GOOGLE_ANALYTICS_ID', 'Your google analytics ID');
 //Sitenav
 @define('SITENAV_POSITION','Position of the navbar');
+@define('SITENAV_BLAHBLAH', 'Commonly the Static Pages Plugin (serendipity_event_staticpage) is used, to create CMS like navigation pages, which you can link for here.');
 @define('SITENAV_NONE','No navbar');
 @define('SITENAV_ABOVE','Above the banner');
 @define('SITENAV_BELOW','Below the banner');
@@ -68,10 +69,6 @@
 @define('SITENAV_TITLE','Title for navigation menu');
 @define('SITENAV_TITLE_BLAHBLAH','(only displayed when located at the top of a sidebar)');
 @define('SITENAV_TITLE_TEXT','Main menu');
-@define('NAVLINK_AMOUNT', 'Enter number of links in the navbar (needs reload of the Manage Styles page)');
-@define('NAVLINK_AMOUNT_BLAHBLAH', '(commonly use the Static Pages plugin - serendipity_event_staticpage - to create CMS like navigation pages, which you can link for here)');
-@define('NAV_LINK_TEXT', 'Enter the navbar link text');
-@define('NAV_LINK_URL', 'Enter the full URL of your link');
 
 @define('ARCHIVE_TEXT_INTRO', 'Sliver Templates Archives provides useful ways to find older items. Blog-Entries are divided into <a href="#bycats">Categories</a> (number of entries per cat in brackets) and can also be found by <a href="#bytags">Tags</a> (in frequency of occurrence). Also there is an ordered by <a href="#bydate">Date</a> Archive.');
 @define('ARCHIVE_TEXT_ADD', '');//'There is also the <a href="%spages/xxx.html"> XXX </ a>, where I list grouped articles worth reading from this blog or other pages on selected topics.');
