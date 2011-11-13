@@ -1,9 +1,9 @@
-{* Sliver 2011 template: last modified 2011-11-11 v. 2.02 - view README.md *}{if $is_embedded != true}
+{* Sliver 2011 template: last modified 2011-11-13 v. 2.03 - view README.md *}{if $is_embedded != true}
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html xml:lang="{$lang}" lang="{$lang}" class="no-js"> <!--<![endif]-->
 <head>
     <meta charset={$head_charset}" />
     {* Use the .htaccess and remove these lines to avoid edge case issues. More info: h5bp.com/b/378 *}
