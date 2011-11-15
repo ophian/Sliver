@@ -6,7 +6,7 @@
 /*                                                                    */
 /* Uses HTML5 and CSS3 features                                       */
 /* Original based on Bulletproof and Boilerplate-2.0                  */
-/* last modified 20011-11-11                                          */
+/* last modified 20011-11-15                                          */
 /*                                                                    */
 /* Main Template stylesheet blocks surrounded by Boilerplate          */
 /* ****** starter styles                                              */
@@ -55,6 +55,13 @@ pre {
 abbr, acronym, .help {
     border-bottom: 1px dotted #000000;
     cursor: help;
+}
+legend {
+    padding: 0.5em;
+}
+fieldset {
+    margin: 0 0.2em;
+    padding: 0 1em 2em;
 }
 #wrapper {
     font-size: 80%;
@@ -521,6 +528,50 @@ blockquote {
 }
 em { font-style: italic; }
 
+/* quoting - originally ripped from 2k11 theme start */
+/* meaning all property * quotes: must be in ISO 10646 code (hex) */
+q { quotes: '\201C' '\201D' '\2018' '\2019'; } /*q { quotes: '“' '”' '‘' '’'; }*/
+:lang(de) q { quotes: '\201E' '\201C' '\002C' '\2018'; } /*:lang(de) q { quotes: '„' '“' '‚' '‘'; }*/
+:lang(de) q { quotes: '\00BB' '\00AB' '\203A' '\2039'; } /*:lang(de) q { quotes: '»' '«' '›' '‹'; }*/
+/* pre-2011 WebKit */
+q:before { content: '“'; content: open-quote; }
+q:after { content: '”'; content: close-quote; }
+q q:before { content: '‘'; content: open-quote; }
+q q:after { content: '’'; content: close-quote; }
+:lang(de) q:before { content: '„'; content: open-quote; }
+:lang(de) q:after { content: '“'; content: close-quote; }
+:lang(de) q q:before { content: '‚'; content: open-quote; }
+:lang(de) q q:after { content: '‘'; content: close-quote; }
+
+blockquote { quotes: '\201C' '\201D'; }/* blockquote { quotes: '“' '”'; }*//* in rendered css, threw:    quotes: "?" "?"; */
+blockquote p:before { content: ''; content: open-quote; } /*no-open-quote*/ /* if blockquote - text with links - p, there was no quote then */
+blockquote p:after { content: ''; content: no-close-quote; }
+blockquote p:first-child:before { content: '“'; content: open-quote; }
+blockquote p:last-child:after { content: '”'; content: close-quote; }
+:lang(de) blockquote,
+blockquote:lang(de) { quotes: '\201E' '\201D'; } /*{ quotes: '„' '“'; */
+:lang(de) blockquote p:before,
+blockquote:lang(de) p:before { content: ''; content: open-quote; }/*no-open-quote*/ /* if blockquote - text with links - p, there was no quote then */
+:lang(de) blockquote p:after,
+blockquote:lang(de) p:after { content: ''; content: no-close-quote; }
+:lang(de) blockquote p:first-child:before,
+blockquote:lang(de) p:first-child:before { content: '„'; content: open-quote; }
+:lang(de) blockquote p:last-child:after,
+blockquote:lang(de) p:last-child:after { content: '“'; content: close-quote; }
+
+.ie8 q:before,
+.ie8 q q:before,
+.ie8 :lang(de) q:before,
+.ie8 :lang(de) q q:before,
+.ie8 blockquote p:before,
+.ie8 blockquote p:first-child:before,
+.ie8 :lang(de) blockquote p:before,
+.ie8 blockquote:lang(de) p:before,
+.ie8 :lang(de) blockquote p:first-child:before,
+.ie8 blockquote:lang(de) p:first-child:before { content: ''; content: no-open-quote; }
+/* quoting - originally ripped from 2k11 theme end */
+
+
 /**********************************************************************/
 /* 2. Screen styles end                                               */
 /**********************************************************************/
@@ -531,7 +582,18 @@ em { font-style: italic; }
 /* 3. Coding boxed styles                                             */
 /**********************************************************************/
 
-/* To be used in column styled boxes <div id="boxed"><pre> */
+/* To be used in some 2 column styled boxes like
+
+<no nl2br>
+<div style="float: left; width: 48%; margin-right: 20px;">
+    <div id="boxed"> Box 1 <pre>
+</div>
+<div>
+    <div id="boxed"> Box 2 <pre>
+</div>
+</no nl2br>
+
+*/
 #boxed pre {
     background-clip: padding-box;
     background-color: #FAFAFB;
@@ -549,8 +611,11 @@ em { font-style: italic; }
     position: relative; /* IE PIE lt 9, we need this here */
     behavior: url("/PIE.htc"); /* found best in root */
 }
-code {
-    color: #008000; /* green */
+pre, .ie8 pre, 
+code, .ie8 code {
+    /*quotes: '\0022' '\0022' '\0027' '\0027'; */
+    /*quotes: '"' '"' ''' '''; */
+    quotes:none;
 }
 code, kbd, pre, samp {
     font-family: Menlo,Monaco,'DejaVu Sans Mono','Bitstream Vera Sans Mono','Consolas','Courier New',Courier,monospace;
@@ -558,7 +623,31 @@ code, kbd, pre, samp {
     line-height: 1.35;
     overflow-x: auto; /* Use horizontal scroller if needed; for Firefox 2, not needed in Firefox 3 */
 }
-/* Code snippets */
+pre {
+    background-color: #FAFAFA;
+    border: 1px solid #CCCCCC;
+    color: #888888;
+    /*font-size: inherit;*/
+    margin: 0 0 0 1.2em;
+    overflow: auto;
+    padding: 10px;
+}
+/* We do not want IE to word-wrap: break-word here, as intended in style.css. 
+   But we don't want to have these right srollbar either, if a pre's content is wider than set. 
+   This is why we set IE overflow to hidden and use text-overflow: ellipsis (cut...), but as IE9 needs this too, we have to use some ie hacks here */
+/* If you want IEs better to break words in <pre> elements, please disable this crap here - or find a way to disable the right srollbar */
+.ie7 pre, .ie8 pre, :root pre { 
+    word-wrap: normal;
+    overflow: hidden\9;
+    text-overflow: ellipsis\9; 
+}
+code {
+    color: #007000; /* green or #008000; */
+    font-family: monospace;
+    font-size: 98%;
+    line-height: 1em;
+}
+/* Code snippets - see below */
 /*
     <pre>
         <code class="code-...">
@@ -614,6 +703,16 @@ code, kbd, pre, samp {
 .code-htaccess:before {
     content: "HTACCESS";
 }
+.code-html, .code-php, .code-smarty, .code-jquery, .code-bash {
+    color: #8080C0;
+    margin: 0;
+}
+/* css, sql, conf, htaccess fallback to code color green - else use this 
+.code-css, .code-sql, .code-conf, .code-htaccess {
+    color: #888888;
+    margin: 0;
+}
+*/
 font.courier {
     font-family: 'Courier new',courier,monospace;
 }
@@ -631,7 +730,59 @@ samp {
 samp.courier {
     /* continue */
 }
-
+/* This is a sample pre box, as it may be used 
+   <pre class="box"> ... </pre> 
+   with wrapped text,
+   radial color gradient (IE 7, 8 only show horizontal gradient),
+   rounded corners and shadow.
+*/
+div.box, pre.box {
+    /* http://www.colorzilla.com/gradient-editor/ */
+    /* radial */
+    background: rgb(222,244,189); /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNkZWY0YmQiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZjVmY2VkIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L3JhZGlhbEdyYWRpZW50PgogIDxyZWN0IHg9Ii01MCIgeT0iLTUwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(222,244,189,1) 0%, rgba(245,252,237,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(222,244,189,1)), color-stop(100%,rgba(245,252,237,1))); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(222,244,189,1) 0%,rgba(245,252,237,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover,  rgba(222,244,189,1) 0%,rgba(245,252,237,1) 100%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover,  rgba(222,244,189,1) 0%,rgba(245,252,237,1) 100%); /* IE10+ */
+    background: radial-gradient(center, ellipse cover,  rgba(222,244,189,1) 0%,rgba(245,252,237,1) 100%); /* W3C */
+    /* IE gradientType=1 is horizontal, 0 is vertical */
+    /* IE 5.5 - 7 Alpha 0.125 = 20 || Alpha 0.3 = 4c || Alpha 0.01 * 255 in hex = 02 || Alpha 0.5 * 255 in hex = 7F || Alpha 0.7 * 255 in hex = b2 || Alpha 0.8 * 255 in hex = cc || Alpha 0.9 * 255 in hex = e5 || 1.0 = ff */ 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4cdef4bd', endColorstr='#f5fced',GradientType=1 ); /* IE6-8 fallback on horizontal gradient - IE9 need 4c occupacity for upper left corner */
+    background-clip: padding-box;
+    border: 1px solid #CACACA;
+    /* rounded corners */
+    -webkit-border-radius: 1em 1em 1em 1em;
+    -moz-border-radius: 1em 1em 1em 1em;
+    -o-border-radius: 1em 1em 1em 1em;
+    border-radius: 1em 1em 1em 1em; /* html5 standard */
+    /* shadow settings */
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); /* html5 standard */
+    color: #393939;
+    font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+    margin: 0;
+    overflow: auto;
+    padding: 10px;
+    position: relative;
+    white-space: pre;           /* CSS 2.0 */
+    white-space: pre-wrap;      /* CSS 2.1 */
+    white-space: pre-line;      /* CSS 3.0 */ /* this breaks line in box */
+    white-space: -pre-wrap;     /* Opera 4-6 */
+    white-space: -o-pre-wrap;   /* Opera 7 */
+    white-space: -moz-pre-wrap; /* Mozilla */
+    white-space: -hp-pre-wrap;  /* HP Printers */
+    position: relative; /* IE PIE lt 9, we need this here */
+    behavior: url("/PIE.htc"); /* found best in root */
+}
+div.box {
+    line-height: inherit; white-space: inherit;           /* CSS 2.0 */
+}
+pre.box h3 { margin-bottom: 0; }
 /**********************************************************************/
 /* 3. Coding boxed styles end                                         */
 /**********************************************************************/
@@ -1594,6 +1745,10 @@ section#blog {
 .belowentry, .infofooter {
     clear: both;
 }
+.serendipity_entryFooter {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
 .serendipity_entry_extended {
     clear: both;
 }
@@ -1603,7 +1758,7 @@ section#blog {
 }
 .continue_reading {
     display: block;
-    padding-top: 10px;
+    padding: 20px 0;
 }
 .serendipitySideBarContent input, .serendipitySideBarContent select {
     width: 95%;

@@ -65,6 +65,7 @@ Inlined to avoid required HTTP connection: h5bp.com/r
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
   body { margin: 0; }
+  pre { white-space: pre; white-space: pre-wrap; white-space: pre-line; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: -moz-pre-wrap; white-space: -hp-pre-wrap; border: 0 none; }
   #wrapper { overflow: visible; min-width:auto; width: auto; margin: 0; float: none; border: 0; font-size: 100%; }
   #sitenav,#header,#footer,
   #sidebar_top,#sidebar_left,#sidebar_middle,#sidebar_right,#sidebar_footer,
