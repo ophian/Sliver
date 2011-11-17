@@ -6,7 +6,7 @@
 /*                                                                    */
 /* Uses HTML5 and CSS3 features                                       */
 /* Original based on Bulletproof and Boilerplate-2.0                  */
-/* last modified 20011-11-15                                          */
+/* last modified 20011-11-17                                          */
 /*                                                                    */
 /* Main Template stylesheet blocks surrounded by Boilerplate          */
 /* ****** starter styles                                              */
@@ -587,13 +587,13 @@ blockquote:lang(de) p:last-child:after { content: '“'; content: close-quote; }
 <no nl2br>
 <div style="float: left; width: 48%; margin-right: 20px;">
     <div id="boxed"> 
-	    <pre class="box"> Box 1 </pre>
-	<div>
+        <pre class="box"> Box 1 </pre>
+    <div>
 </div>
 <div>
     <div id="boxed"> 
-	    <pre class="box"> Box 2 </pre>
-	<div>
+        <pre class="box"> Box 2 </pre>
+    <div>
 </div>
 </no nl2br>
 
