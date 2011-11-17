@@ -586,10 +586,14 @@ blockquote:lang(de) p:last-child:after { content: '“'; content: close-quote; }
 
 <no nl2br>
 <div style="float: left; width: 48%; margin-right: 20px;">
-    <div id="boxed"> Box 1 <pre>
+    <div id="boxed"> 
+	    <pre class="box"> Box 1 </pre>
+	<div>
 </div>
 <div>
-    <div id="boxed"> Box 2 <pre>
+    <div id="boxed"> 
+	    <pre class="box"> Box 2 </pre>
+	<div>
 </div>
 </no nl2br>
 
@@ -730,12 +734,10 @@ samp {
 samp.courier {
     /* continue */
 }
-/* This is a sample pre box, as it may be used 
+/* This is a sample pre box, as it may be used with wrapped text, 
+ * radial color gradient (IE 7, 8 only show horizontal gradient), rounded corners and shadow.
    <pre class="box"> ... </pre> 
-   with wrapped text,
-   radial color gradient (IE 7, 8 only show horizontal gradient),
-   rounded corners and shadow.
-*/
+ */
 div.box, pre.box {
     /* http://www.colorzilla.com/gradient-editor/ */
     /* radial */
@@ -1674,7 +1676,7 @@ section#blog {
 }
 #content {
     margin: 0;
-    overflow: hidden; /* if entries content is non-whitespaced to long for content box, hide overlapping */
+    overflow: hidden; /* if entries content is non-whitespaced, i.e to long for content box, hide overlapping */
     padding: 0;
 }
 .onefull .serendipitySideBarItem {
