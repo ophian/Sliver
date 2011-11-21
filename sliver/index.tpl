@@ -1,4 +1,4 @@
-{* Sliver 2011 template: last modified 2011-11-13 v. 2.03 - view README.md *}{if $is_embedded != true}
+{* Sliver 2011 template: last modified 2011-11-21 v. 2.03 - view README.md *}{if $is_embedded != true}
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" xml:lang="{$lang}" lang="{$lang}"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" xml:lang="{$lang}" lang="{$lang}"> <![endif]-->
@@ -310,7 +310,7 @@
 {if $template_option.use_google_analytics}
   {* See config: Asynchronous Google Analytics snippet. Include using the anonymous version, deleting the last 8 Bit of the IP-Address - else delete: ,['_gat._anonymizeIp'] *}
   <script>
-    var _gaq=[['_setAccount','{$template_option.google_id}'],['_gat._anonymizeIp'],['_trackPageview'],['_trackPageLoadTime']];
+    var _gaq=[['_setAccount','{$template_option.google_id}'],['_gat._anonymizeIp'],['_trackPageview']];
     (function(d,t){ldelim}var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s){rdelim}(document,'script'));
