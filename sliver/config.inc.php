@@ -1,4 +1,4 @@
-<?php // Sliver template v.2.03 2011-11-12
+<?php // Sliver template v.2.04 2011-11-21
 /*
  Sidebars left, Sidebars right, no Sidebars via templates config.
  Additional middle, top, footer Sidebars via admin panel plugin section.
@@ -16,8 +16,11 @@ static $sv = null;
 
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
-$serendipity['smarty']->assign(array('currpage' => "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
-                                     'currpage2'=> $_SERVER['REQUEST_URI']));
+$serendipity['smarty']->assign(
+            array('currpage'      => "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
+                  'currpage2'     => $_SERVER['REQUEST_URI'],
+                  'sliver_credit' => 'sliver 2011')
+            );
 
 function serendipity_constant($string) {
     if (defined($string)) {

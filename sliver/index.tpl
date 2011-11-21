@@ -1,4 +1,4 @@
-{* Sliver 2011 template: last modified 2011-11-21 v. 2.03 - view README.md *}{if $is_embedded != true}
+{* Sliver 2011 template: last modified 2011-11-21 v. 2.04 - view README.md *}{if $is_embedded != true}
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" xml:lang="{$lang}" lang="{$lang}"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" xml:lang="{$lang}" lang="{$lang}"> <![endif]-->
@@ -284,7 +284,7 @@
       *}
 
     <footer id="footer">
-      <div id="serendipity_credit_line">&#160;<em>sliver 2011</em>&#160;</div>
+      <div id="serendipity_credit_line">&#160;<em>{$sliver_credit}</em>&#160;</div>
     </footer>
 
   </div><!-- // "id:#wrapper" end -->
