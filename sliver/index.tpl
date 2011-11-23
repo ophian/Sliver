@@ -1,4 +1,4 @@
-{* Sliver 2011 template: last modified 2011-11-21 v. 2.04 - view README.md *}{if $is_embedded != true}
+{* Sliver 2011 template: last modified 2011-11-22 v. 2.04 - view README.md *}{if $is_embedded != true}
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" xml:lang="{$lang}" lang="{$lang}"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" xml:lang="{$lang}" lang="{$lang}"> <![endif]-->
@@ -35,7 +35,7 @@
     <link rel="alternate"  type="application/x.atom+xml"  title="{$blogTitle} Atom feed"  href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml" />
     {if $entry_id}<link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}" />{/if}
 
-    <link rel="shortcut icon" href="{$serendipityBaseURL}favicon.ico" />
+    <link rel="shortcut icon" href="{$serendipityBaseURL}templates/{$template}/favicon.ico" />
     <link rel="stylesheet" href="{$serendipityHTTPPath}templates/{$template}/css/style.css" />
     <link rel="stylesheet" media="handheld" href="{$serendipityHTTPPath}templates/{$template}/css/handheld.css" />
     
