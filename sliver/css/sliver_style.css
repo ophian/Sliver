@@ -6,7 +6,7 @@
 /*                                                                    */
 /* Uses HTML5 and CSS3 features                                       */
 /* Original based on Bulletproof and Boilerplate-2.0                  */
-/* last modified 20011-11-21                                          */
+/* last modified 20011-11-25                                          */
 /*                                                                    */
 /* Main Template stylesheet blocks surrounded by Boilerplate          */
 /* ****** starter styles                                              */
@@ -736,7 +736,7 @@ samp.courier {
 }
 /* This is a sample pre box, as it may be used with wrapped text, 
  * radial color gradient (IE 7, 8 only show horizontal gradient), rounded corners and shadow.
-   <pre class="box"> ... </pre> 
+   <div class="box"> ... </div> (better with html structures like <li> - see below) or <pre class="box"> ... </pre> (better for plain coding or text examples)
  */
 div.box, pre.box {
     /* http://www.colorzilla.com/gradient-editor/ */
@@ -770,7 +770,6 @@ div.box, pre.box {
     margin: 0;
     overflow: auto;
     padding: 10px;
-    position: relative;
     white-space: pre;           /* CSS 2.0 */
     white-space: pre-wrap;      /* CSS 2.1 */
     white-space: pre-line;      /* CSS 3.0 */ /* this breaks line in box */
