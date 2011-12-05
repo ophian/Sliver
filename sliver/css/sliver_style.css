@@ -6,7 +6,7 @@
 /*                                                                    */
 /* Uses HTML5 and CSS3 features                                       */
 /* Original based on Bulletproof and Boilerplate-2.0                  */
-/* last modified 20011-11-25                                          */
+/* last modified 20011-12-05                                          */
 /*                                                                    */
 /* Main Template stylesheet blocks surrounded by Boilerplate          */
 /* ****** starter styles                                              */
@@ -543,17 +543,21 @@ q q:after { content: '’'; content: close-quote; }
 :lang(de) q q:before { content: '‚'; content: open-quote; }
 :lang(de) q q:after { content: '‘'; content: close-quote; }
 
-blockquote { quotes: '\201C' '\201D'; }/* blockquote { quotes: '“' '”'; }*//* in rendered css, threw:    quotes: "?" "?"; */
-blockquote p:before { content: ''; content: open-quote; } /*no-open-quote*/ /* if blockquote - text with links - p, there was no quote then */
+blockquote p { quotes: '\201C' '\201D'; }/* blockquote { quotes: '“' '”'; }*//* in rendered css, threw:    quotes: "?" "?"; */
+blockquote p:before { content: ''; content: no-open-quote; } 
 blockquote p:after { content: ''; content: no-close-quote; }
 blockquote p:first-child:before { content: '“'; content: open-quote; }
 blockquote p:last-child:after { content: '”'; content: close-quote; }
-:lang(de) blockquote,
-blockquote:lang(de) { quotes: '\201E' '\201D'; } /*{ quotes: '„' '“'; */
+
+:lang(de) blockquote p,
+blockquote:lang(de) p { quotes: '\201E' '\201D'; } /*{ quotes: '„' '“'; */
 :lang(de) blockquote p:before,
-blockquote:lang(de) p:before { content: ''; content: open-quote; }/*no-open-quote*/ /* if blockquote - text with links - p, there was no quote then */
+blockquote:lang(de) p:before { content: ''; content: no-open-quote; }
 :lang(de) blockquote p:after,
 blockquote:lang(de) p:after { content: ''; content: no-close-quote; }
+:lang(de) blockquote p:last-child:before, 
+blockquote:lang(de) p:last-child:before { content: ''; content: open-quote; } /* if blockquote -> text with links -> p, there was no open quote then */
+
 :lang(de) blockquote p:first-child:before,
 blockquote:lang(de) p:first-child:before { content: '„'; content: open-quote; }
 :lang(de) blockquote p:last-child:after,
@@ -752,8 +756,9 @@ div.box, pre.box {
     background: radial-gradient(center, ellipse cover,  rgba(222,244,189,1) 0%,rgba(245,252,237,1) 100%); /* W3C */
     /* IE gradientType=1 is horizontal, 0 is vertical */
     /* IE 5.5 - 7 Alpha 0.125 = 20 || Alpha 0.3 = 4c || Alpha 0.01 * 255 in hex = 02 || Alpha 0.5 * 255 in hex = 7F || Alpha 0.7 * 255 in hex = b2 || Alpha 0.8 * 255 in hex = cc || Alpha 0.9 * 255 in hex = e5 || 1.0 = ff */ 
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4cdef4bd', endColorstr='#f5fced',GradientType=1 ); /* IE6-8 fallback on horizontal gradient - IE9 need 4c occupacity for upper left corner */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4cdef4bd', endColorstr='#f5fced',GradientType=1 )\9; /* IE6-8 fallback on horizontal gradient - IE9 needs 4c occupacity for upper left corner */
     background-clip: padding-box;
+    background-color: #FAFAFB;
     border: 1px solid #CACACA;
     /* rounded corners */
     -webkit-border-radius: 1em 1em 1em 1em;
@@ -768,6 +773,7 @@ div.box, pre.box {
     color: #393939;
     font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
     margin: 0;
+    overflow-x: auto; /* Use horizontal scroller, if needed */
     overflow: auto;
     padding: 10px;
     white-space: pre;           /* CSS 2.0 */
@@ -1300,20 +1306,27 @@ body {
 }
 #wrapper { 
     background: none repeat scroll 0 0 #FFFFFF;
-    border-color: #BBBBBB #383838;
+    border-color: #AAAAAA #383838;
     border-style: none solid;
     border-width: 0 1px;
-    margin: 1em auto;
-    overflow: hidden;
-    text-align: left;
-    width: 95%;
     /* rounded corners */
     -webkit-border-radius: 1em 1em 1em 1em;
     -moz-border-radius: 1em 1em 1em 1em;
     -o-border-radius: 1em 1em 1em 1em;
     border-radius: 1em 1em 1em 1em; /* html5 standard */
-    /* need only of IE 6/7/8 gradient/border-radius/border-shadow */
+    /* shadow settings (no inset?) - no need for PIE */
+    -moz-box-shadow: 0 0 1px #666666 inset;
+    -webkit-box-shadow: 0 0 1px #666666 inset;
+    -o-box-shadow: 0 0 1px #666666 inset;
+    box-shadow: 0 0 1px #666666 inset; /* html5 standard */
+    margin: 1em auto;
+    min-width: 86em;
+    overflow: hidden;
     position: relative; /* IE PIE lt 9, we need this here */
+    text-align: left;
+/*    width: 95%;*/
+    width: 96%;
+    /* need only of IE 6/7/8 gradient/border-radius/border-shadow */
     behavior: url("/PIE.htc"); /* found best in root */
 }
 .ie7 #wrapper { 
