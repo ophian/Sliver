@@ -1,4 +1,4 @@
-<?php // Sliver template v.2.04 2011-11-21
+<?php // Sliver template v.2.05 2011-12-05
 /*
  Sidebars left, Sidebars right, no Sidebars via templates config.
  Additional middle, top, footer Sidebars via admin panel plugin section.
@@ -21,7 +21,7 @@ $serendipity['smarty']->assign(
                   'currpage2'     => $_SERVER['REQUEST_URI'],
                   'sliver_credit' => 'sliver 2011')
             );
-
+/*
 function serendipity_constant($string) {
     if (defined($string)) {
         return constant($string);
@@ -29,25 +29,20 @@ function serendipity_constant($string) {
         return $string;
     }
 }
-/* register navigation vars as constants function to allow multilanguage navbartitle entries via template lang files */
-/* example: in lang (UTF-8) <en> @define('MENU_2','Imprint'); in lang (UTF-8) <de> @define('MENU_2','Impressum'); */
-/* replace: {$navlink.title} with {$navlink.title|navcolang} in header and/or footer of your index.tpl */
+*/
+/** 
+ * register navigation vars as constants function to allow multilanguage navbartitle entries via template lang files
+ * example: in lang (UTF-8) <en> @define('MENU_2','Imprint'); in lang (UTF-8) <de> @define('MENU_2','Impressum');
+ * replace: {$navlink.title} with {$navlink.title|navcolang} in header and/or footer of your index.tpl
+ * please enable the function and the register part to use this
+ **/
+ /*
 if(strpos($serendipity['smarty']->_version, '2', 1)) {
     $serendipity['smarty']->register_modifier('navcolang', 'serendipity_constant');
 } else {
     $serendipity['smarty']->registerPlugin('modifier', 'navcolang', 'serendipity_constant');
 }
-
-function serendipity_plugin_api_event_hook($event, &$bag, &$eventData, $addData = null) {
-    global $serendipity;
-    
-    switch($event) {
-        case 'frontend_footer':
-            echo '<!--PLUGIN API-->';
-    }
-
-    return true;
-}
+*/
 
 $template_config = array(
     array(
@@ -251,7 +246,7 @@ $template_config = array(
     )
 );
 
-// Disable the use of Serendipity JQuery use in index header
+// Disable the use of Serendipity JQuery in index header
 $serendipity['capabilities']['jquery'] = false;
 
 // smarty future combat
