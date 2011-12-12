@@ -1,4 +1,4 @@
-{* Sliver 2011 template: last modified 2011-11-22 v. 2.04 - view README.md *}{if $is_embedded != true}
+{* Sliver 2011 template: last modified 2011-12-12 v. 2.05 - view README.md *}{if $is_embedded != true}
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" xml:lang="{$lang}" lang="{$lang}"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" xml:lang="{$lang}" lang="{$lang}"> <![endif]-->
@@ -299,8 +299,8 @@
 
 {if $template_option.use_slivers_JQueryMin}
   {* Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline *}
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="{$serendipityHTTPPath}templates/{$template}/js/libs/jquery-1.7.0.min.js"><\/script>')</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="{$serendipityHTTPPath}templates/{$template}/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 {/if}
 
   {* scripts concatenated and minified via ant build script *}
