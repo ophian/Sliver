@@ -18,7 +18,7 @@ static $sv = null;
 
 $serendipity['smarty']->assign(array('currpage' => "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
                                      'currpage2'=> $_SERVER['REQUEST_URI'],
-                                     'sliver_credit' => 'sliver 2011 v3'));
+                                     'sliver_credit' => 'sliver © 2012, v3'));
 
 /*
 function serendipity_constant($string) {

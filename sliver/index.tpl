@@ -296,7 +296,7 @@
       *}
 
     <footer id="footer">
-      <div id="serendipity_credit_line">&#160;<em>sliver 2011</em>&#160;</div>
+      <div id="serendipity_credit_line">&#160;<em>{$sliver_credit}</em>&#160;</div>
     </footer>
 
   </div><!-- // "id:#wrapper" end -->
