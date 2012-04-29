@@ -29,11 +29,11 @@
     <a id="serendipity_CommentForm"></a>
     <form id="serendipity_comment_CommentForm" action="{$commentform_action}#feedback" method="post">
         <div>
-            <input type="hidden" name="serendipity[subpage]" value="{$commentform_sname}" />
-            <input type="hidden" name="serendipity[commentform]" value="true" />
+            <input type="hidden" name="serendipity[subpage]" value="{$commentform_sname}">
+            <input type="hidden" name="serendipity[commentform]" value="true">
             {foreach name="field" from=$commentform_dynamicfields item="field"}
                 {if $field.type == "hidden"}
-                    <input type="hidden" name="serendipity[{$field.id}]" value="{$field.default}" />
+                    <input type="hidden" name="serendipity[{$field.id}]" value="{$field.default}">
               {/if}
             {/foreach}
        </div>
@@ -48,10 +48,10 @@
                        </dt>
                        <dd class="serendipity_commentsValue">
                            {if $field.type == "checkbox"}
-                               <input class="frm_check" type="checkbox" name="{$field.id}" id="{$field.id}" {$field.default} /><label class="frm_check_label" for="{$field.id}">{$field.message}</label>
+                               <input class="frm_check" type="checkbox" name="{$field.id}" id="{$field.id}" {$field.default}><label class="frm_check_label" for="{$field.id}">{$field.message}</label>
                            {elseif $field.type == "radio"}
                                {foreach name="radio_option" from=$field.options item="option"}
-                                   <input class="frm_radio" type="radio" name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default} /><label class="frm_radio_label" for="{$field.id}.{$option.id}">{$option.name}</label>
+                                   <input class="frm_radio" type="radio" name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default}><label class="frm_radio_label" for="{$field.id}.{$option.id}">{$option.name}</label>
                                {/foreach}
                            {elseif $field.type == "select"}
                                <select name="{$field.id}">
@@ -60,11 +60,11 @@
                                    {/foreach}
                                </select>
                            {elseif $field.type == "password"}
-                               <input class="frm" type="password" id="serendipity_commentform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" size="30" />
+                               <input class="frm" type="password" id="serendipity_commentform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" size="30">
                            {elseif $field.type == "textarea"}
                                <textarea class="frm" rows="10" cols="40" id="serendipity_commentform_{$field.id}" name="serendipity[{$field.id}]">{$field.default}</textarea>
                            {else}
-                               <input class="frm" type="text" id="serendipity_commentform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" size="30" />
+                               <input class="frm" type="text" id="serendipity_commentform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" size="30">
                            {/if}
                        </dd>
                    {/if}
@@ -76,7 +76,7 @@
                </dd>
                <dt>&#160;</dt>
                <dd>
-                   <input class="frm" type="submit" name="serendipity[submit]" value="{$CONST.SUBMIT_COMMENT}" />
+                   <input class="frm" type="submit" name="serendipity[submit]" value="{$CONST.SUBMIT_COMMENT}">
                </dd>
            </dl>
        </fieldset>

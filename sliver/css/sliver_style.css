@@ -5,8 +5,8 @@
 /*                  admin panels plugin section.                      */
 /*                                                                    */
 /* Uses HTML5 and CSS3 features                                       */
-/* Original based on Bulletproof and Boilerplate-2.0                  */
-/* last modified 20011-12-05                                          */
+/* Original based on Bulletproof and Boilerplate-3.0                  */
+/* last modified 2012-04-28                                           */
 /*                                                                    */
 /* Main Template stylesheet blocks surrounded by Boilerplate          */
 /* ****** starter styles                                              */
@@ -18,7 +18,7 @@
 /* ****** additional styles (plugins, extras, etc)                    */
 /* ****** special styles (nav transition)                             */
 /*                                                                    */
-/* IE conditional styles used, eg .ie7, .ie8                          */
+/* IE conditional styles used, eg .lt-ie7, .lt-ie8                          */
 /*                                                                    */
 /* To amend, please use the user.css preferentially                   */
 /**********************************************************************/
@@ -34,6 +34,27 @@ body {
     color: #000000;
     font: 100.01% Verdana,Arial,Helvetica,sans-serif;
 }
+
+.droid, .droid button,
+.droid input, .droid select,
+.droid textarea { font-family: 'Droid Sans', sans-serif; font-size: 1em; }
+
+.ptsans, .ptsans button,
+.ptsans input, .ptsans select,
+.ptsans textarea { font-family: 'PT Sans', sans-serif; font-size: 1em; }
+
+.osans, .osans button,
+.osans input, .osans select,
+.osans textarea { font-family: 'Open Sans', sans-serif; font-size: 1em; }
+
+.cabin, .cabin button,
+.cabin input, .cabin select,
+.cabin textarea { font-family: 'Cabin', sans-serif; font-size: 1em; }
+
+.ubuntu, .ubuntu button,
+.ubuntu input, .ubuntu select,
+.ubuntu textarea { font-family: 'Ubuntu', sans-serif; font-size: 1em; }
+
 * {
     line-height: 1.6;
 }
@@ -159,11 +180,11 @@ fieldset {
  * and breaks our one line rule.
  * Solution: we just float the searchform onto the navigation
  ********************************************************************/
-.ie7 #sitenav-extended #searchform input { 
+.lt-ie7 #sitenav-extended #searchform input { 
     float: none;
 }
 
-.ie7 #sitenav-extended #searchform {
+.lt-ie7 #sitenav-extended #searchform {
     float: none;
     margin: 0 0 0 20px;
 }
@@ -563,16 +584,16 @@ blockquote:lang(de) p:first-child:before { content: '„'; content: open-quote; }
 :lang(de) blockquote p:last-child:after,
 blockquote:lang(de) p:last-child:after { content: '“'; content: close-quote; }
 
-.ie8 q:before,
-.ie8 q q:before,
-.ie8 :lang(de) q:before,
-.ie8 :lang(de) q q:before,
-.ie8 blockquote p:before,
-.ie8 blockquote p:first-child:before,
-.ie8 :lang(de) blockquote p:before,
-.ie8 blockquote:lang(de) p:before,
-.ie8 :lang(de) blockquote p:first-child:before,
-.ie8 blockquote:lang(de) p:first-child:before { content: ''; content: no-open-quote; }
+.lt-ie8 q:before,
+.lt-ie8 q q:before,
+.lt-ie8 :lang(de) q:before,
+.lt-ie8 :lang(de) q q:before,
+.lt-ie8 blockquote p:before,
+.lt-ie8 blockquote p:first-child:before,
+.lt-ie8 :lang(de) blockquote p:before,
+.lt-ie8 blockquote:lang(de) p:before,
+.lt-ie8 :lang(de) blockquote p:first-child:before,
+.lt-ie8 blockquote:lang(de) p:first-child:before { content: ''; content: no-open-quote; }
 /* quoting - originally ripped from 2k11 theme end */
 
 
@@ -619,8 +640,8 @@ blockquote:lang(de) p:last-child:after { content: '“'; content: close-quote; }
     position: relative; /* IE PIE lt 9, we need this here */
     behavior: url("/PIE.htc"); /* found best in root */
 }
-pre, .ie8 pre, 
-code, .ie8 code {
+pre, .lt-ie8 pre, 
+code, .lt-ie8 code {
     /*quotes: '\0022' '\0022' '\0027' '\0027'; */
     /*quotes: '"' '"' ''' '''; */
     quotes:none;
@@ -644,16 +665,13 @@ pre {
    But we don't want to have these right srollbar either, if a pre's content is wider than set. 
    This is why we set IE overflow to hidden and use text-overflow: ellipsis (cut...), but as IE9 needs this too, we have to use some ie hacks here */
 /* If you want IEs better to break words in <pre> elements, please disable this crap here - or find a way to disable the right srollbar */
-.ie7 pre, .ie8 pre, :root pre { 
+.lt-ie7 pre, .lt-ie8 pre, :root pre { 
     word-wrap: normal;
     overflow: hidden\9;
     text-overflow: ellipsis\9; 
 }
 code {
     color: #007000; /* green or #008000; */
-    font-family: monospace;
-    font-size: 98%;
-    line-height: 1em;
 }
 /* Code snippets - see below */
 /*
@@ -679,7 +697,7 @@ code {
     text-align: right;
 }
 /* display: block misbehaves in IE 7 */
-.ie7 .code-html, .ie7 .code-css, .ie7 .code-php, .ie7 .code-smarty, .ie7 .code-jquery, .ie7 .code-bash, .ie7 .code-sql, .ie7 .code-conf, .ie7 .code-htaccess {
+.lt-ie7 .code-html, .lt-ie7 .code-css, .lt-ie7 .code-php, .lt-ie7 .code-smarty, .lt-ie7 .code-jquery, .lt-ie7 .code-bash, .lt-ie7 .code-sql, .lt-ie7 .code-conf, .lt-ie7 .code-htaccess {
     display: inline;
     border: 0 none;
     background-color: transparent;
@@ -830,8 +848,8 @@ body {
     border-bottom: 1px solid #AAAAAA;
     margin-bottom: 20px;
 }
-.ie7 #header,
-.ie8 #header {
+.lt-ie7 #header,
+.lt-ie8 #header {
     border-radius: 1em 1em 0 0; 
 }
 #footer {
@@ -843,8 +861,8 @@ body {
     padding: 10px 0;
     text-align: center;
 }
-.ie7 #footer,
-.ie8 #footer {
+.lt-ie7 #footer,
+.lt-ie8 #footer {
     border-radius: 0 0 1em 1em;
 }
 #logo {
@@ -889,6 +907,9 @@ a:hover, a:active, a:focus {
     background: none repeat scroll 0 0 #3388DD;
     color: #333333;
     text-decoration: none;
+}
+a:hover {
+    color: #F0F0F0;
 }
 .pagination a:hover, .pagination a:active, .pagination a:focus {
     border: 1px solid #3388DD;
@@ -1306,6 +1327,7 @@ body {
 }
 #wrapper { 
     background: none repeat scroll 0 0 #FFFFFF;
+/*    border-color: #BBBBBB #383838;*/
     border-color: #AAAAAA #383838;
     border-style: none solid;
     border-width: 0 1px;
@@ -1329,7 +1351,22 @@ body {
     /* need only of IE 6/7/8 gradient/border-radius/border-shadow */
     behavior: url("/PIE.htc"); /* found best in root */
 }
-.ie7 #wrapper { 
+
+body#admin_preview_iframe_body { background: none repeat scroll 0 0 #FFFFFF; font-size: 80%; margin: 0; padding: 0; overflow-y: auto; }
+#admin_preview_iframe_wrapper {
+    background: none repeat scroll 0 50% transparent;
+    border: 0 none;
+    border-radius: 0 0 0 0;
+    margin: 0;
+    min-width: inherit;
+    overflow: inherit;
+    position: inherit;
+    text-align: left;
+    width: auto;
+}
+#content.admin_preview_iframe_content { padding: 5px; margin: 0; }
+
+.lt-ie7 #wrapper { 
     top: 12px; /* IE7 needs a position on top (and bottom, which does not work yet) - ie7 bottom margin bug */
 }
 #serendipity_banner {
@@ -1408,10 +1445,10 @@ a.homelink2:hover {
     /** do not use filter, while having PIE gradients; filter: filter; resets it in IE 6-8 (see old ie_hacks.css), but it has to be set in IE9 **/
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcdcdc', endColorstr='#ffffff',GradientType=0 ); /* IE6-8 */
 }
-.ie7 #sitenav-extended ul li, 
-.ie8 #sitenav-extended ul li, 
-.ie7 #header, .ie7 #footer,
-.ie8 #header, .ie8 #footer { 
+.lt-ie7 #sitenav-extended ul li, 
+.lt-ie8 #sitenav-extended ul li, 
+.lt-ie7 #header, .lt-ie7 #footer,
+.lt-ie8 #header, .lt-ie8 #footer { 
     filter: filter;
     -pie-background: linear-gradient(rgb(220,220,220), rgb(255,255,255));
     position: relative; /* PIE specific */
@@ -1461,25 +1498,25 @@ a.homelink2:hover {
  * corrects gradients in IE 7-8 overlapping border-radius problem
  * and some positioning
  ********************************************************************/
-.ie7 .snabove#nav, 
-.ie8 .snabove#nav, 
-.ie7 .snabove#sitenav, 
-.ie8 .snabove#sitenav, 
-.ie7 .snabove#sitenav-extended ,
-.ie8 .snabove#sitenav-extended { 
+.lt-ie7 .snabove#nav, 
+.lt-ie8 .snabove#nav, 
+.lt-ie7 .snabove#sitenav, 
+.lt-ie8 .snabove#sitenav, 
+.lt-ie7 .snabove#sitenav-extended ,
+.lt-ie8 .snabove#sitenav-extended { 
     border-radius: 1em 1em 0 0; 
     position: relative; /* PIE specific */
     behavior: url("/PIE.htc"); /* found best in root */
 }
-.ie7 .snabove#sitenav-extended ul,
-.ie8 .snabove#sitenav-extended ul { 
+.lt-ie7 .snabove#sitenav-extended ul,
+.lt-ie8 .snabove#sitenav-extended ul { 
     padding-left: 10px;
     margin: 0;
 }
-.ie7 .snabove#nav #searchform, 
-.ie8 .snabove#nav #searchform, 
-.ie7 .snabove#sitenav #searchform,
-.ie8 .snabove#sitenav #searchform { 
+.lt-ie7 .snabove#nav #searchform, 
+.lt-ie8 .snabove#nav #searchform, 
+.lt-ie7 .snabove#sitenav #searchform,
+.lt-ie8 .snabove#sitenav #searchform { 
     margin-right: 10px;
 }
 
@@ -1505,12 +1542,12 @@ section#blog {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00c8d2dc',GradientType=1 ); /* IE6-8 */
 }
 /********************************************************************
- * .ie7 and .ie8
+ * .lt-ie7 and .lt-ie8
  * Entries content blog id sections gradient background 
  * trying to get near by modern browser behaviour - if not good, add filter: filter; 
  ********************************************************************/
-.ie7 section#blog,
-.ie8 section#blog { 
+.lt-ie7 section#blog,
+.lt-ie8 section#blog { 
     background: #FCFCFC;
     height: 100%;
 }
@@ -1636,8 +1673,8 @@ section#blog {
     padding: 10px 0;
     text-align: left; 
 }
-.ie7 #sidebar_top, .ie7 #sidebar_left, .ie7 #sidebar_middle, .ie7 #sidebar_right,
-.ie8 #sidebar_top, .ie8 #sidebar_left, .ie8 #sidebar_middle, .ie8 #sidebar_right { 
+.lt-ie7 #sidebar_top, .lt-ie7 #sidebar_left, .lt-ie7 #sidebar_middle, .lt-ie7 #sidebar_right,
+.lt-ie8 #sidebar_top, .lt-ie8 #sidebar_left, .lt-ie8 #sidebar_middle, .lt-ie8 #sidebar_right { 
     /** do not use filter, while having PIE gradients **/
     filter: filter; /*filter:none !important; -ms-filter: none !important;*/
     /** this works in IE7, IE8, and IE9 Compat Mode only, not in IE9 default mode - see temporary Alpha workaround (for now, we could put this all back to non conditional style) */
@@ -1715,7 +1752,7 @@ section#blog {
 #content div#center table {
     margin: auto;
 }
-.ie7 .entry-content, .ie7 .serendipity_entry_body  { 
+.lt-ie7 .entry-content, .lt-ie7 .serendipity_entry_body  { 
     margin: 0 4px; /* move away from l/r border */
 }
 #about-me h2, #social-media h2 {

@@ -1,70 +1,82 @@
-{* Sliver 2011 template: last modified 2011-12-12 v. 2.05 - view README.md *}{if $is_embedded != true}
+{* Sliver 2011 template: last modified 2012-04-28 v. 3.00 - view README.md *}{if $is_embedded != true}
 <!doctype html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" xml:lang="{$lang}" lang="{$lang}"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" xml:lang="{$lang}" lang="{$lang}"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" xml:lang="{$lang}" lang="{$lang}"> <![endif]-->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" xml:lang="{$lang}" lang="{$lang}"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" xml:lang="{$lang}" lang="{$lang}"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" xml:lang="{$lang}" lang="{$lang}"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" xml:lang="{$lang}" lang="{$lang}"> <!--<![endif]-->
 <head>
-    <meta charset={$head_charset}" />
+  <meta charset="{$head_charset}">
+
     {* Use the .htaccess and remove these lines to avoid edge case issues. More info: h5bp.com/b/378 *}
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 {if $staticpage_custom.title_element}
     <title>{$staticpage_custom.title_element|escape:htmlall}</title>
 {else}
     <title>{$head_title|@default:$blogTitle}{if $head_subtitle} - {$head_subtitle}{/if}</title>
 {/if}
-    <meta name="Powered-By" content="Serendipity v.{$head_version}" />
+  
+    <meta name="Powered-By" content="Serendipity v.{$head_version}">
     {* Mobile viewport optimized: h5bp.com/viewport *}
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width">
 {if $startpage}
-    <meta name="description" content="{* YOUR DESCRIPTION FOR THE STARTPAGE *}" /> 
-    <meta name="keywords" content="{* YOUR KEYWORDS FOR THE STARTPAGE *}" /> 
-    <meta name="author" content="{* YOUR AUTHOR DESC FOR THE STARTPAGE *}" />
+    <meta name="description" content="{* YOUR DESCRIPTION FOR THE STARTPAGE *}"> 
+    <meta name="keywords" content="{* YOUR KEYWORDS FOR THE STARTPAGE *}"> 
+    <meta name="author" content="{* YOUR AUTHOR DESC FOR THE STARTPAGE *}">
 {/if}
 {if $staticpage_custom.meta_description}
-    <meta name="description" content="{$staticpage_custom.meta_description|escape:htmlall}" />
+    <meta name="description" content="{$staticpage_custom.meta_description|escape:htmlall}">
 {/if}
 {if $staticpage_custom.meta_keywords}
-    <meta name="keywords" content="{$staticpage_custom.meta_keywords|escape:htmlall}" />
+    <meta name="keywords" content="{$staticpage_custom.meta_keywords|escape:htmlall}">
 {/if}
 
     {serendipity_hookPlugin hook="frontend_header"}
 
-    <link rel="alternate"  type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2" />
-    <link rel="alternate"  type="application/x.atom+xml"  title="{$blogTitle} Atom feed"  href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml" />
-    {if $entry_id}<link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}" />{/if}
+    <link rel="alternate" type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2">
+    <link rel="alternate" type="application/x.atom+xml"  title="{$blogTitle} Atom feed"  href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml">
+{if $entry_id}
+    <link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}">
+{/if}
+{if $template_option.webfonts == 'droid'}
+    <link  rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+{elseif $template_option.webfonts == 'ptsans'}
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic">
+{elseif $template_option.webfonts == 'osans'}
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic">
+{elseif $template_option.webfonts == 'cabin'}
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,400italic,700,700italic">
+{elseif $template_option.webfonts == 'ubuntu'}
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic">
+{/if}
 
-    <link rel="shortcut icon" href="{$serendipityBaseURL}templates/{$template}/favicon.ico" />
-    <link rel="stylesheet" href="{$serendipityHTTPPath}templates/{$template}/css/style.css" />
-    <link rel="stylesheet" media="handheld" href="{$serendipityHTTPPath}templates/{$template}/css/handheld.css" />
-    
+    <link rel="shortcut icon" href="{$serendipityBaseURL}templates/{$template}/favicon.ico">
+    {* this is the boilerplate main stylesheet by GIT master on 2012-04-28 *}
+    <link rel="stylesheet" href="{$serendipityHTTPPath}templates/{$template}/css/style.css">
     {* this is the default fallback and additional plugin stylesheet generated into serendipity.css *}
-    <link rel="stylesheet" href="{$serendipityHTTPPath}serendipity.css" />
-    
-    {* embed google webfonts here *}
-{* example
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&amp;subset=latin" media="screen,projection" />
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono&amp;subset=latin" media="screen,projection" />
-*}
+    <link rel="stylesheet" href="{$serendipityHTTPPath}serendipity.css">
     {* main sliver stylesheet; also used to override selected default styles and includes conditional ieN classes *}
-    <link rel="stylesheet" href="{$serendipityHTTPPath}templates/{$template}/css/sliver_style.css" />
+    <link rel="stylesheet" href="{$serendipityHTTPPath}templates/{$template}/css/sliver_style.css">
     {* additional user stylesheet: this can be used to override selected styles *}
-    {if $template_option.userstylesheet}<link rel="stylesheet" href="{serendipity_getFile file="css/user.css"}" media="screen" />{/if}
-    
+{if $template_option.userstylesheet}
+    <link rel="stylesheet" href="{serendipity_getFile file="css/user.css"}">
+{/if}
     {* this is the end of boilerplate style and mixed print styles *}
-    <link rel="stylesheet" href="{$serendipityHTTPPath}templates/{$template}/css/endandprint.css" />
+    <link rel="stylesheet" href="{$serendipityHTTPPath}templates/{$template}/css/endandprint.css">
     
     {* All JavaScript at the bottom, except this Modernizr build incl. Respond.js
          Respond is a polyfill for min/max-width media queries. Modernizr enables HTML5 elements & feature detects;
          for optimal performance, create your own custom Modernizr build: www.modernizr.com/download/ *}
-    <script src="{$serendipityHTTPPath}templates/{$template}/js/libs/modernizr-2.0.6.min.js"></script>
+    <script src="{$serendipityHTTPPath}templates/{$template}/js/vendor/modernizr-2.5.3.min.js"></script>
 
   </head>
-  <body id="top">
+  <body id="top"{if $template_option.webfonts != 'none'} class="{$template_option.webfonts}"{/if}>
 {else}
     {serendipity_hookPlugin hook="frontend_header"}
 {/if}
+
+  {* Prompt IE 6/7 users to install Chrome Frame. Remove this if you want to support IE 6/7. See chromium.org/developers/how-tos/chrome-frame-getting-started *}
+  <!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 
 {if $is_raw_mode != true}
   <div id="wrapper">
@@ -86,8 +98,8 @@
         {* quicksearch option in the navigational link menu bar only when navbar is above or below the banner *}
         {if $template_option.sitenav_quicksearch}
         <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
-          <input type="hidden" name="serendipity[action]" value="search" />
-          <input alt="{$CONST.QUICKSEARCH}" type="text" id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" value="{$CONST.QUICKSEARCH}..." onfocus="if(this.value=='{$CONST.QUICKSEARCH}...')value=''" onblur="if(this.value=='')value='{$CONST.QUICKSEARCH}...';" />
+          <input type="hidden" name="serendipity[action]" value="search">
+          <input alt="{$CONST.QUICKSEARCH}" type="text" id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" value="{$CONST.QUICKSEARCH}..." onfocus="if(this.value=='{$CONST.QUICKSEARCH}...')value=''" onblur="if(this.value=='')value='{$CONST.QUICKSEARCH}...';">
           <div id="LSResult" style="display: none;"><div id="LSShadow"></div></div>
         </form>
         {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
@@ -110,8 +122,8 @@
         {* quicksearch option in the navigational link menu bar only when navbar is above or below the banner *}
         {if $template_option.sitenav_quicksearch}
         <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
-          <input type="hidden" name="serendipity[action]" value="search" />
-          <input alt="{$CONST.QUICKSEARCH}" type="text" id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" value="{$CONST.QUICKSEARCH}..." onfocus="if(this.value=='{$CONST.QUICKSEARCH}...')value=''" onblur="if(this.value=='')value='{$CONST.QUICKSEARCH}...';" />
+          <input type="hidden" name="serendipity[action]" value="search">
+          <input alt="{$CONST.QUICKSEARCH}" type="text" id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" value="{$CONST.QUICKSEARCH}..." onfocus="if(this.value=='{$CONST.QUICKSEARCH}...')value=''" onblur="if(this.value=='')value='{$CONST.QUICKSEARCH}...';">
           <div id="LSResult" style="display: none;"><div id="LSShadow"></div></div>
         </form>
         {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
@@ -284,7 +296,7 @@
       *}
 
     <footer id="footer">
-      <div id="serendipity_credit_line">&#160;<em>{$sliver_credit}</em>&#160;</div>
+      <div id="serendipity_credit_line">&#160;<em>sliver 2011</em>&#160;</div>
     </footer>
 
   </div><!-- // "id:#wrapper" end -->
@@ -299,30 +311,24 @@
 
 {if $template_option.use_slivers_JQueryMin}
   {* Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline *}
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="{$serendipityHTTPPath}templates/{$template}/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="{$serendipityHTTPPath}templates/{$template}/js/vendor/jquery-1.7.2.min.js"><\/script>')</script>
 {/if}
 
   {* scripts concatenated and minified via ant build script *}
-  <script defer src="{$serendipityHTTPPath}templates/{$template}/js/plugins.js"></script>
-  <script defer src="{$serendipityHTTPPath}templates/{$template}/js/script.js"></script>
+  <script src="{$serendipityHTTPPath}templates/{$template}/js/plugins.js"></script>
+  <script src="{$serendipityHTTPPath}templates/{$template}/js/main.js"></script>
 
 {if $template_option.use_google_analytics}
   {* See config: Asynchronous Google Analytics snippet. Include using the anonymous version, deleting the last 8 Bit of the IP-Address - else delete: ,['_gat._anonymizeIp'] *}
   <script>
-    var _gaq=[['_setAccount','{$template_option.google_id}'],['_gat._anonymizeIp'],['_trackPageview']];
+    var _gaq=[['_setAccount','{$template_option.google_id}'],['_gat._anonymizeIp'],['_trackPageview'],['_trackPageLoadTime']];
     (function(d,t){ldelim}var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s){rdelim}(document,'script'));
   </script>
 {/if}
-  {* Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6. See chromium.org/developers/how-tos/chrome-frame-getting-started *}
-  <!--[if lt IE 7 ]>
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-  {literal}
-    <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
-  {/literal}
-  <![endif]-->
+
   </body>
 
 </html>

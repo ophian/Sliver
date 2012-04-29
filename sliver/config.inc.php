@@ -1,11 +1,11 @@
-<?php // Sliver template v.2.05 2011-12-05
+<?php // Sliver template v.3.00 2012-04-28
 /*
  Sidebars left, Sidebars right, no Sidebars via templates config.
  Additional middle, top, footer Sidebars via admin panel plugin section.
                   
  Uses HTML5 and CSS3 features, ships with some external libs (for example PIE) 
- Please copy the PIE.htc file in js/libs/ to your domain root / to let MS-IE 6/7/8 versions benefit from CSS3 border, shadow, gradients features
- Original based on Bulletproof and Boilerplate-2
+ Please copy the PIE.htc file in js/vendor/ to your domain root / to let MS-IE 6/7/8 versions benefit from CSS3 border, shadow, gradients features
+ Original based on Bulletproof and Boilerplate-3
 */
 
 if (IN_serendipity !== true) {
@@ -16,11 +16,10 @@ static $sv = null;
 
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
-$serendipity['smarty']->assign(
-            array('currpage'      => "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
-                  'currpage2'     => $_SERVER['REQUEST_URI'],
-                  'sliver_credit' => 'sliver 2011')
-            );
+$serendipity['smarty']->assign(array('currpage' => "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
+                                     'currpage2'=> $_SERVER['REQUEST_URI'],
+                                     'sliver_credit' => 'sliver 2011 v3'));
+
 /*
 function serendipity_constant($string) {
     if (defined($string)) {
@@ -37,7 +36,7 @@ function serendipity_constant($string) {
  * please enable the function and the register part to use this
  **/
  /*
-if(strpos($serendipity['smarty']->_version, '2', 1)) {
+if(!defined('Smarty::SMARTY_VERSION')) {
     $serendipity['smarty']->register_modifier('navcolang', 'serendipity_constant');
 } else {
     $serendipity['smarty']->registerPlugin('modifier', 'navcolang', 'serendipity_constant');
@@ -56,8 +55,20 @@ $template_config = array(
         'name'          => 'Sidebars',
         'type'          => 'hidden',
         'value'         => 'left,middle,right,top,footer,hide',
-        'default'       => 'left,middle,right,top,footer,hide',
-        ),
+        'default'       => 'left,middle,right,top,footer,hide'
+    ),
+    array(
+        'var' => 'webfonts',
+        'name' => SLIVER_WEBFONTS,
+        'type' => 'select',
+        'default' => 'none',
+        'select_values' => array('none' => SLIVER_NOWEBFONT,
+                                 'droid' => 'Droid Sans',
+                                 'ptsans' => 'PT Sans',
+                                 'osans' => 'Open Sans',
+                                 'cabin' => 'Cabin',
+                                 'ubuntu' => 'Ubuntu')
+    ),
     array(
         'var'           => 'userstylesheet',
         'name'          => USER_STYLESHEET,
@@ -251,7 +262,7 @@ $serendipity['capabilities']['jquery'] = false;
 
 // smarty future combat
 if($sv === null) { 
-    $sv = (strpos($serendipity['smarty']->_version, '2', 1)) ? 'assign_by_ref' : 'assignByRef';
+    $sv = (!defined('Smarty::SMARTY_VERSION')) ? 'assign_by_ref' : 'assignByRef';
 }
 
 // count additional sidebar values in the admin panels plugin section

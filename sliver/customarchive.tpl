@@ -2,24 +2,24 @@
 <!-- customarchive.tpl in template sliver -->
 
 <form action="?" method="post">
-<input type="hidden" name="serendipity[subpage]" value="{$staticpage_pagetitle}" />
-<input type="hidden" name="serendipity[filter]" value="{$customarchive_filter}" />
-<input type="hidden" name="serendipity[mode]" value="{$customarchive_mode}" />
+<input type="hidden" name="serendipity[subpage]" value="{$staticpage_pagetitle}">
+<input type="hidden" name="serendipity[filter]" value="{$customarchive_filter}">
+<input type="hidden" name="serendipity[mode]" value="{$customarchive_mode}">
 
 {foreach from=$customarchive_search item="searchdata" key="searchfield"}
-    <label for="key_{$searchdata.key}">{$searchfield}</label><br />
+    <label for="key_{$searchdata.key}">{$searchfield}</label><br>
 
     {if $searchdata.type == 'text'}
-    <input id="key{$searchdata.key}" type="text" name="serendipity[search][{$searchdata.key}]" value="{pickKey array=$customarchive_searchdata key=$searchdata.key}" />
+    <input id="key{$searchdata.key}" type="text" name="serendipity[search][{$searchdata.key}]" value="{pickKey array=$customarchive_searchdata key=$searchdata.key}">
     {elseif $searchdata.type == 'int'}
-    <input id="key{$searchdata.key}" type="text" name="serendipity[search][{$searchdata.key}][from]" value="{pickKey array=$customarchive_searchdata_from key=$searchdata.key}" />
+    <input id="key{$searchdata.key}" type="text" name="serendipity[search][{$searchdata.key}][from]" value="{pickKey array=$customarchive_searchdata_from key=$searchdata.key}">
     bis
-    <input type="text" name="serendipity[search][{$searchdata.key}][to]" value="{pickKey array=$customarchive_searchdata_to key=$searchdata.key}" />
+    <input type="text" name="serendipity[search][{$searchdata.key}][to]" value="{pickKey array=$customarchive_searchdata_to key=$searchdata.key}">
     {/if}
-    <br />
+    <br>
 {/foreach}
 
-<input type="submit" name="go" value="Suchen" />
+<input type="submit" name="go" value="Suchen">
 </form>
 
 <table id="ap_liste">
@@ -27,7 +27,7 @@
 {foreach from=$customarchive_props key="propkey" item="prop"}
     <th align="center">
     <a href="{$serendipityBaseURL}{$serendipityIndexFile}?serendipity[subpage]={$staticpage_pagetitle}&amp;serendipity[filter]={$propkey|@replace:'ep_':''}&amp;serendipity[mode]={if $propkey|@replace:'ep_':'' == $customarchive_filter}{$customarchive_nextmode}{else}ASC{/if}">{$prop}
-    &nbsp;<img src="{$serendipityBaseURL}plugins/serendipity_event_customarchive/{if $propkey|@replace:'ep_':'' == $customarchive_filter}{$customarchive_nextmode}{else}asc{/if}.gif" /></a>
+    &nbsp;<img src="{$serendipityBaseURL}plugins/serendipity_event_customarchive/{if $propkey|@replace:'ep_':'' == $customarchive_filter}{$customarchive_nextmode}{else}asc{/if}.gif"></a>
     </th>
 {/foreach}
 </tr>
@@ -48,8 +48,8 @@
     <tr>
         <td colspan="{$customarchive_props|@count}">
         <div style="margin: 5px 5px;">
-            <a href="{$entry.link}"><img style="float: left; margin: 3px" src="{pickKey array=$entry.properties key=$customarchive_picture}" /></a>
-            <a href="{$entry.link}">{$entry.title}</a><br />
+            <a href="{$entry.link}"><img style="float: left; margin: 3px" src="{pickKey array=$entry.properties key=$customarchive_picture}"></a>
+            <a href="{$entry.link}">{$entry.title}</a><br>
 
             {pickKey array=$entry.properties key=$customarchive_teaser}
         </div>

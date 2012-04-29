@@ -14,6 +14,9 @@
 @define('FIR_BDESCR','Blogbeschreibung im Header anzeigen');
 // Date format
 @define('BP_DATE_FORMAT', 'Datumsformat');
+// fonts
+@define('SLIVER_WEBFONTS', 'Einen von Google gehosteten Webfont nutzen?');
+@define('SLIVER_NOWEBFONT', 'Keinen Webfont einbinden');
 // Entry footer
 @define('ENTRY_FOOTER_POS','Position des Eintragsfuﬂes');
 @define('BELOW_ENTRY','Unter dem Eintrag');

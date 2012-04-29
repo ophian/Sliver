@@ -140,7 +140,7 @@
                 <span class="serendipity_entryIcon">
                     {foreach from=$entry.categories item="entry_category"}
                         {if $entry_category.category_icon}
-                            <a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|@escape}{$entry_category.category_description|@emptyPrefix}" alt="{$entry_category.category_name|@escape}" src="{$entry_category.category_icon}" /></a>
+                            <a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|@escape}{$entry_category.category_description|@emptyPrefix}" alt="{$entry_category.category_name|@escape}" src="{$entry_category.category_icon}"></a>
                         {/if}
                     {/foreach}
                </span>
@@ -315,7 +315,7 @@
                  rdf:about="{$entry.link_rdf}"
                  trackback:ping="{$entry.link_trackback}"
                  dc:title="{$entry.title_rdf|@default:$entry.title}"
-                 dc:identifier="{$entry.rdf_ident}" />
+                 dc:identifier="{$entry.rdf_ident}">
         </rdf:RDF>
         -->
 
@@ -382,7 +382,7 @@
                 {if $is_comment_added}
                     <div class="serendipity_center serendipity_msg_notice">{$CONST.COMMENT_ADDED}</div>
                 {elseif $is_comment_moderate}
-                    <div class="serendipity_center serendipity_msg_notice">{$CONST.COMMENT_ADDED}<br />{$CONST.THIS_COMMENT_NEEDS_REVIEW}</div>
+                    <div class="serendipity_center serendipity_msg_notice">{$CONST.COMMENT_ADDED}<br>{$CONST.THIS_COMMENT_NEEDS_REVIEW}</div>
                 {elseif not $entry.allow_comments}
                     <div class="serendipity_center serendipity_msg_important">{$CONST.COMMENTS_CLOSED}</div>
                 {else}
@@ -416,9 +416,9 @@
   <div id='center'{if !$template_option.show_pagination} class='serendipity_entriesFooter'{/if}>
     {if $footer_prev_page}
         {if $template_option.prev_next_style == 'texticon'}
-            <a title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><img alt="{$CONST.PREVIOUS_PAGE}" title="{$CONST.PREVIOUS_PAGE}" src="{serendipity_getFile file="img/back.png"}" />{$CONST.PREVIOUS_PAGE}</a>
+            <a title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><img alt="{$CONST.PREVIOUS_PAGE}" title="{$CONST.PREVIOUS_PAGE}" src="{serendipity_getFile file="img/back.png"}">{$CONST.PREVIOUS_PAGE}</a>
         {elseif  $template_option.prev_next_style == 'icon'}
-            <a title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><img alt="{$CONST.PREVIOUS_PAGE}" src="{serendipity_getFile file="img/back.png"}" />{$CONST.PREVIOUS_PAGE}</a>
+            <a title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><img alt="{$CONST.PREVIOUS_PAGE}" src="{serendipity_getFile file="img/back.png"}">{$CONST.PREVIOUS_PAGE}</a>
         {elseif $template_option.prev_next_style == 'text'}
             <a title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}">&#171; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
         {/if}
@@ -430,9 +430,9 @@
 
     {if $footer_next_page}
         {if $template_option.prev_next_style == 'texticon'}
-            <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}">{$CONST.NEXT_PAGE}<img alt="{$CONST.NEXT_PAGE}" title="{$CONST.NEXT_PAGE}" src="{serendipity_getFile file="img/forward.png"}" /></a>
+            <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}">{$CONST.NEXT_PAGE}<img alt="{$CONST.NEXT_PAGE}" title="{$CONST.NEXT_PAGE}" src="{serendipity_getFile file="img/forward.png"}"></a>
         {elseif $template_option.prev_next_style == 'icon'}
-            <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><img alt="{$CONST.NEXT_PAGE}" src="{serendipity_getFile file="img/forward.png"}" /></a>
+            <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><img alt="{$CONST.NEXT_PAGE}" src="{serendipity_getFile file="img/forward.png"}"></a>
         {elseif $template_option.prev_next_style == 'text'}
              <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}">{$CONST.NEXT_PAGE} &#187;</a>
         {/if}

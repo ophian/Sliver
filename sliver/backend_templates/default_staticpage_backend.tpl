@@ -30,23 +30,23 @@
  {* adding META elements hack start: 2011-09-29 *}
             <div class="sp_sect">
                 Show optional Meta field entries
-                <p id="sp_toggle_optionall"><a style="border:0; text-decoration: none;" href="#" onClick="showConfig('el1'); return false" title="{$CONST.TOGGLE_OPTION}"><img src="{serendipity_getFile file="img/plus.png"}" id="optionel1" alt="+/-" border="0" />&nbsp;{$CONST.TOGGLE_ALL}</a></p>
+                <p id="sp_toggle_optionall"><a style="border:0; text-decoration: none;" href="#" onClick="showConfig('el1'); return false" title="{$CONST.TOGGLE_OPTION}"><img src="{serendipity_getFile file="img/plus.png"}" id="optionel1" alt="+/-" border="0">&nbsp;{$CONST.TOGGLE_ALL}</a></p>
             </div>
 
             <div id="el1">
               <div class="sp_sect">
                 <label class="sp_label" title="Custom Title Element">HTML page title element (optional)</label>
-                    <input class="input_textbox" type="text" name="serendipity[plugin][custom][title_element]" value="{$form_values.custom.title_element|@default:''}" />
+                    <input class="input_textbox" type="text" name="serendipity[plugin][custom][title_element]" value="{$form_values.custom.title_element|@default:''}">
               </div>
 
               <div class="sp_sect">
                 <label class="sp_label" title="Custom META Description">META Description (optional)</label>
-                    <input class="input_textbox" type="text" name="serendipity[plugin][custom][meta_description]" value="{$form_values.custom.meta_description|@default:''}" />
+                    <input class="input_textbox" type="text" name="serendipity[plugin][custom][meta_description]" value="{$form_values.custom.meta_description|@default:''}">
               </div>
 
               <div class="sp_sect">
                 <label class="sp_label" title="Custom META Keywords">META Keywords (optional)</label>
-                    <input class="input_textbox" type="text" name="serendipity[plugin][custom][meta_keywords]" value="{$form_values.custom.meta_keywords|@default:''}" />
+                    <input class="input_textbox" type="text" name="serendipity[plugin][custom][meta_keywords]" value="{$form_values.custom.meta_keywords|@default:''}">
               </div>
             </div>
             <script type="text/javascript" language="JavaScript">document.getElementById("el1").style.display = "none";</script>
@@ -57,7 +57,7 @@
             <legend>{$CONST.STATICPAGE_SECTION_STRUCT}</legend>
             <div class="sp_sect">
                 Show Structural field options
-                <p id="sp_toggle_optionall"><a style="border:0; text-decoration: none;" href="#" onClick="showConfig('el2'); return false" title="{$CONST.TOGGLE_OPTION}"><img src="{serendipity_getFile file="img/plus.png"}" id="optionel2" alt="+/-" border="0" />&nbsp;{$CONST.TOGGLE_ALL}</a></p>
+                <p id="sp_toggle_optionall"><a style="border:0; text-decoration: none;" href="#" onClick="showConfig('el2'); return false" title="{$CONST.TOGGLE_OPTION}"><img src="{serendipity_getFile file="img/plus.png"}" id="optionel2" alt="+/-" border="0">&nbsp;{$CONST.TOGGLE_ALL}</a></p>
             </div>
 
             <div id="el2">
@@ -176,13 +176,13 @@
 
             <div class="sp_sect">
                 <label class="sp_label" title="CSS class of the main page body that should be associated">Main CSS class</label>
-                    <input type="text" name="serendipity[plugin][custom][css_class]" value="{$form_values.custom.css_class|@default:'None'}" />
+                    <input type="text" name="serendipity[plugin][custom][css_class]" value="{$form_values.custom.css_class|@default:'None'}">&amp;serendipity[token]=89ea2ec2f137987672582b9f52f5f12d
             </div>
         </fieldset>
          END OF EXAMPLE FOR CUSTOM STATICPAGE PROPERTIES *}
 
         <div class="default_staticpage_button_sbar">
-            <input type="submit" name="serendipity[SAVECONF]" value="{$CONST.SAVE}" class="serendipityPrettyButton input_button" />
+            <input type="submit" name="serendipity[SAVECONF]" value="{$CONST.SAVE}" class="serendipityPrettyButton input_button">
         </div>
 
     </div>
@@ -191,7 +191,7 @@
 
 {staticpage_input_finish}
 
-<br class="clear" />
+<br class="clear">
 <div class="default_staticpage_button_main">
-    <input type="submit" name="serendipity[SAVECONF]" value="{$CONST.SAVE}" class="serendipityPrettyButton input_button" />
+    <input type="submit" name="serendipity[SAVECONF]" value="{$CONST.SAVE}" class="serendipityPrettyButton input_button">
 </div>

@@ -1,5 +1,5 @@
 {* 
-  plugin_guestbook_entries.tpl v.3.27 - 2011-06-27 ian sliver template
+  plugin_guestbook_entries.tpl v.3.27 - 2012-04-28 ian sliver template
  *}
 
 {if $plugin_guestbook_articleformat}
@@ -46,7 +46,7 @@
                   <div class="guestbook_entrytop">
                     <dl class="guestbook_entries">
                       <dt><a href="mailto:{$entry.email}">{$entry.name}</a>
-                           {$CONST.PLUGIN_GUESTBOOK_USERSDATE_OF_ENTRY} <img src="{$entry.pluginpath}img/shorttime.gif" width="14" height="17" onfocus="this.blur();" align="absmiddle" alt="{$CONST.TEXT_IMG_LASTMODIFIED}" title="{$CONST.TEXT_IMG_LASTMODIFIED}" />&nbsp;
+                           {$CONST.PLUGIN_GUESTBOOK_USERSDATE_OF_ENTRY} <img src="{$entry.pluginpath}img/shorttime.gif" width="14" height="17" onfocus="this.blur();" align="absmiddle" alt="{$CONST.TEXT_IMG_LASTMODIFIED}" title="{$CONST.TEXT_IMG_LASTMODIFIED}">&nbsp;
                            {$entry.timestamp}
                       </dt>
                       {if $entry.homepage}

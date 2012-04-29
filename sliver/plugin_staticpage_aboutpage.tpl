@@ -22,14 +22,14 @@
         <div class="staticpage_password">{$CONST.STATICPAGE_PASSWORD_NOTICE}</div>
         <form action="{$staticpage_form_url}" method="post">
             <div>
-                <input type="password" name="serendipity[pass]" value="" />
-                <input type="submit" name="submit" value="{$CONST.GO}" />
+                <input type="password" name="serendipity[pass]" value="">
+                <input type="submit" name="submit" value="{$CONST.GO}">
              </div>
         </form>
 {else}
 <dl class="staticpage_list_of_childpages">
 {foreach from=$staticpage_extchildpages item="child"}
-  <dt>{if $child.image}<img src="{$child.image}" alt="" />{/if}<a href="{$child.permalink}">{$child.pagetitle}</a></dt>
+  <dt>{if $child.image}<img src="{$child.image}" alt="">{/if}<a href="{$child.permalink}">{$child.pagetitle}</a></dt>
   <dd>{$child.precontent|truncate:200:"...":true}</dd>
 {/foreach}
 </dl>

@@ -33,23 +33,23 @@
               <form id="serendipity_comment" action="{$commentform_action}#feedback" method="post">
 
                 <div>
-                  <input type="hidden" name="serendipity[subpage]" value="{$commentform_sname}" />
-                  <input type="hidden" name="serendipity[commentform]" value="true" />
+                  <input type="hidden" name="serendipity[subpage]" value="{$commentform_sname}">
+                  <input type="hidden" name="serendipity[commentform]" value="true">
                 </div>
 
                 <div class="input-text">
                   <label for="serendipity_commentform_name">{$CONST.NAME}</label>
-                  <input type="text" size="30" value="{$commentform_name}" name="serendipity[name]" id="serendipity_commentform_name" />
+                  <input type="text" size="30" value="{$commentform_name}" name="serendipity[name]" id="serendipity_commentform_name">
                 </div>
 
                 <div class="input-text">
                   <label for="serendipity_commentform_email">{$CONST.EMAIL}</label>
-                  <input type="text" size="30" value="{$commentform_email}" name="serendipity[email]" id="serendipity_commentform_email" />
+                  <input type="text" size="30" value="{$commentform_email}" name="serendipity[email]" id="serendipity_commentform_email">
                 </div>
 
                 <div class="input-text">
                   <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}</label>
-                  <input type="text" size="30" value="{$commentform_url}" name="serendipity[url]" id="serendipity_commentform_url" />
+                  <input type="text" size="30" value="{$commentform_url}" name="serendipity[url]" id="serendipity_commentform_url">
                 </div>
 
                 <div class="input-textarea">
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="input-buttons">
-                  <input type="submit" value="Kommentar abschicken" name="serendipity[submit]" />
+                  <input type="submit" value="Kommentar abschicken" name="serendipity[submit]">
                 </div>
 
               </form>

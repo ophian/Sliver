@@ -14,6 +14,9 @@
 @define('FIR_BDESCR','Show blog description in the header');
 // Date format
 @define('BP_DATE_FORMAT', 'Date format');
+// fonts
+@define('SLIVER_WEBFONTS', 'Use a webfont, hosted by Google?');
+@define('SLIVER_NOWEBFONT', 'Include no webfont');
 // Entry footer
 @define('ENTRY_FOOTER_POS','Position of the entry footer');
 @define('BELOW_ENTRY','Below the entry');

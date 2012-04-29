@@ -1,13 +1,13 @@
-Sliver template v.2 | 2011-10-30
+Sliver template v.3 | 2012-04-28
 ===
 
 ## Name: Sliver 2011
 
 Silver slivered left/right, up to 4 Sidebars **Coding-Theme** for the Serendipity Blog system [S9y] (http://www.s9y.org/)
 
-Date: 2011-08-12
+Date: 2012-04-28
 
-Original based on S9y standard theme [Bulletproof] (http://www.s9y.org/) and a rock-solid default for HTML5 awesome [Boilerplate-2] (http://html5boilerplate.com/)
+Original based on S9y standard theme [Bulletproof] (http://www.s9y.org/) and a rock-solid default for HTML5 awesome [Boilerplate-3] (http://html5boilerplate.com/)
 
 Author: Ian
 
@@ -33,7 +33,7 @@ Sliver uses HTML5 and CSS3 features and ships with some external libs (for examp
 
 * **File:** Please copy the PIE.htc file in Sliver/js/libs/ to your domain root /, to let MS-IE <9 benefit from CSS3 borders, shadows, gradient features.
 * **Dir:** Both dirs (`/sliver` and `/default_new`) are supposed to be copied to your template dir `/serendipity/templates`. 
-* **Config:** Sliver has multiple options to configure your template, as using jquery, google analytics etc. 
+* **Config:** Sliver has multiple options to configure your template, as using google webfonts, jquery, google analytics etc. 
 
 ## Structure:
 
@@ -41,13 +41,11 @@ Sliver comes with nearly full boilerplate supported template root files, as ther
 
     .htaccess (added Slivers AddType text/x-component .htc)
 	404.html (unused)
-	humans.txt 
-	robots.txt 
 
 All Boilerplate and Sliver includement files (like js, css) are found in these dirs.
 
     js/*
-	js/libs/*
+	js/vendor/*
 	css/*
 
 Sliver also adds some backend CSS additions to the default admin styles in `admin/style.css`. It also has a `backend_templates` dir, with a preset Sliver ready `default_staticpage_backend.tpl` file.
@@ -57,14 +55,14 @@ Sliver also adds some backend CSS additions to the default admin styles in `admi
 * The new_default dir is a dependency template of Sliver and both dirs and are not supposed to be used standalone!
 * This template is not supposed to use any header images.
 * The `index.tpl` file has included a prompt to install Chrome Frame by default for IE6 users.
-* The `.htaccess` file has an activated mod_rewrite option to turn `www.domain.ext` into `domain.ext`.
+* The `.htaccess` file has an activated mod_rewrite option to turn `www.example.com` into `example.com`.
 
 ## Tweaking:
 
 * **Archive:** The Archives page supports an additional staticpage file text & link for further or internal archive listings. Please customize and enable them in lang files and in your archive staticpage.
 * **Code:** This template makes use of some pre-configured `<pre` and `<code` CSS styles to be used out the box (see `sliver_styles.css`).
-* **Fonts:** If you need to set some (google) webfonts, please investigate the header part of `index.tpl`.
-* **Customize:** It is supposed to include your own JavaScript/CSS additions into `js/scripts.js` and `css/user.css` (enable user stylesheets in template config).
+* **Fonts:** If you need to set some (google) webfonts, please enable them in your sliver backend config.
+* **Customize:** It is supposed to include your own JavaScript/CSS additions into `js/main.js` and `css/user.css` (enable user stylesheets in template config).
 
 ## Errors:
 

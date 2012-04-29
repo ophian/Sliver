@@ -27,8 +27,8 @@
         <div class="staticpage_password">{$CONST.STATICPAGE_PASSWORD_NOTICE}</div>
         <form class="staticpage_password_form" action="{$staticpage_form_url}" method="post">
             <div>
-                <input type="password" name="serendipity[pass]" value="" />
-                <input type="submit" name="submit" value="{$CONST.GO}" />
+                <input type="password" name="serendipity[pass]" value="">
+                <input type="submit" name="submit" value="{$CONST.GO}">
              </div>
         </form>
 {else}

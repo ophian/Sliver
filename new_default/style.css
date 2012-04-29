@@ -1,18 +1,11 @@
+body, button, input, select, textarea {
+    color: #222222;
+    font-family: Verdana,Arial,Geneva,Helvetica,sans-serif;
+}
 body {
     background-color: #D2DFF2;
-    font-family: verdana,arial,helvetica,sans-serif;
-    font-size: 10px;
+    font-size: 10pt;
     margin: 0 0 30px;
-}
-input, textarea {
-    font-family: verdana,arial,helvetica,sans-serif;
-    font-size: 10pt;
-}
-th, td {
-    font-size: 10pt;
-}
-p, td, th, div, span {
-    font-family: verdana,arial,helvetica,sans-serif;
 }
 h4, h3 {
     margin: 0;
@@ -59,7 +52,6 @@ a:hover {
 }
 a.homelink1, a.homelink1:hover, a.homelink1:link, a.homelink1:visited, #serendipity_banner h1 {
     color: #FFFFFF;
-    font-family: Verdana,Arial,Geneva,Helvetica,sans-serif;
     font-size: 20px;
     margin: 0;
     padding-left: 15px;
@@ -76,7 +68,6 @@ a.homelink2, a.homelink2:hover, a.homelink2:link, a.homelink2:visited, #serendip
 .serendipity_title {
     border-bottom: 2px solid #36558C;
     color: #333333;
-    font-family: Verdana,Arial,Geneva,Helvetica,sans-serif;
     font-size: medium;
     font-weight: bold;
     margin-top: 10px;
@@ -92,8 +83,6 @@ a.homelink2, a.homelink2:hover, a.homelink2:link, a.homelink2:visited, #serendip
 }
 .serendipity_entry {
     color: #333333;
-    font-family: Verdana,Arial,Geneva,Helvetica,sans-serif;
-    font-size: 9.5pt;
     font-weight: normal;
     margin: 10px auto auto;
     padding-right: 10px;
@@ -119,7 +108,6 @@ a.homelink2, a.homelink2:hover, a.homelink2:link, a.homelink2:visited, #serendip
 .serendipity_commentsTitle {
     border-bottom: 2px solid #36558C;
     color: #333333;
-    font-family: Verdana,Arial,Geneva,Helvetica,sans-serif;
     font-size: small;
     font-weight: bold;
     margin-top: 10px;
@@ -128,7 +116,6 @@ a.homelink2, a.homelink2:hover, a.homelink2:link, a.homelink2:visited, #serendip
 .serendipity_entryFooter {
     clear: both;
     color: #000000;
-    font-family: Verdana,Arial,Geneva,Helvetica,sans-serif;
     font-size: x-small;
     padding-bottom: 4px;
     padding-top: 10px;
@@ -213,7 +200,6 @@ td.serendipity_calendarHeader a:link, td.serendipity_calendarHeader a:visited, t
 /* title of an individual item */
 .serendipitySideBarTitle {
     color: #000000;
-    font-family: Verdana,Arial,Geneva,Helvetica,sans-serif;
     font-size: 12px;
     font-weight: bold;
     margin: 0;
@@ -337,3 +323,4 @@ td.serendipity_calendarHeader a:link, td.serendipity_calendarHeader a:visited, t
 }
 
 /*** End Additional plugin styles                                   ***/
+
