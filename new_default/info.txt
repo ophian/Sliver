@@ -1,4 +1,0 @@
-Name: new_default
-Author: Ian
-Date: 2011-06-14
-Require Serendipity: 1.6
