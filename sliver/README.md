@@ -7,13 +7,13 @@ Silver slivered left/right, up to 4 Sidebars **Coding-Theme** for the Serendipit
 
 Date: 2012-04-28
 
-Original based on S9y standard theme [Bulletproof] (http://www.s9y.org/) and a rock-solid default for HTML5 awesome [Boilerplate-3] (http://html5boilerplate.com/)
+Original based on theme [Bulletproof] (https://github.com/ophian/styx) and a rock-solid default for HTML5 awesome [Boilerplate-3] (http://html5boilerplate.com/)
 
 Author: Ian
 
 ## Requirement:
 
-Serendipity: 1.6 and up
+Serendipity: 2.0.2 and up
 
 ## Why:
 
@@ -29,13 +29,18 @@ Serendipity: 1.6 and up
 
 ## Setup:
 
-Sliver uses HTML5 and CSS3 features and ships with some external libs (for example PIE).
+Sliver uses HTML5 and CSS3 features and ships with some external libs.
 
-* **Config:** Sliver has multiple options to configure your template, as using google webfonts, jquery, google analytics etc. 
+* **Config:** Sliver has multiple options to configure your template, as using Google webfonts, jquery, Google analytics etc.
 
 ## Structure:
 
-All Sliver included files (like js, css) are found in these dirs.
+Sliver comes with nearly full boilerplate supported template root files, as there are
+
+    .htaccess
+	404.html (unused)
+
+All Boilerplate and Sliver included files (like js, css) are found in these dirs.
 
     js/*
 	css/*
@@ -48,8 +53,8 @@ All Sliver included files (like js, css) are found in these dirs.
 ## Tweaking:
 
 * **Archive:** The Archives page supports an additional staticpage file text & link for further or internal archive listings. Please customize and enable them in lang files and in your archive staticpage.
-* **Fonts:** If you need to set some (google) webfonts, please enable them in your sliver backend config.
-* **Customize:** It is supposed to include your own JavaScript/CSS additions into `js/main.js` and `css/user.css` (enable user stylesheets in template config).
+* **Fonts:** If you need to set some (Google) webfonts, please enable them in your sliver backend config.
+* **Customize:** It is supposed to include your own JavaScript/CSS additions into `js/main.js` and `user.css`.
 
 ## Errors:
 
