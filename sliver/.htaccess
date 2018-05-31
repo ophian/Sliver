@@ -15,13 +15,6 @@
 ### github.com/h5bp/server-configs
 ###
 
-#
-# Sliver Template PIE addition
-#
-AddType text/x-component .htc
-
-
-
 # ----------------------------------------------------------------------
 # Better website experience for IE users
 # ----------------------------------------------------------------------
@@ -106,7 +99,7 @@ AddType audio/mp4                      m4a f4a f4b
 
 # Video
 AddType video/ogg                      ogv
-AddType video/mp4                      mp4 m4v f4v f4p 
+AddType video/mp4                      mp4 m4v f4v f4p
 AddType video/webm                     webm
 AddType video/x-flv                    flv
 
