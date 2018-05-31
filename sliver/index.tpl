@@ -1,82 +1,76 @@
-{* Sliver 2011 template: last modified 2012-04-28 v. 3.00 - view README.md *}{if $is_embedded != true}
-<!doctype html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" xml:lang="{$lang}" lang="{$lang}"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" xml:lang="{$lang}" lang="{$lang}"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" xml:lang="{$lang}" lang="{$lang}"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" xml:lang="{$lang}" lang="{$lang}"> <!--<![endif]-->
+{* Sliver v4 template: last modified 2018-05-30 v.4.50 - view README.md *}{if $is_embedded != true}
+<!DOCTYPE html>
+<html class="no-js" lang="{$lang}">
 <head>
-  <meta charset="{$head_charset}">
-
-    {* Use the .htaccess and remove these lines to avoid edge case issues. More info: h5bp.com/b/378 *}
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
+    <meta charset="{$head_charset}">
+    <meta name="generator" content="Serendipity Styx Edition">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 {if $staticpage_custom.title_element}
-    <title>{$staticpage_custom.title_element|escape:htmlall}</title>
+    <title>{$staticpage_custom.title_element|escape}</title>
 {else}
-    <title>{$head_title|@default:$blogTitle}{if $head_subtitle} - {$head_subtitle}{/if}</title>
-{/if}
-  
-    <meta name="Powered-By" content="Serendipity v.{$head_version}">
-    {* Mobile viewport optimized: h5bp.com/viewport *}
-    <meta name="viewport" content="width=device-width">
-{if $startpage}
-    <meta name="description" content="{* YOUR DESCRIPTION FOR THE STARTPAGE *}"> 
-    <meta name="keywords" content="{* YOUR KEYWORDS FOR THE STARTPAGE *}"> 
-    <meta name="author" content="{* YOUR AUTHOR DESC FOR THE STARTPAGE *}">
+    <title>{$head_title|default:$blogTitle}{if $head_subtitle} | {$head_subtitle}{/if}</title>
 {/if}
 {if $staticpage_custom.meta_description}
-    <meta name="description" content="{$staticpage_custom.meta_description|escape:htmlall}">
+    <meta name="description" content="{$staticpage_custom.meta_description|escape}"><!--meta index.tpl-->
 {/if}
 {if $staticpage_custom.meta_keywords}
-    <meta name="keywords" content="{$staticpage_custom.meta_keywords|escape:htmlall}">
+    <meta name="keywords" content="{$staticpage_custom.meta_keywords|escape}"><!--meta index.tpl-->
 {/if}
-
-    {serendipity_hookPlugin hook="frontend_header"}
-
+    <link rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}{$template}/favicon.ico">
     <link rel="alternate" type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2">
     <link rel="alternate" type="application/x.atom+xml"  title="{$blogTitle} Atom feed"  href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml">
 {if $entry_id}
     <link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}">
 {/if}
+{if $is_single_entry && $test}
+    <meta property="og:description" content="{$entry.body|strip_tags:false|strip|truncate:160:'...'}">
+{/if}
 {if $template_option.webfonts == 'droid'}
-    <link  rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+    <link  rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700">
 {elseif $template_option.webfonts == 'ptsans'}
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic">
 {elseif $template_option.webfonts == 'osans'}
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic">
 {elseif $template_option.webfonts == 'cabin'}
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cabin:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cabin:400,400italic,700,700italic">
 {elseif $template_option.webfonts == 'ubuntu'}
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic">
 {/if}
-
-    <link rel="shortcut icon" href="{$serendipityBaseURL}templates/{$template}/favicon.ico">
-    {* this is the boilerplate main stylesheet by GIT master on 2012-04-28 *}
-    <link rel="stylesheet" href="{$serendipityHTTPPath}templates/{$template}/css/style.css">
+{if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR $staticpage_pagetitle != '' OR $robots_index == 'index'}
+    <meta name="robots" content="index,follow">
+{else}
+    <meta name="robots" content="noindex,follow">
+{/if}
+{if $view == 'entry'}
+    <link rel="canonical" href="{$entry.rdf_ident}">
+{/if}
+{if in_array($view, ['start', 'entries'])}
+    <link rel="canonical" href="{$serendipityBaseURL}">
+{/if}
+    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/normalize.css">
     {* this is the default fallback and additional plugin stylesheet generated into serendipity.css *}
-    <link rel="stylesheet" href="{$serendipityHTTPPath}serendipity.css">
-    {* main sliver stylesheet; also used to override selected default styles and includes conditional ieN classes *}
-    <link rel="stylesheet" href="{$serendipityHTTPPath}templates/{$template}/css/sliver_style.css">
-    {* additional user stylesheet: this can be used to override selected styles *}
-{if $template_option.userstylesheet}
-    <link rel="stylesheet" href="{serendipity_getFile file="css/user.css"}">
-{/if}
+    <link rel="stylesheet" href="{$head_link_stylesheet}">
+    {* if have, an additional user stylesheet is automatically bound to the serendipity.css stream as from S9y version 2.0.2 *}
     {* this is the end of boilerplate style and mixed print styles *}
-    <link rel="stylesheet" href="{$serendipityHTTPPath}templates/{$template}/css/endandprint.css">
-    
+    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/endandprint.css">
     {* All JavaScript at the bottom, except this Modernizr build incl. Respond.js
          Respond is a polyfill for min/max-width media queries. Modernizr enables HTML5 elements & feature detects;
          for optimal performance, create your own custom Modernizr build: www.modernizr.com/download/ *}
-    <script src="{$serendipityHTTPPath}templates/{$template}/js/vendor/modernizr-2.5.3.min.js"></script>
+    <script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/modernizr-3.6.0.min.js"></script>
 
+{if $template_option.use_slivers_codeprettifier}
+    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/prettify.css">
+{/if}
+{if $entry_id}
+    <link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}">
+{/if}
+{serendipity_hookPlugin hook="frontend_header"}
+    <script src="{$head_link_script}"></script>
   </head>
   <body id="top"{if $template_option.webfonts != 'none'} class="{$template_option.webfonts}"{/if}>
 {else}
     {serendipity_hookPlugin hook="frontend_header"}
 {/if}
-
-  {* Prompt IE 6/7 users to install Chrome Frame. Remove this if you want to support IE 6/7. See chromium.org/developers/how-tos/chrome-frame-getting-started *}
-  <!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 
 {if $is_raw_mode != true}
   <div id="wrapper">
@@ -86,13 +80,12 @@
        +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       *}
 
-    <header id="header">
       {if $template_option.sitenavpos == 'above'}
       {* #sitenav: this holds a list of navigational links which can be customized in the theme configurator *}
-      <hgroup id="{if $template_option.sitenavstyle != 'slim'}site{/if}nav{if $template_option.sitenavstyle == 'ex'}-extended{/if}" class="snabove">
+      <nav id="{if $template_option.sitenavstyle != 'slim'}site{/if}nav{if $template_option.sitenavstyle == 'ex'}-extended{/if}" class="snabove">
         <ul>
-        {foreach from=$navlinks item="navlink" name=navbar}
-          <li class="{if $currpage==$navlink.href or $currpage2==$navlink.href}currentpage{/if}{if $smarty.foreach.navbar.first} navlink_first{/if}{if $smarty.foreach.navbar.last} navlink_last{/if}"><a href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>
+        {foreach $navlinks AS $navlink}
+          <li class="{if $currpage==$navlink.href OR $currpage2==$navlink.href}currentpage{/if}{if $navlink@first} navlink_first{/if}{if $navlink@last} navlink_last{/if}"><a href="{$navlink.href}" title="{$navlink.title|multilingual_lang}">{$navlink.title|multilingual_lang}</a></li>
         {/foreach}
         </ul>
         {* quicksearch option in the navigational link menu bar only when navbar is above or below the banner *}
@@ -104,21 +97,26 @@
         </form>
         {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
         {/if}
-      </hgroup>
+      </nav>
       {/if}
+    <header id="header" class="clearfix col{if $template_option.sitenavpos != 'below'} spacer{/if}">
       {* #serendipity_banner: this is the header area. it holds the blog title and description headlines *}
       <hgroup id="serendipity_banner">
-        <h1><span class="{if !$template_option.firbtitle}in{/if}visible"><a class="homelink1" href="{$serendipityBaseURL}">{$head_title|@default:$blogTitle|truncate:80:" ..."}</a></span></h1>
-        <h2><span class="{if !$template_option.firbdescr}in{/if}visible"><a class="homelink2" href="{$serendipityBaseURL}">{$head_subtitle|@default:$blogDescription}</a></span></h2>
+        <h1><span class="{if !$template_option.firbtitle}in{/if}visible"><a class="homelink1" href="{$serendipityBaseURL}">{$head_title|default:$blogTitle|truncate:80:"&hellip;"}</a></span></h1>
+        <h2><span class="{if !$template_option.firbdescr}in{/if}visible"><a class="homelink2" href="{$serendipityBaseURL}">{$head_subtitle|default:$blogDescription}</a></span> [{$view}]</h2>
       </hgroup>
+    </header>
       {if $template_option.sitenavpos == 'below'}
       {* #sitenav: this holds a list of navigational links which can be customized in the theme configurator *}
-      <hgroup id="{if $template_option.sitenavstyle != 'slim'}site{/if}nav{if $template_option.sitenavstyle == 'ex'}-extended{/if}" class="snbelow">
+        <a id="open-nav" class="nav-toggle" href="#nav"><span class="icon-menu" aria-hidden="true"></span><span class="fallback-text">{$CONST.NEXT_NAVTEXT}</span></a>
+
+        <nav id="{if $template_option.sitenavstyle != 'slim'}site{/if}nav{if $template_option.sitenavstyle == 'ex'}-extended{/if}" class="snbelow nav-collapse">
         <ul>
-        {foreach from=$navlinks item="navlink" name="navbar"}
-          <li class="{if $currpage==$navlink.href or $currpage2==$navlink.href}currentpage{/if}{if $smarty.foreach.navbar.first} navlink_first{/if}{if $smarty.foreach.navbar.last} navlink_last{/if}"><a href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>
+        {foreach $navlinks AS $navlink}
+          <li class="{if $currpage==$navlink.href OR $currpage2==$navlink.href}currentpage{/if}{if $navlink@first} navlink_first{/if}{if $navlink@last} navlink_last{/if}"><a href="{$navlink.href}" title="{$navlink.title|multilingual_lang}">{$navlink.title|multilingual_lang}</a></li>
         {/foreach}
         </ul>
+        </nav>
         {* quicksearch option in the navigational link menu bar only when navbar is above or below the banner *}
         {if $template_option.sitenav_quicksearch}
         <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
@@ -128,21 +126,22 @@
         </form>
         {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
         {/if}
-        </hgroup>
       {/if}
 
-    </header>
+
     {*
        ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
        // include the top sidebar, if set in admin panels plugin section
        ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       *}
-    {if $is_single_entry !== true && $staticpage_pagetitle == ''}
+    {if $is_single_entry !== true && ($view == "entry" || $view == "start" || $view == "archives")}
+    {if $topSidebarElements > 0}
+    <nav id="sidebar_top" class="clearfix col">
+      {serendipity_printSidebar side="top"}
+    </nav><!-- // "id:#sidebar_top" end -->
+    {/if}
+    {/if}
 
-    <nav id="sidebar_top">
-      {if $topSidebarElements > 0}{serendipity_printSidebar side="top"}{/if}
-    </nav><!-- // "id:#sidebar_top" end --> 
-    {/if} 
     {*
        +++++++++++++++++++++++++++++++++++++++++++++
        // include the theme option type sidebar left
@@ -150,18 +149,20 @@
       *}
     {if $template_option.layouttype == '2sb'}
 
+    <section id="maingrid" class="clearfix">
+
     <!-- case 1: 1-2 columns, left sidebar(s) only -->
 
     {* left sidebar stuff in here *}
-    <aside id="sidebar_left" class="twoside layout2sb_left">
+    <aside id="sidebar_left" class="clearfix col {if ($middleSidebarElements > 0)}twoside{else}oneside{/if} layout2sb_left">
 
-      {if $template_option.sitenavpos == 'left' or $template_option.sitenavpos == 'right'}
+      {if $template_option.sitenavpos == 'left' OR $template_option.sitenavpos == 'right'}
       {* #sbsitenav: like #sitenav, but placed within the sidebar *}
       <div id="sbsitenav" class="serendipitySideBarItem">
-        <h3 class="serendipitySideBarTitle">{$template_option.sitenav_sidebar_title}</h3>
+        <h3 class="serendipitySideBarTitle">{$template_option.sitenav_sidebar_title|escape}</h3>
         <div class="serendipitySideBarContent">
           {* the line below must remain as a single uninterrupted line to display correctly in ie6 *}
-          <ul>{foreach from=$navlinks item="navlink" name="sbnav"}<li class="{if $currpage==$navlink.href or $currpage2==$navlink.href}currentpage{/if}{if $smarty.foreach.sbnav.first} sbnavlink_first{/if}{if $smarty.foreach.sbnav.last} sbnavlink_last{/if}"><a href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>{/foreach}</ul>
+          <ul>{foreach $navlinks AS $navlink}<li class="{if $currpage==$navlink.href OR $currpage2==$navlink.href}currentpage{/if}{if $navlink@first} sbnavlink_first{/if}{if $navlink@last} sbnavlink_last{/if}"><a href="{$navlink.href}" title="{$navlink.title|multilingual_lang}">{$navlink.title|multilingual_lang}</a></li>{/foreach}</ul>
         </div>
         <div class="serendipitySideBarFooter"></div>
       </div>
@@ -173,17 +174,19 @@
 
     {* middle sidebar stuff in here *}
     {if $middleSidebarElements > 0}
-    <aside id="sidebar_middle">
+    <aside id="sidebar_middle" class="clearfix col sbm_left">
       {serendipity_printSidebar side="middle"}
      </aside><!-- // "id:#sidebar_middle" end --> 
     {/if}
 
     {* blog content stuff in here *}
-    <section id="blog" class="{if $middleSidebarElements > 0}twobar-left{else}onebar-left{/if}">
+    <section id="blog" class="clearfix col {if $middleSidebarElements > 0}twobar-left{else}onebar-left{/if}">
       <section id="content" class="twomain layout2sb_content hfeed">
         {$CONTENT}
       </section><!-- // "section id:#content" end -->
     </section><!-- // "section id:#blog" end -->
+
+    </section><!-- #maingrid 2 sidebars left end -->
 
     {/if}
     {*
@@ -193,10 +196,12 @@
       *}
     {if $template_option.layouttype == '2bs'}
 
+    <section id="maingrid" class="clearfix">
+
     <!-- case 2: 1-2 columns, right sidebar(s) only -->
 
     {* blog content stuff in here *}
-    <section id="blog" class="{if $middleSidebarElements > 0}twobar-right{else}onebar-right{/if}">
+    <section id="blog" class="clearfix col {if $middleSidebarElements > 0}twobar-right{else}onebar-right{/if}">
       <section id="content" class="twomain layout2bs_content hfeed">
         {$CONTENT}
       </section><!-- // "section id:#content" end -->
@@ -205,21 +210,21 @@
     {* middle sidebar stuff in here *}
     {if $middleSidebarElements > 0}
 
-    <aside id="sidebar_middle">
+    <aside id="sidebar_middle" class="clearfix col sbm_right">
       {serendipity_printSidebar side="middle"}
     </aside><!-- // "id:#sidebar_middle" end --> 
     {/if}
 
     {* right sidebar stuff in here *}
-    <aside id="sidebar_right" class="twoside layout2bs_right">
+    <aside id="sidebar_right" class="clearfix col {if ($middleSidebarElements > 0)}twoside{else}oneside{/if} layout2bs_right">
 
-      {if $template_option.sitenavpos == 'left' or $template_option.sitenavpos == 'right'}
+      {if $template_option.sitenavpos == 'left' OR $template_option.sitenavpos == 'right'}
       {* #sbsitenav: like #sitenav, but placed within the sidebar *}
       <div id="sbsitenav" class="serendipitySideBarItem">
-        <h3 class="serendipitySideBarTitle">{$template_option.sitenav_sidebar_title}</h3>
+        <h3 class="serendipitySideBarTitle">{$template_option.sitenav_sidebar_title|escape}</h3>
         <div class="serendipitySideBarContent">
           {* the line below must remain as a single uninterrupted line to display correctly in ie6 *}
-          <ul>{foreach from=$navlinks item="navlink" name="sbnav"}<li class="{if $currpage==$navlink.href}currentpage{/if}{if $smarty.foreach.sbnav.first} sbnavlink_first{/if}{if $smarty.foreach.sbnav.last} sbnavlink_last{/if}"><a href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>{/foreach}</ul>
+          <ul>{foreach $navlinks AS $navlink}<li class="{if $currpage==$navlink.href}currentpage{/if}{if $navlink@first} sbnavlink_first{/if}{if $navlink@last} sbnavlink_last{/if}"><a href="{$navlink.href}" title="{$navlink.title|multilingual_lang}">{$navlink.title|multilingual_lang}</a></li>{/foreach}</ul>
         </div>
         <div class="serendipitySideBarFooter"></div>
       </div>
@@ -229,6 +234,8 @@
 
     </aside>
 
+    </section><!-- #maingrid 2 sidebars right end -->
+
     {/if}
     {*
        ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -237,17 +244,21 @@
       *}
     {if $template_option.layouttype == '1col'}
 
+    <section id="maingrid" class="clearfix">
+
     <!-- case 3: 1 column, sidebar(s) below -->
 
     {* blog content stuff in here *}
-    <section id="blogone">
+    <section id="blogone" class="clearfix">
       <section id="content" class="onemain layout1col_content hfeed">
         {$CONTENT}
       </section><!-- // "section id:#content" end -->
     </section><!-- // "section id:#blogone" end -->
 
+    </section><!-- #maingrid blogone end -->
+
     {* onefull sidebar stuff in here *}
-    <aside id="sidebar_footer" class="onefull layout1col_right_full">
+    <aside id="sidebar_footer" class="onefull col layout1col_right_full">
 
       {if $leftSidebarElements > 0}{serendipity_printSidebar side="left"}{/if}
       {if $middleSidebarElements > 0}{serendipity_printSidebar side="middle"}{/if}
@@ -255,10 +266,10 @@
       {if $footerSidebarElements > 0}{serendipity_printSidebar side="footer"}{/if}
 
       {if ($template_option.sitenavpos != 'none' and $template_option.sitenav_footer)}
-      <div id="footer_sitenav">
+      <div class="clearfix footer_sitenav">
         <ul>
-        {foreach from=$navlinks item="navlink" name=navbar}
-          <li{if $currpage == $navlink.href} class="currentpage"{/if}><a href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>
+        {foreach $navlinks AS $navlink}
+          <li{if $currpage == $navlink.href} class="currentpage"{/if}><a href="{$navlink.href}" title="{$navlink.title|multilingual_lang}">{$navlink.title|multilingual_lang}</a></li>
         {/foreach}
         </ul>
       </div>
@@ -267,19 +278,20 @@
     </aside>
 
     {else}
+
     {*
        ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
        // include the footer sidebar, if set in admin panels plugin section
        ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       *}
 
-    <nav id="sidebar_footer">
+    <nav id="sidebar_footer" class="clearfix col">
       {if $footerSidebarElements > 0}{serendipity_printSidebar side="footer"}{/if}
       {if ($template_option.sitenavpos != 'none' and $template_option.sitenav_footer)}
-      <div id="footer_sitenav">
+      <div class="clearfix footer_sitenav">
         <ul>
-        {foreach from=$navlinks item="navlink" name=navbar}
-          <li{if $currpage == $navlink.href} class="currentpage"{/if}><a href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>
+        {foreach $navlinks AS $navlink}
+          <li{if $currpage == $navlink.href} class="currentpage"{/if}><a href="{$navlink.href}" title="{$navlink.title|multilingual_lang}">{$navlink.title|multilingual_lang}</a></li>
         {/foreach}
         </ul>
       </div>
@@ -295,7 +307,7 @@
        +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       *}
 
-    <footer id="footer">
+    <footer id="footer" class="clearfix col">
       <div id="serendipity_credit_line">&#160;<em>{$sliver_credit}</em>&#160;</div>
     </footer>
 
@@ -304,20 +316,31 @@
 
 {$raw_data}
 
-{serendipity_hookPlugin hook="frontend_footer"}
+{if $template_option.use_slivers_jQueryMin}
+  <script>window.jQuery || document.write('<script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/jquery-3.3.1.min.js"><\/script>')</script>
+{/if}
 
+  {serendipity_hookPlugin hook="frontend_footer"}
+
+{if $template_option.use_slivers_codeprettifier}
+  <script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/prettify.js"></script>
+{/if}
 {if $is_embedded != true}
   {* JavaScript at the bottom for fast page loading *}
 
-{if $template_option.use_slivers_JQueryMin}
-  {* Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline *}
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="{$serendipityHTTPPath}templates/{$template}/js/vendor/jquery-1.7.2.min.js"><\/script>')</script>
+{if $template_option.use_slivers_codeprettifier}
+{literal}
+  <script>
+    jQuery(function($) {
+        prettyPrint();
+    });
+  </script>
+{/literal}
 {/if}
 
   {* scripts concatenated and minified via ant build script *}
-  <script src="{$serendipityHTTPPath}templates/{$template}/js/plugins.js"></script>
-  <script src="{$serendipityHTTPPath}templates/{$template}/js/main.js"></script>
+  <script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/plugins.js"></script>
+  <script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/main.js"></script>
 
 {if $template_option.use_google_analytics}
   {* See config: Asynchronous Google Analytics snippet. Include using the anonymous version, deleting the last 8 Bit of the IP-Address - else delete: ,['_gat._anonymizeIp'] *}
@@ -326,6 +349,32 @@
     (function(d,t){ldelim}var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s){rdelim}(document,'script'));
+  </script>
+{/if}
+
+{if $tagcanvasrotate === true}
+
+  <script>
+    // using rotating tags canvas
+    $(document).ready(function() { 
+        $("#bytags .container_serendipity_plugin_freetag").css({ "background-color":"transparent", "color":"inherit" });
+        $("#bytags .serendipitySideBarContent").css({ "flex-grow":"inherit", "column-count":"inherit", "column-gap":"inherit" });
+        $("#bytags .serendipitySideBarContent").addClass('dyn_rotacloud');
+        // better check for canvas in to here too, when using both clouds! In this case rota cloud in event, 2D-canvas in sidebarplus!
+        $('#sidebar_top canvas').css({ "display":"none", "visibility":"hidden", "position":"inherit", "z-index":"inherit", "width":"inherit", "height":"inherit" });
+        // on id #sidebar_top we need to use important for display: inline - see user css
+    });
+  </script>
+{/if}
+{if $tagcanvascloud === true}
+
+  <script>
+    // using awesome tags canvas wordcloud
+    $(document).ready(function() { 
+        $("#bytags .container_serendipity_plugin_freetag").css({ "background-color":"transparent", "color":"inherit" });
+        $(".serendipity_freetag_taglist").css({ "font-size":"inherit", "background-image":"inherit", "overflow":"auto", "background-color":"inherit", "background":"inherit", "height":"100%" });
+        $('#sidebar_top canvas').css({ "display":"none", "visibility":"hidden", "position":"inherit", "z-index":"inherit", "width":"inherit", "height":"inherit" });
+    });
   </script>
 {/if}
 

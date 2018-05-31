@@ -1,6 +1,4 @@
-{* 
-  plugin_guestbook_entries.tpl v.3.27 - 2012-04-28 ian sliver template
- *}
+{* plugin_guestbook_entries.tpl v.3.40 - 2013-08-21 Ian Sliver template *}
 
 {if $plugin_guestbook_articleformat}
   <div class="serendipity_Entry_Date serendipity_guestbook">
@@ -30,7 +28,7 @@
               <p class="serendipity_center serendipity_msg_important guestbook_errorbundled">{$error_occured}</p>
               {if $guestbook_messages}
                 <ul>
-                {foreach from=$guestbook_messages item="messages"}
+                {foreach $guestbook_messages AS $messages}
                     <li class="guestbook_errors">{$messages}</li>
                 {/foreach}
                 </ul>
@@ -40,7 +38,7 @@
             {if $guestbook_entry_paging}<div id="guestbook_entrypaging">{$guestbook_paging}</div>{/if}
 
             {if $guestbook_entries}
-              {foreach from=$guestbook_entries item="entry"}
+              {foreach $guestbook_entries AS $entry}
 
                 <div id="guestbook_entrybundle">
                   <div class="guestbook_entrytop">
@@ -54,13 +52,16 @@
                       {/if}
 
                     </dl>
-
-                    <dl class="guestbook_entrybottom"><dt>{$entry.body}</dt></dl>
+                    <dl class="guestbook_entrybottom"><dt>{$entry.body|nl2br}</dt></dl>
                   </div> <!-- //- class:guestbook_entrytop end -->
                 </div> <!-- //- id:guestbook_entrybundle end -->
+
                 <div class="guestbook_splitentries">&#160;</div>
               {/foreach}
             {/if}
+
+
+            {if $guestbook_entry_paging}<div id="guestbook_entrypaging">{$guestbook_paging}</div>{/if}
 
             </div><!-- //- class:entry-body end -->
 
@@ -69,9 +70,9 @@
           </div> <!-- //- class:clearfix end -->
 
         </div> <!-- //- id:guestbook_wrapper end -->
-        
+
 {if $plugin_guestbook_articleformat}
       </div>  <!-- //- class:serendipity_entry_body end -->
     </div> <!-- //- class:serendipity_entry end -->
-  </div> <!-- //- class:serendipity_Entry_Date end -->       
+  </div> <!-- //- class:serendipity_Entry_Date end -->
 {/if}

@@ -1,9 +1,7 @@
-{*
-  plugin_guestbook_form.tpl v.3.27 - 2012-04-28 ian sliver template
- *}
+{* plugin_guestbook_form.tpl v.3.27 - 2012-04-28 ian sliver template *}
 
     <!-- Needed for Captchas -->
-    {foreach from=$plugin_guestbook_messagestack item="message"}
+    {foreach $plugin_guestbook_messagestack AS $message}
     <p class="serendipity_center serendipity_msg_important">{$message}</p>
     {/foreach}
 
@@ -19,7 +17,7 @@
             <label for="serendipity_commentform_name">{$CONST.NAME}</label>
             <input type="text" size="30" maxlength="39" name="serendipity[name]" value="{$plugin_guestbook_name}" id="serendipity_commentform_name">
         </div>
-        
+
        {if $is_show_mail}
         <div class="input-text">
             <label for="serendipity_commentform_email">{$CONST.EMAIL}</label>

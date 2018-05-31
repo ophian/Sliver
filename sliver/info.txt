@@ -1,8 +1,8 @@
-Name: Sliver 2011 v.3
-Author: Ian 
-Version: 3.00
-Date: 2012-04-28
-Engine: new_default,default
-Summary: Silver slivered left/right, up to 4 Sidebars Coding-Theme for the Serendipity Blog system @ s9y.org
-Description: Sidebars left, Sidebars right and no Sidebars via templates config. Additional middle, top, footer Sidebars via admin panel plugin section
-Require Serendipity: 1.6
+Name: Sliver v.4.50
+Author: Ian
+Date: 2018-05-30
+Require Serendipity: 2.0.2
+Version: 4.50
+Recommended: Yes
+Summary: Silver slivered left/right, up to 4 Sidebars Responsive Coding-Theme for the Serendipity Styx Blog system
+Description: Sidebars left, Sidebars right and no Sidebars via templates config. Additional middle, top and footer Sidebars via admin panels plugin section.

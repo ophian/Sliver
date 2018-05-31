@@ -22,12 +22,12 @@
             <p class="serendipity_center serendipity_msg_important">{$plugin_contactform_error}</p>
 
             <!-- Needed for Captchas -->
-            {foreach from=$comments_messagestack item="message"}
+            {foreach $comments_messagestack AS $message}
             <p class="serendipity_center serendipity_msg_important">{$message}</p>
             {/foreach}
             {/if}
 
-            <div id="contactform" class="serendipityCommentForm">
+            <div id="serendipity_comment" class="serendipityCommentForm">
               <a id="serendipity_CommentForm"></a>
 
               <form id="serendipity_comment" action="{$commentform_action}#feedback" method="post">
@@ -38,22 +38,22 @@
                 </div>
 
                 <div class="input-text">
-                  <label for="serendipity_commentform_name">{$CONST.NAME}</label>
+                  <label for="serendipity_commentform_name">{$CONST.NAME}{if $required_fields.name} &lowast;{/if}</label>
                   <input type="text" size="30" value="{$commentform_name}" name="serendipity[name]" id="serendipity_commentform_name">
                 </div>
 
                 <div class="input-text">
-                  <label for="serendipity_commentform_email">{$CONST.EMAIL}</label>
+                  <label for="serendipity_commentform_email">{$CONST.EMAIL}{if $required_fields.email} &lowast;{/if}</label>
                   <input type="text" size="30" value="{$commentform_email}" name="serendipity[email]" id="serendipity_commentform_email">
                 </div>
 
                 <div class="input-text">
-                  <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}</label>
+                  <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}{if $required_fields.url} &lowast;{/if}</label>
                   <input type="text" size="30" value="{$commentform_url}" name="serendipity[url]" id="serendipity_commentform_url">
                 </div>
 
                 <div class="input-textarea">
-                  <label for="serendipity_commentform_comment">{$plugin_contactform_message}</label>
+                  <label for="serendipity_commentform_comment">{$plugin_contactform_message}{if $required_fields.comment} &lowast;{/if}</label>
                   <textarea name="serendipity[comment]" id="serendipity_commentform_comment" cols="40" rows="10">{$commentform_data}</textarea>
                 </div>
 
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="input-buttons">
-                  <input type="submit" value="Kommentar abschicken" name="serendipity[submit]">
+                  <input type="submit" value="{$CONST.SUBMIT_COMMENT}" name="serendipity[submit]">
                 </div>
 
               </form>

@@ -4,27 +4,27 @@
         <section id="section_content_alert">
   {if $searchresult_tooShort}
 
-          <div class="serendipity_Entry_Date">
+          <div id="search_results_nav" class="serendipity_Entry_Date results_navigation">
             <h3 class="serendipity_date">{$CONST.QUICKSEARCH}</h3>
             <div class="serendipity_search serendipity_search_tooshort">{$content_message}</div>
           </div>
   {elseif $searchresult_error}
 
-          <div class="serendipity_Entry_Date">
+          <div id="search_results_nav" class="serendipity_Entry_Date results_navigation">
             <h3 class="serendipity_date">{$CONST.QUICKSEARCH}</h3>
             <div class="serendipity_search serendipity_search_error">{$content_message}</div>
           </div>
   {elseif $searchresult_noEntries}
 
-          <div class="serendipity_Entry_Date">
+          <div id="search_results_nav" class="serendipity_Entry_Date results_navigation">
             <h3 class="serendipity_date">{$CONST.QUICKSEARCH}</h3>
-            <div class="serendipity_search serendipity_search_noentries">{$content_message}</div>
+            <div class="serendipity_search serendipity_search_noentries">{$content_message|replace:'"':''}</div>
           </div>
   {elseif $searchresult_results}
 
-          <div class="serendipity_Entry_Date">
+          <div id="search_results_nav" class="serendipity_Entry_Date results_navigation">
             <h3 class="serendipity_date">{$CONST.QUICKSEARCH}</h3>
-            <div class="serendipity_search serendipity_search_results">{$content_message}</div>
+            <div class="serendipity_search serendipity_search_results">{$content_message|replace:'"':''}</div>
           </div>
   {elseif $subscribe_confirm_error}
 
@@ -41,13 +41,14 @@
   {else}
 
           <div class="serendipity_Entry_Date">
-            <div class="serendipity_content_message">{$content_message}</div>
+            <div class="serendipity_content_message serendipity_msg_notice"><em>{$content_message}</em></div>
           </div>
   {/if}
 
         </section><!-- // id:#section_content_alert end -->
 {/if}
 
-{$ENTRIES}
+{$ENTRIES}{* pre parsed and may also be $COMMENTS *}
 {$ARCHIVES}
+
         <!-- CONTENT END -->

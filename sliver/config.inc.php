@@ -1,54 +1,49 @@
-<?php // Sliver template v.3.00 2012-04-28
+<?php
+// Sliver template v.4.50 2018-05-30
 /*
  Sidebars left, Sidebars right, no Sidebars via templates config.
  Additional middle, top, footer Sidebars via admin panel plugin section.
-                  
- Uses HTML5 and CSS3 features, ships with some external libs (for example PIE) 
- Please copy the PIE.htc file in js/vendor/ to your domain root / to let MS-IE 6/7/8 versions benefit from CSS3 border, shadow, gradients features
- Original based on Bulletproof and Boilerplate-3
+
+ Uses HTML5 and CSS3 features
+ Origin based on Bulletproof template and HTML5 Boilerplate
 */
 
 if (IN_serendipity !== true) {
   die ("Don't hack!");
 }
 
-static $sv = null;
-
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
 $serendipity['smarty']->assign(array('currpage' => "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
                                      'currpage2'=> $_SERVER['REQUEST_URI'],
-                                     'sliver_credit' => 'sliver © 2012, v3'));
+                                     'sliver_credit' => 'Sliver &copy; 2018, v4.50'));
 
-/*
-function serendipity_constant($string) {
-    if (defined($string)) {
-        return constant($string);
+/*************************************************************************/
+/* Staticpage related article by freetags.
+   Better use a theme unique name, eg. mytheme_related_articles.tpl*/
+/*************************************************************************/
+function smarty_sliver_show_tags($params, SMARTY_INTERNAL_TEMPLATE &$template) {
+    global $serendipity;
+    $o = $serendipity['GET']['tag'];
+    $serendipity['GET']['tag'] = $params['tag'];
+    $e = serendipity_smarty_fetchPrintEntries($params, $template);
+    echo $e;
+    if (!empty($o)) {
+        $serendipity['GET']['tag'] = $o;
     } else {
-        return $string;
+        unset($serendipity['GET']['tag']);
     }
 }
-*/
-/** 
- * register navigation vars as constants function to allow multilanguage navbartitle entries via template lang files
- * example: in lang (UTF-8) <en> @define('MENU_2','Imprint'); in lang (UTF-8) <de> @define('MENU_2','Impressum');
- * replace: {$navlink.title} with {$navlink.title|navcolang} in header and/or footer of your index.tpl
- * please enable the function and the register part to use this
- **/
- /*
-if(!defined('Smarty::SMARTY_VERSION')) {
-    $serendipity['smarty']->register_modifier('navcolang', 'serendipity_constant');
-} else {
-    $serendipity['smarty']->registerPlugin('modifier', 'navcolang', 'serendipity_constant');
-}
-*/
+
+$serendipity['smarty']->registerPlugin('function', 'sliver_show_tags', 'smarty_sliver_show_tags');
 
 $template_config = array(
     array(
         'var'           => 'about',
         'name'          => 'Template Readme',
         'type'          => 'custom',
-        'custom'        => THEME_ABOUT
+        'custom'        => THEME_ABOUT,
+        'default'       => ''
     ),
     array(
         'var'           => 'sidebars',
@@ -58,10 +53,10 @@ $template_config = array(
         'default'       => 'left,middle,right,top,footer,hide'
     ),
     array(
-        'var' => 'webfonts',
-        'name' => SLIVER_WEBFONTS,
-        'type' => 'select',
-        'default' => 'none',
+        'var'           => 'webfonts',
+        'name'          => SLIVER_WEBFONTS,
+        'type'          => 'select',
+        'default'       => 'none',
         'select_values' => array('none' => SLIVER_NOWEBFONT,
                                  'droid' => 'Droid Sans',
                                  'ptsans' => 'PT Sans',
@@ -70,16 +65,16 @@ $template_config = array(
                                  'ubuntu' => 'Ubuntu')
     ),
     array(
-        'var'           => 'userstylesheet',
-        'name'          => USER_STYLESHEET,
-        'description'   => USER_STYLESHEET_BLAHBLAH,
-        'type'          => 'boolean',
-        'default'       => false
-    ),
-    array(
-        'var'           => 'use_slivers_JQueryMin',
+        'var'           => 'use_slivers_jQueryMin',
         'name'          => SLIVERS_JQUERY,
         'description'   => SLIVERS_JQUERY_BLAHBLAH,
+        'type'          => 'boolean',
+        'default'       => true
+    ),
+    array(
+        'var'           => 'use_slivers_codeprettifier',
+        'name'          => SLIVERS_PRETTIFY,
+        'description'   => SLIVERS_PRETTIFY_BLAHBLAH,
         'type'          => 'boolean',
         'default'       => true
     ),
@@ -119,7 +114,7 @@ $template_config = array(
     ),
     array(
         'var'           => 'date_format',
-        'name'          => GENERAL_PLUGIN_DATEFORMAT . " (http://php.net/strftime)",
+        'name'          => GENERAL_PLUGIN_DATEFORMAT . " (strftime)",
         'type'          => 'select',
         'default'       => DATE_FORMAT_ENTRY,
         'select_values' => array(DATE_FORMAT_ENTRY => DATE_FORMAT_ENTRY,
@@ -253,31 +248,43 @@ $template_config = array(
         'name'          => SITENAV_TITLE,
         'description'   => SITENAV_TITLE_BLAHBLAH,
         'type'          => 'string',
-        'default'       => SITENAV_TITLE_TEXT,
+        'default'       => SITENAV_TITLE_TEXT
     )
 );
 
 // Disable the use of Serendipity JQuery in index header
 $serendipity['capabilities']['jquery'] = false;
-
-// smarty future combat
-if($sv === null) { 
-    $sv = (!defined('Smarty::SMARTY_VERSION')) ? 'assign_by_ref' : 'assignByRef';
-}
+// Disable the use of Serendipity JQuery noConflict mode
+$serendipity['capabilities']['jquery-noconflict'] = false;
 
 // count additional sidebar values in the admin panels plugin section
 $topSidebarElements    = serendipity_plugin_api::count_plugins('top');
 $middleSidebarElements = serendipity_plugin_api::count_plugins('middle');
 $footerSidebarElements = serendipity_plugin_api::count_plugins('footer');
 // assign them to smarty
-$serendipity['smarty']->$sv('topSidebarElements', $topSidebarElements); 
-$serendipity['smarty']->$sv('middleSidebarElements', $middleSidebarElements); 
-$serendipity['smarty']->$sv('footerSidebarElements', $footerSidebarElements); 
+$serendipity['smarty']->assignByRef('topSidebarElements', $topSidebarElements);
+$serendipity['smarty']->assignByRef('middleSidebarElements', $middleSidebarElements);
+$serendipity['smarty']->assignByRef('footerSidebarElements', $footerSidebarElements);
 
 $template_global_config = array('navigation' => true);
 $template_loaded_config = serendipity_loadThemeOptions($template_config, $serendipity['smarty_vars']['template_option'], true);
-serendipity_loadGlobalThemeOptions($template_config, $template_loaded_config, $template_global_config);
+$serendipity['template_loaded_config'][$serendipity['template']] = $template_loaded_config; // copy into global scope for extended plugin API usage
+serendipity_loadGlobalThemeOptions($template_config, $template_loaded_config, $template_global_config); // since $template_loaded_config can somehow not be loaded global
 
-/************************************************************************
- * ToDo: be mobile ready
-*************************************************************************/
+foreach($template_loaded_config AS $key=>$value) {
+    if (preg_match('#^(amount)#', $key, $matches)===1 || preg_match('#^(navlink+)#', $key, $matches)===1) {
+        $navonly[] = $key; // if key has sublink follow until end, then proceed
+    }
+}
+// sort by amount and navlink[digit]
+asort($navonly);
+// asorted Elements will be arranged from lowest to highest with new keys
+sort($navonly);
+
+$template_config_groups = array(
+    THEME_WELCOME   => array('about'),
+    THEME_LAYOUT    => array('sidebars', 'webfonts', 'use_slivers_jQueryMin', 'use_google_analytics', 'google_id', 'layouttype', 'firbtitle', 'firbdescr'),
+    THEME_ENTRIES   => array('date_format', 'entryfooterpos', 'footerauthor', 'send2printer', 'footercategories', 'footertimestamp', 'footercomments', 'footertrackbacks', 'altcommtrack', 'show_sticky_entry_footer', 'show_sticky_entry_heading', 'prev_next_style', 'show_pagination'),
+    THEME_SITENAV   => array('sitenavpos', 'sitenavstyle', 'sitenav_footer', 'sitenav_quicksearch', 'sitenav_sidebar_title'),
+    THEME_NAV       => $navonly
+);

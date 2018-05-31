@@ -1,8 +1,8 @@
 {if $is_raw_mode}
 <div id="serendipity{$pluginside}SideBar">
 {/if}
-{foreach from=$plugindata item=item}
-   {if $item.class == "serendipity_quicksearch_plugin" and $template_option.sitenav_quicksearch and ($template_option.sitenavpos == 'above' or $template_option.sitenavpos == 'below')}
+{foreach $plugindata AS $item}
+   {if $item.class == 'serendipity_quicksearch_plugin' AND $template_option.sitenav_quicksearch AND ($template_option.sitenavpos == 'above' OR $template_option.sitenavpos == 'below')}
 <!-- do nothing thereby supressing quicksearch in the sidebar when enabled in  -->
 <!-- navigation menu bar and ONLY when navigation bar is above or below header -->
    {else}
