@@ -22,4 +22,4 @@
     </div>
 {/foreach}
 </div>
-<!-- Sliver/comment-by-author -->
+<!-- Sliver/comments-by-author -->
