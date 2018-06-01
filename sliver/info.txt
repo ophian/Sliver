@@ -1,7 +1,7 @@
 Name: Sliver v.4.50
 Author: Ian
 Date: 2018-05-30
-Require Serendipity: 2.0.2
+Require Serendipity: 2.2.0
 Version: 4.50
 Recommended: Yes
 Summary: Silver slivered left/right, up to 4 Sidebars Responsive Coding-Theme for the Serendipity Styx Blog system
