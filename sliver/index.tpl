@@ -1,70 +1,81 @@
 {* Sliver v4 template: last modified 2018-05-30 v.4.50 - view README.md *}{if $is_embedded != true}
 <!DOCTYPE html>
 <html class="no-js" lang="{$lang}">
-<head>
+  <head>
     <meta charset="{$head_charset}">
     <meta name="generator" content="Serendipity Styx Edition">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-{if $staticpage_custom.title_element}
-    <title>{$staticpage_custom.title_element|escape}</title>
+{if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR $staticpage_pagetitle != '' OR $robots_index == 'index'}
+
+    <meta name="robots" content="index,follow">
 {else}
-    <title>{$head_title|default:$blogTitle}{if $head_subtitle} | {$head_subtitle}{/if}</title>
+
+    <meta name="robots" content="noindex,follow">
 {/if}
 {if $staticpage_custom.meta_description}
-    <meta name="description" content="{$staticpage_custom.meta_description|escape}"><!--meta index.tpl-->
+
+    <meta name="description" content="{$staticpage_custom.meta_description|escape}">
 {/if}
 {if $staticpage_custom.meta_keywords}
-    <meta name="keywords" content="{$staticpage_custom.meta_keywords|escape}"><!--meta index.tpl-->
+
+    <meta name="keywords" content="{$staticpage_custom.meta_keywords|escape}">
 {/if}
+{if $is_single_entry && $test}
+
+    <meta property="og:description" content="{$entry.body|strip_tags:false|strip|truncate:160:'...'}">
+{/if}
+{if $staticpage_custom.title_element}
+
+    <title>{$staticpage_custom.title_element|escape}</title>
+{else}
+
+    <title>{$head_title|default:$blogTitle}{if $head_subtitle} | {$head_subtitle}{/if}</title>
+{/if}
+{if $template_option.webfonts == 'droid'}
+
+    <link  rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700">
+{elseif $template_option.webfonts == 'ptsans'}
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic">
+{elseif $template_option.webfonts == 'osans'}
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic">
+{elseif $template_option.webfonts == 'cabin'}
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cabin:400,400italic,700,700italic">
+{elseif $template_option.webfonts == 'ubuntu'}
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic">
+{/if}
+{if $view == 'entry'}
+
+    <link rel="canonical" href="{$entry.rdf_ident}">
+{/if}
+
     <link rel="shortcut icon" href="{$serendipityBaseURL}{$templatePath}{$template}/favicon.ico">
     <link rel="alternate" type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2">
     <link rel="alternate" type="application/x.atom+xml"  title="{$blogTitle} Atom feed"  href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml">
 {if $entry_id}
+
     <link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}">
-{/if}
-{if $is_single_entry && $test}
-    <meta property="og:description" content="{$entry.body|strip_tags:false|strip|truncate:160:'...'}">
-{/if}
-{if $template_option.webfonts == 'droid'}
-    <link  rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700">
-{elseif $template_option.webfonts == 'ptsans'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic">
-{elseif $template_option.webfonts == 'osans'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic">
-{elseif $template_option.webfonts == 'cabin'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cabin:400,400italic,700,700italic">
-{elseif $template_option.webfonts == 'ubuntu'}
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic">
-{/if}
-{if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR $staticpage_pagetitle != '' OR $robots_index == 'index'}
-    <meta name="robots" content="index,follow">
-{else}
-    <meta name="robots" content="noindex,follow">
-{/if}
-{if $view == 'entry'}
-    <link rel="canonical" href="{$entry.rdf_ident}">
 {/if}
 {if in_array($view, ['start', 'entries'])}
+
     <link rel="canonical" href="{$serendipityBaseURL}">
 {/if}
-    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/normalize.css">
-    {* this is the default fallback and additional plugin stylesheet generated into serendipity.css *}
-    <link rel="stylesheet" href="{$head_link_stylesheet}">
-    {* if have, an additional user stylesheet is automatically bound to the serendipity.css stream as from S9y version 2.0.2 *}
-    {* this is the end of boilerplate style and mixed print styles *}
-    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/endandprint.css">
-    {* All JavaScript at the bottom, except this Modernizr build incl. Respond.js
-         Respond is a polyfill for min/max-width media queries. Modernizr enables HTML5 elements & feature detects;
-         for optimal performance, create your own custom Modernizr build: www.modernizr.com/download/ *}
-    <script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/modernizr-3.6.0.min.js"></script>
 
+    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/normalize.css">
+    <link rel="stylesheet" href="{$head_link_stylesheet}">
+    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/endandprint.css">
 {if $template_option.use_slivers_codeprettifier}
+
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/prettify.css">
 {/if}
-{if $entry_id}
-    <link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}">
-{/if}
+
+    <script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/modernizr-3.6.0.min.js"></script>
+
 {serendipity_hookPlugin hook="frontend_header"}
+
     <script src="{$head_link_script}"></script>
   </head>
   <body id="top"{if $template_option.webfonts != 'none'} class="{$template_option.webfonts}"{/if}>
