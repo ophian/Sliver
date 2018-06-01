@@ -3,7 +3,7 @@ Sliver template v.4.5 | 2018-05-30
 
 ## Name: Sliver 2011
 
-Silver slivered left/right, up to 4 Sidebars **Coding-Theme** for the Serendipity Blog system [S9y] (http://www.s9y.org/)
+Silver slivered left/right, up to 4 Sidebars responsive **Coding-Theme** for the Serendipity Styx Blog system
 
 Date: 2012-04-28
 
@@ -13,7 +13,7 @@ Author: Ian
 
 ## Requirement:
 
-Serendipity: 2.0.2 and up
+Serendipity Styx: 2.2.0 and up
 
 ## Why:
 
@@ -25,13 +25,13 @@ Serendipity: 2.0.2 and up
 
 * Sidebars left, Sidebars right, no Sidebars via templates config.
 * Additional middle, top, footer Sidebars via admin panel plugin section.
-* Use new HTML5 semantic as general structure wrappers, be ready for new media elements, offering rich, interactive experience, and use new CSS3 features
+* Use HTML5 semantic as general structure wrappers, be ready for new media elements, offering rich, interactive experience, and uses CSS3 features.
 
 ## Setup:
 
 Sliver uses HTML5 and CSS3 features and ships with some external libs.
 
-* **Config:** Sliver has multiple options to configure your template, as using Google webfonts, jquery, Google analytics etc.
+* **Config:** Sliver has multiple options to configure your template, as using Google CDN webfonts, local jQuery and corresponding libs, Google Analytics etc.
 
 ## Structure:
 
@@ -54,7 +54,7 @@ All Boilerplate and Sliver included files (like js, css) are found in these dirs
 
 * **Archive:** The Archives page supports an additional staticpage file text & link for further or internal archive listings. Please customize and enable them in lang files and in your archive staticpage.
 * **Fonts:** If you need to set some (Google) webfonts, please enable them in your sliver backend config.
-* **Customize:** It is supposed to include your own JavaScript/CSS additions into `js/main.js` and `user.css`.
+* **Customize:** It is supposed to include your own JavaScript/CSS additions into `js/main.js` and in a update independent `user.css`.
 
 ## Errors:
 
