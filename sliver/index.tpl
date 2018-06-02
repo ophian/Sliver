@@ -1,4 +1,4 @@
-{* Sliver v4 template: last modified 2018-05-30 v.4.50 - view README.md *}{if $is_embedded != true}
+{* Sliver v4 template: last modified 2018-06-02 v.4.51 - view README.md *}{if $is_embedded != true}
 <!DOCTYPE html>
 <html class="no-js" lang="{$lang}">
   <head>
@@ -96,7 +96,7 @@
       <nav id="{if $template_option.sitenavstyle != 'slim'}site{/if}nav{if $template_option.sitenavstyle == 'ex'}-extended{/if}" class="snabove">
         <ul>
         {foreach $navlinks AS $navlink}
-          <li class="{if $currpage==$navlink.href OR $currpage2==$navlink.href}currentpage{/if}{if $navlink@first} navlink_first{/if}{if $navlink@last} navlink_last{/if}"><a href="{$navlink.href}" title="{$navlink.title|multilingual_lang}">{$navlink.title|multilingual_lang}</a></li>
+          <li class="{if $currpage==$navlink.href OR $currpage2==$navlink.href}currentpage{/if}{if $navlink@first} navlink_first{/if}{if $navlink@last} navlink_last{/if}"><a href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>
         {/foreach}
         </ul>
         {* quicksearch option in the navigational link menu bar only when navbar is above or below the banner *}
@@ -124,7 +124,7 @@
         <nav id="{if $template_option.sitenavstyle != 'slim'}site{/if}nav{if $template_option.sitenavstyle == 'ex'}-extended{/if}" class="snbelow nav-collapse">
         <ul>
         {foreach $navlinks AS $navlink}
-          <li class="{if $currpage==$navlink.href OR $currpage2==$navlink.href}currentpage{/if}{if $navlink@first} navlink_first{/if}{if $navlink@last} navlink_last{/if}"><a href="{$navlink.href}" title="{$navlink.title|multilingual_lang}">{$navlink.title|multilingual_lang}</a></li>
+          <li class="{if $currpage==$navlink.href OR $currpage2==$navlink.href}currentpage{/if}{if $navlink@first} navlink_first{/if}{if $navlink@last} navlink_last{/if}"><a href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>
         {/foreach}
         </ul>
         </nav>
@@ -173,7 +173,7 @@
         <h3 class="serendipitySideBarTitle">{$template_option.sitenav_sidebar_title|escape}</h3>
         <div class="serendipitySideBarContent">
           {* the line below must remain as a single uninterrupted line to display correctly in ie6 *}
-          <ul>{foreach $navlinks AS $navlink}<li class="{if $currpage==$navlink.href OR $currpage2==$navlink.href}currentpage{/if}{if $navlink@first} sbnavlink_first{/if}{if $navlink@last} sbnavlink_last{/if}"><a href="{$navlink.href}" title="{$navlink.title|multilingual_lang}">{$navlink.title|multilingual_lang}</a></li>{/foreach}</ul>
+          <ul>{foreach $navlinks AS $navlink}<li class="{if $currpage==$navlink.href OR $currpage2==$navlink.href}currentpage{/if}{if $navlink@first} sbnavlink_first{/if}{if $navlink@last} sbnavlink_last{/if}"><a href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>{/foreach}</ul>
         </div>
         <div class="serendipitySideBarFooter"></div>
       </div>
@@ -235,7 +235,7 @@
         <h3 class="serendipitySideBarTitle">{$template_option.sitenav_sidebar_title|escape}</h3>
         <div class="serendipitySideBarContent">
           {* the line below must remain as a single uninterrupted line to display correctly in ie6 *}
-          <ul>{foreach $navlinks AS $navlink}<li class="{if $currpage==$navlink.href}currentpage{/if}{if $navlink@first} sbnavlink_first{/if}{if $navlink@last} sbnavlink_last{/if}"><a href="{$navlink.href}" title="{$navlink.title|multilingual_lang}">{$navlink.title|multilingual_lang}</a></li>{/foreach}</ul>
+          <ul>{foreach $navlinks AS $navlink}<li class="{if $currpage==$navlink.href}currentpage{/if}{if $navlink@first} sbnavlink_first{/if}{if $navlink@last} sbnavlink_last{/if}"><a href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>{/foreach}</ul>
         </div>
         <div class="serendipitySideBarFooter"></div>
       </div>
@@ -280,7 +280,7 @@
       <div class="clearfix footer_sitenav">
         <ul>
         {foreach $navlinks AS $navlink}
-          <li{if $currpage == $navlink.href} class="currentpage"{/if}><a href="{$navlink.href}" title="{$navlink.title|multilingual_lang}">{$navlink.title|multilingual_lang}</a></li>
+          <li{if $currpage == $navlink.href} class="currentpage"{/if}><a href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>
         {/foreach}
         </ul>
       </div>
@@ -302,7 +302,7 @@
       <div class="clearfix footer_sitenav">
         <ul>
         {foreach $navlinks AS $navlink}
-          <li{if $currpage == $navlink.href} class="currentpage"{/if}><a href="{$navlink.href}" title="{$navlink.title|multilingual_lang}">{$navlink.title|multilingual_lang}</a></li>
+          <li{if $currpage == $navlink.href} class="currentpage"{/if}><a href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>
         {/foreach}
         </ul>
       </div>
@@ -349,12 +349,12 @@
 {/literal}
 {/if}
 
-  {* scripts concatenated and minified via ant build script *}
   <script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/plugins.js"></script>
   <script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/main.js"></script>
 
 {if $template_option.use_google_analytics}
   {* See config: Asynchronous Google Analytics snippet. Include using the anonymous version, deleting the last 8 Bit of the IP-Address - else delete: ,['_gat._anonymizeIp'] *}
+
   <script>
     var _gaq=[['_setAccount','{$template_option.google_id}'],['_gat._anonymizeIp'],['_trackPageview'],['_trackPageLoadTime']];
     (function(d,t){ldelim}var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

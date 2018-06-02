@@ -1436,6 +1436,48 @@ ul#serendipity_categories_list input {
 .comment-meta, .comment-body {
     padding: 0 5px;
 }
+.comment-list, .comment-children {
+    list-style: none;
+}
+.comment-list h5 {
+    display: inherit;
+    font-size: .875em;
+    margin: 0 0 1em 0;
+    padding: 0;
+}
+.comment-list-item {
+    border: 1px solid #AAA;
+    margin: 0 1em 1em -1em;
+    padding: 0;
+}
+.comment-children {
+    margin: 1em 0 0 0;
+}
+.serendipity_comment {
+    margin: 0;
+    padding: .5em;
+}
+.serendipity_comment.odd {
+    background: #EEE;
+}
+.comment-list-item-body, .comment-content, .comment-meta {
+    margin: 0;
+    padding: 0;
+    line-height: 1em;
+}
+.serendipity_comment.comment_author_admin,
+.serendipity_comment.serendipity_comment_author_self {
+    background: #FFDC00;
+    margin: -1px;
+    color: #001f3f;
+    border: 1px solid #f012be;
+}
+.comment-meta .btn,
+.comment-meta .btn-sm,
+.comment-meta .btn-default {
+    padding: .5rem .75rem;
+}
+
 .serendipity_entrypaging:after {
     clear: both;
     content: ".";
@@ -1849,6 +1891,7 @@ section#blog {
     overflow: auto;
 }
 #sidebar_left {
+    margin-right: 1%;
     margin-bottom: .8em;
 }
 #sidebar_middle {
@@ -1967,6 +2010,9 @@ section#blog {
 
 /* syndication, quicksearch, archives, categories, authors, superuser, etc.
    staticpage plugin, entrylinks plugin, freetag plugin, guestbook plugin, etc. */
+.serendipitySideBarContent > a {
+    display: block;
+}
 .serendipitySideBarContent .serendipity_edit_nugget  {
     float: right;
     font-size: 0.875em;/*86%;*/
