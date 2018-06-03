@@ -1477,6 +1477,12 @@ ul#serendipity_categories_list input {
 .comment-meta .btn-default {
     padding: .5rem .75rem;
 }
+.comments_by_author  .comment-content {
+    min-height: 3em;
+}
+.comments_by_author  .comment-content.ping {
+    min-height: unset;
+}
 
 .serendipity_entrypaging:after {
     clear: both;
