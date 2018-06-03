@@ -1891,12 +1891,13 @@ section#blog {
     min-width: 10rem;
 }
 #sidebar_top .serendipitySideBarItem.container_serendipity_plugin_freetag {
+    display: inline-table;
     min-width: 71%;
-    max-width: 82%;
     width: auto;
-    min-height: 1.6rem;
-    max-height: 18em;
+    max-width: 82%;
+    min-height: 8rem;
     height: auto;
+    max-height: 18em;
     overflow: auto;
 }
 #sidebar_left {
