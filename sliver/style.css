@@ -651,6 +651,7 @@ blockquote:lang(de) p:last-child:after { content: '“'; content: close-quote; }
     display: block;
 }
 
+/* link behaviour */
 a:link, a:visited {
     background: none transparent;
     color: #3388DD;
@@ -661,25 +662,27 @@ a:link, a:visited {
     text-decoration: none;
 }
 a:active, a:focus, a:hover {
-    background: none #85144b; /*maroon */
-    color: #F0F0F0;
+    background: none transparent;
+    color: #ff4136;
     text-decoration: none;
 }
-
 .serendipity_edit_nugget a,
+.pingback.serendipity_comment footer a,
 .editentrylink a { color: #B10DC9; /* purple */ }
 
 .serendipity_edit_nugget a:hover,
-.editentrylink a:hover { background: #7fdbff; /* aqua */ color: #222 !important; }
-
+.pingback.serendipity_comment footer a:hover,
+.editentrylink a:hover {
+    background: none transparent;
+    color: #7fdbff; /* aqua */
+}
 #section_pagination a:hover, #section_pagination a:active, #section_pagination a:focus {
     background: none transparent;
-    color: #85144b !important; /*maroon */
+    color: #85144b; /* maroon */
 }
 .pagination a:hover, .pagination a:active, .pagination a:focus {
     border: 1px solid #3388DD;
 }
-
 
 /* default navigation bar start */
 #sitenav {
@@ -2089,9 +2092,7 @@ section#blog {
     font-size: smaller;
     overflow: auto;
 }
-.serendipity_freeTag a:hover {
-    color: #FFF !important;
-}
+
 /* sidebar linklist */
 a.node:link, a.node:visited, a.node:hover,
 a.folder:link, a.folder:visited, a.folder:hover {
