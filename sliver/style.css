@@ -1888,13 +1888,13 @@ section#blog {
 }
 #sidebar_top .serendipitySideBarItem:first-of-type:not(.container_serendipity_plugin_freetag) {
     width: auto;
-    min-width: 10rem;
+    min-width: 4rem;
 }
 #sidebar_top .serendipitySideBarItem.container_serendipity_plugin_freetag {
     display: inline-table;
-    min-width: 71%;
+    min-width: 60%;
     width: auto;
-    max-width: 82%;
+    max-width: 100%;
     min-height: 8rem;
     height: auto;
     max-height: 18em;
