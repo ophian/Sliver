@@ -1471,7 +1471,6 @@ ul#serendipity_categories_list input {
 }
 .serendipity_comment.comment_author_admin,
 .serendipity_comment.serendipity_comment_author_self {
-    background: #FFDC00;
     margin: -1px;
     color: #001f3f;
     border: 1px solid #f012be;
