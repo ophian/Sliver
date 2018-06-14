@@ -457,16 +457,22 @@
                 {elseif $is_comment_added}
 
                     <div class="serendipity_center serendipity_msg_notice">{$CONST.COMMENT_ADDED}</div>
+{if $is_logged_in}
+                    <div class="serendipity_section_commentform">
+                       <div class="serendipity_commentsTitle">{$CONST.ADD_COMMENT}</div>
+                       {$COMMENTFORM}
+                    </div>
+{/if}
                 {elseif NOT $entry.allow_comments}
 
                     <div class="serendipity_center serendipity_msg_important">{$CONST.COMMENTS_CLOSED}</div>
                 {else}
 
-                   <div class="serendipity_section_commentform">
+                    <div class="serendipity_section_commentform">
                        <div class="serendipity_commentsTitle">{$CONST.ADD_COMMENT}</div>
                        {$COMMENTFORM}
 
-                   </div>
+                    </div>
                 {/if}
 
             </div>
