@@ -1486,6 +1486,9 @@ ul#serendipity_categories_list input {
 .comments_by_author  .comment-content.ping {
     min-height: unset;
 }
+.comments_by_author_pagination {
+    text-align: center;
+}
 
 .serendipity_entrypaging:after {
     clear: both;

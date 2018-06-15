@@ -1,4 +1,4 @@
-<div class="comments_by_author_pagination" style="text-align: center">
+<div class="comments_by_author_pagination">
 {if $footer_prev_page}
     <a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
 {/if}
@@ -23,7 +23,7 @@
 {/foreach}
 </div>
 
-<div class="comments_by_author_pagination" style="text-align: center">
+<div class="comments_by_author_pagination">
 {if $footer_prev_page}
     <a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
 {/if}
