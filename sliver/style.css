@@ -2049,7 +2049,7 @@ section#blog {
     font-size: 86%;
     margin-top: .8em;
 }
-#serendipity_categories_list .serendipity_xml_icon  img { vertical-align: text-bottom; margin-left: .2em; }
+#serendipity_categories_list .serendipity_xml_icon  img { vertical-align: middle; margin-left: .2em; }
 
 
 /* =============================================================================
@@ -2157,6 +2157,12 @@ a.serendipity_image_link:active,
 a.serendipity_image_link:focus,
 a.serendipity_image_link:hover {
     background: transparent;
+}
+
+/* plugin_categories.tpl */
+#serendipity_categories_list input[type="checkbox"] {
+    width: auto;
+    vertical-align: text-bottom;
 }
 
 /* =============================================================================
