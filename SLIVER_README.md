@@ -62,4 +62,4 @@ If you experience curious problems in conjunction with Serendipity .htaccess set
 
 ## Endorsement: 
 
-This Template still is a work in progress.
+This Template still is a Work In Progress / WIP.
