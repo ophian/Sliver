@@ -55,6 +55,7 @@
         </div>
     </article>
 {else}
+{if NOT empty($entries)}{* catch a staticpage startpage which has no $entries array set *}
 {foreach $entries AS $dategroup}{if $is_preview AND $dategroup@index > 0}{break}{/if}
 
 <section id="section_dategroup_entries" class="hentry serendipity_Entry_Date{if $dategroup.is_sticky} serendipity_Sticky_Entry{/if}">
@@ -93,7 +94,7 @@
                             {$CONST.POSTED_BY} <address class="author"><a href="{$entry.link_author}">{$entry.author}</a></address>
                         {/if}
                         {if $template_option.footercategories}
-                            {if $entry.categories}
+                            {if NOT empty($entry.categories)}
 
                                 {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
                             {/if}
@@ -150,7 +151,7 @@
                         <div class="editentrylink"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></div>
                         {/if}
 
-                        {$entry.add_footer}
+                        {$entry.add_footer|default:''}
                     </div>
                 {/if}
                 {if $template_option.entryfooterpos == 'splitfoot'}
@@ -163,7 +164,7 @@
                             {$CONST.POSTED_BY} <address class="author"><a href="{$entry.link_author}">{$entry.author}</a></address>
                         {/if}
                         {if $template_option.footercategories}
-                            {if $entry.categories}
+                            {if NOT empty($entry.categories)}
 
                                 {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
                             {/if}
@@ -178,7 +179,7 @@
                   {/if}
                 {/if}
             {/if}
-            {if $entry.categories}
+            {if NOT empty($entry.categories)}
 
                 <span class="serendipity_entryIcon">
                     {foreach $entry.categories AS $entry_category}
@@ -221,7 +222,7 @@
                             {$CONST.POSTED_BY} <address class="author"><a href="{$entry.link_author}">{$entry.author}</a></address>
                         {/if}
                         {if $template_option.footercategories}
-                            {if $entry.categories}
+                            {if NOT empty($entry.categories)}
 
                                 {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
                             {/if}
@@ -284,7 +285,7 @@
                             <div class="editentrylink"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></div>
                         {/if}
 
-                        {$entry.add_footer}
+                        {$entry.add_footer|default:''}
 
                     </div>
                 {/if}
@@ -338,7 +339,7 @@
                             <div class="editentrylink"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></div>
                         {/if}
 
-                        {$entry.add_footer}
+                        {$entry.add_footer|default:''}
 
                     </div>
                 {/if}
@@ -500,18 +501,19 @@
 </section>
 {/if}
 {/foreach}
+{/if}
 
 {/if}{* not taglist end *}
 
 {if $footer_totalPages > 1}
 {if $taglist}{* this is for case taglist 100+ entries *}
-    {if $footer_prev_page}{assign var="footer_prev_page" value=$footer_prev_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
-    {if $footer_next_page}{assign var="footer_next_page" value=$footer_next_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
+    {if !empty($footer_prev_page)}{assign var="footer_prev_page" value=$footer_prev_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
+    {if !empty($footer_next_page)}{assign var="footer_next_page" value=$footer_next_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
 {/if}
 
 <section id="section_pagination">
   <div id='center'{if !$template_option.show_pagination} class='serendipity_entriesFooter'{/if}>
-    {if $footer_prev_page}
+    {if !empty($footer_prev_page)}
         {if $template_option.prev_next_style == 'texticon'}
 
             <a title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><img alt="{$CONST.PREVIOUS_PAGE}" title="{$CONST.PREVIOUS_PAGE}" src="{serendipity_getFile file="img/back.png"}">{$CONST.PREVIOUS_PAGE}</a>
@@ -527,7 +529,7 @@
 
         ({$footer_info})
     {/if}
-    {if $footer_next_page}
+    {if !empty($footer_next_page)}
         {if $template_option.prev_next_style == 'texticon'}
 
             <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}">{$CONST.NEXT_PAGE}<img alt="{$CONST.NEXT_PAGE}" title="{$CONST.NEXT_PAGE}" src="{serendipity_getFile file="img/forward.png"}"></a>
@@ -549,7 +551,7 @@
             {if $paginationStartPage <= 0}
                 {assign var="paginationStartPage" value="1"}
             {/if}
-            {if $footer_prev_page}
+            {if !empty($footer_prev_page)}
 
                 <a title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><span class="pagearrow">&#9668;</span></a>
             {/if}
@@ -572,7 +574,7 @@
 
                 <a href="{$footer_pageLink|replace:'%s':$footer_totalPages}">{$footer_totalPages}</a>
             {/if}
-            {if $footer_next_page}
+            {if !empty($footer_next_page)}
 
                 <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><span class="pagearrow">&#9658;</span></a>
             {/if}

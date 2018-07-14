@@ -16,9 +16,9 @@
         <ul class="comment-children">
     {/if}
 
-    <li id="comment-{$comment.id}" class="comment-list-item">
-        <a id="c{$comment.id}"></a>
-        <div id="div-comment-{$comment.id}" class="serendipity_comment{cycle values=" odd, even"} comment_author_{$comment.author|makeFilename}{if ( ($entry.author == $comment.author) AND ($entry.email == $commentform_entry.email) ) OR ( ($comment.entry_author_realname == $comment.author) AND ($comment.entry_author_email == $comment.clear_email) )} serendipity_comment_author_self{/if}">
+    <li id="comment-{$comment.id|default:0}" class="comment-list-item">
+        <a id="c{$comment.id|default:0}"></a>
+        <div id="div-comment-{$comment.id|default:0}" class="serendipity_comment{cycle values=" odd, even"} comment_author_{$comment.author|makeFilename}{if ( ($entry.author == $comment.author) AND ($entry.email == $commentform_entry.email) ) OR ( ($comment.entry_author_realname == $comment.author) AND ($comment.entry_author_email == $comment.clear_email) )} serendipity_comment_author_self{/if}">
             {if $comment.avatar}{$comment.avatar}{/if}
 
             <div class="comment-list-item-body">
@@ -48,7 +48,7 @@
                 <div class="comment-meta">
                 {if $smarty.get.serendipity.action != 'comments'}
 
-                    <a class="comment-source-trace btn btn-sm btn-default" href="{$comment.url|escape:'htmlall'}#c{$comment.id}">#{$comment.trace}</a>
+                    <a class="comment-source-trace btn btn-sm btn-default" href="{$comment.url|escape:'htmlall'}#c{$comment.id|default:0}">#{$comment.trace}</a>
                 {/if}
                 {if $entry.is_entry_owner}
 

@@ -1,11 +1,11 @@
 <div class="comments_by_author_pagination">
-{if $footer_prev_page}
+{if !empty($footer_prev_page)}
     <a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
 {/if}
 {if $footer_info}
     ({$footer_info})
 {/if}
-{if $footer_next_page}
+{if !empty($footer_next_page)}
     <a href="{$footer_next_page}">{$CONST.NEXT_PAGE} &raquo;</a>
 {/if}
 {serendipity_hookPlugin hook="comments_by_author_footer" hookAll="true"}
@@ -24,13 +24,13 @@
 </div>
 
 <div class="comments_by_author_pagination">
-{if $footer_prev_page}
+{if !empty($footer_prev_page)}
     <a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
 {/if}
 {if $footer_info}
     ({$footer_info})
 {/if}
-{if $footer_next_page}
+{if !empty($footer_next_page)}
     <a href="{$footer_next_page}">{$CONST.NEXT_PAGE} &raquo;</a>
 {/if}
 {serendipity_hookPlugin hook="comments_by_author_footer" hookAll="true"}

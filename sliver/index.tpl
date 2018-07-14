@@ -5,7 +5,7 @@
     <meta charset="{$head_charset}">
     <meta name="generator" content="Serendipity Styx Edition">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-{if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR $staticpage_pagetitle != '' OR $robots_index == 'index'}
+{if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR !empty($staticpage_pagetitle) OR (isset($robots_index) AND $robots_index == 'index')}
 
     <meta name="robots" content="index,follow">
 {else}
