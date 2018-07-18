@@ -15,7 +15,7 @@
 </defs>
 </svg>
 {/if}
-{if !empty($pluginHook_entries)}
+{if NOT empty($pluginHook_entries)}
 
 <section id="section_hookPlugin_entries">
   {$pluginHook_entries}
@@ -26,15 +26,15 @@
 
     <div id="archives_nav" class="archives_index_navigation">
         <ul class="archives_index">
-              <li class="archive_item"><a href="{$serendipityBaseURL}">{$blogTitle|truncate:20:"&hellip;":false}</a> &raquo; {if !empty($category_info.category_name)}{$CONST.CATEGORY}: {$category_info.category_name} &raquo; {/if}{$CONST.STATICPAGE_ARTICLE_OVERVIEW}{if $view == 'archives'}: {$dateRange.0|formatTime:"%B %Y"}{/if}</li>
+              <li class="archive_item"><a href="{$serendipityBaseURL}">{$blogTitle|truncate:20:"&hellip;":false}</a> &raquo; {if NOT empty($category_info.category_name)}{$CONST.CATEGORY}: {$category_info.category_name} &raquo; {/if}{$CONST.STATICPAGE_ARTICLE_OVERVIEW}{if $view == 'archives'}: {$dateRange.0|formatTime:"%B %Y"}{/if}</li>
         </ul>
     </div>
 {/if}
-{if ($view == 'categories')}
+{if $view == 'categories'}
 
     <div id="categories_nav" class="categories_index_navigation">
         <ul class="categories_index">
-              <li class="category_item"><a href="{$serendipityBaseURL}">{$blogTitle|truncate:20:"&hellip;":false}</a>&raquo; {$CONST.STATICPAGE_ARTICLE_OVERVIEW} {$CONST.CATEGORY}: {$category_info.category_name}</li>
+            <li class="category_item"><a href="{$serendipityBaseURL}">{$blogTitle|truncate:20:"&hellip;":false}</a>&raquo; {$CONST.STATICPAGE_ARTICLE_OVERVIEW} {$CONST.CATEGORY}: {$category_info.category_name}</li>
         </ul>
     </div>
 {/if}
@@ -82,7 +82,7 @@
         </header>
 
         <article id="article_dategroup_entry">
-          <section id="section_entry_author" class="serendipity_entry serendipity_entry_author_{$entry.author|makeFilename} {if $entry.is_entry_owner}serendipity_entry_author_self{/if}">
+          <section id="section_entry_author" class="serendipity_entry serendipity_entry_author_{$entry.author|makeFilename} {if NOT empty($entry.is_entry_owner)}serendipity_entry_author_self{/if}">
 
             <header id="header_entry_author">
             {if (NOT $dategroup.is_sticky OR ($dategroup.is_sticky and $template_option.show_sticky_entry_footer))}
@@ -146,7 +146,7 @@
                                 {/if}
                             {/if}
                         {/if}
-                        {if $entry.is_entry_owner AND NOT $is_preview}
+                        {if NOT empty($entry.is_entry_owner) AND NOT $is_preview}
 
                         <div class="editentrylink"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></div>
                         {/if}
@@ -280,7 +280,7 @@
                             | <a href="javascript:window.print()">{$CONST.SEND2_PRINTER}</a>
                         {/if}
 
-                        {if $entry.is_entry_owner AND NOT $is_preview}
+                        {if NOT empty($entry.is_entry_owner) AND NOT $is_preview}
 
                             <div class="editentrylink"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></div>
                         {/if}
@@ -334,7 +334,7 @@
                                 {/if}
                             {/if}
                         {/if}
-                        {if $entry.is_entry_owner AND NOT $is_preview}
+                        {if NOT empty($entry.is_entry_owner) AND NOT $is_preview}
 
                             <div class="editentrylink"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></div>
                         {/if}
@@ -436,7 +436,7 @@
 
                 </div>
 
-                {if $entry.is_entry_owner}
+                {if NOT empty($entry.is_entry_owner)}
                     {if $entry.allow_comments}
 
                         <div class="serendipity_center">(<a href="{$entry.link_deny_comments}">{$CONST.COMMENTS_DISABLE}</a>)</div>
@@ -507,13 +507,13 @@
 
 {if $footer_totalPages > 1}
 {if $taglist}{* this is for case taglist 100+ entries *}
-    {if !empty($footer_prev_page)}{assign var="footer_prev_page" value=$footer_prev_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
-    {if !empty($footer_next_page)}{assign var="footer_next_page" value=$footer_next_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
+    {if NOT empty($footer_prev_page)}{assign var="footer_prev_page" value=$footer_prev_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
+    {if NOT empty($footer_next_page)}{assign var="footer_next_page" value=$footer_next_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
 {/if}
 
 <section id="section_pagination">
   <div id='center'{if !$template_option.show_pagination} class='serendipity_entriesFooter'{/if}>
-    {if !empty($footer_prev_page)}
+    {if NOT empty($footer_prev_page)}
         {if $template_option.prev_next_style == 'texticon'}
 
             <a title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><img alt="{$CONST.PREVIOUS_PAGE}" title="{$CONST.PREVIOUS_PAGE}" src="{serendipity_getFile file="img/back.png"}">{$CONST.PREVIOUS_PAGE}</a>
@@ -529,7 +529,7 @@
 
         ({$footer_info})
     {/if}
-    {if !empty($footer_next_page)}
+    {if NOT empty($footer_next_page)}
         {if $template_option.prev_next_style == 'texticon'}
 
             <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}">{$CONST.NEXT_PAGE}<img alt="{$CONST.NEXT_PAGE}" title="{$CONST.NEXT_PAGE}" src="{serendipity_getFile file="img/forward.png"}"></a>
@@ -551,7 +551,7 @@
             {if $paginationStartPage <= 0}
                 {assign var="paginationStartPage" value="1"}
             {/if}
-            {if !empty($footer_prev_page)}
+            {if NOT empty($footer_prev_page)}
 
                 <a title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><span class="pagearrow">&#9668;</span></a>
             {/if}
@@ -574,7 +574,7 @@
 
                 <a href="{$footer_pageLink|replace:'%s':$footer_totalPages}">{$footer_totalPages}</a>
             {/if}
-            {if !empty($footer_next_page)}
+            {if NOT empty($footer_next_page)}
 
                 <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><span class="pagearrow">&#9658;</span></a>
             {/if}

@@ -1,11 +1,11 @@
-{* Sliver v4 template: last modified 2018-06-02 v.4.51 - view README.md *}{if $is_embedded != true}
+{* Sliver v4 template: last modified 2018-07-16 v.4.52 - view README.md *}{if $is_embedded != true}
 <!DOCTYPE html>
 <html class="no-js" lang="{$lang}">
   <head>
     <meta charset="{$head_charset}">
     <meta name="generator" content="Serendipity Styx Edition">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-{if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR !empty($staticpage_pagetitle) OR (isset($robots_index) AND $robots_index == 'index')}
+{if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR NOT empty($staticpage_pagetitle) OR (isset($robots_index) AND $robots_index == 'index')}
 
     <meta name="robots" content="index,follow">
 {else}
