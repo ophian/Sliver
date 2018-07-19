@@ -18,8 +18,8 @@
 
     <li id="comment-{$comment.id|default:0}" class="comment-list-item">
         <a id="c{$comment.id|default:0}"></a>
-        <div id="div-comment-{$comment.id|default:0}" class="serendipity_comment{cycle values=" odd, even"} comment_author_{$comment.author|makeFilename}{if ( ($entry.author == $comment.author) AND ($entry.email == $commentform_entry.email) ) OR ( ($comment.entry_author_realname == $comment.author) AND ($comment.entry_author_email == $comment.clear_email) )} serendipity_comment_author_self{/if}">
-            {if $comment.avatar}{$comment.avatar}{/if}
+        <div id="div-comment-{$comment.id|default:0}" class="serendipity_comment{cycle values=" odd, even"} comment_author_{$comment.author|makeFilename}{if ( isset($entry) AND $entry.author == $comment.author AND $entry.email == $commentform_entry.email ) OR ( isset($entry) AND isset($comment.entry_author_realname) AND $comment.entry_author_realname == $comment.author AND $comment.entry_author_email == $comment.clear_email )} serendipity_comment_author_self{/if}">
+            {$comment.avatar|default:''}
 
             <div class="comment-list-item-body">
                 <h5 class="comment-author-heading">
@@ -41,7 +41,7 @@
                         {$CONST.COMMENT_IS_DELETED}
                     {else}
 
-                        {if $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{if $comment.type == 'PINGBACK'}[PingBack]{else}{$comment.body}{/if}{/if}
+                        {if isset($comment.type) AND $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{if $comment.type == 'PINGBACK'}[PingBack]{else}{$comment.body}{/if}{/if}
                     {/if}
 
                 </div>

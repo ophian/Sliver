@@ -11,7 +11,7 @@
         <div class="clearfix">{$trackback.body|strip_tags|escape:'htmlall'} [&hellip;]</div>
     </details>
 {/if}
-{if $entry.is_entry_owner}
+{if NOT empty($entry.is_entry_owner)}
     <footer>
         <a href="{$serendipityBaseURL}comment.php?serendipity[delete]={$trackback.id}&amp;serendipity[entry]={$trackback.entry_id}&amp;serendipity[type]=trackbacks">{$CONST.DELETE}</a>
     </footer>
