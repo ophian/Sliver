@@ -1176,7 +1176,7 @@ a.serendipity_xml_icon {
 }
 input#serendipityQuickSearchTermField {
     background: url('{TEMPLATE_PATH}img/quicksearch.png') no-repeat scroll 97% 50% #FFF;
-    width: 12em;
+    width: 80%;
     float: right;
     border: 1px solid #CCC;
     border-top-width: 0px;
@@ -1891,7 +1891,7 @@ section#blog {
 }
 #sidebar_top .serendipitySideBarItem:first-of-type:not(.container_serendipity_plugin_freetag) {
     width: auto;
-    min-width: 4rem;
+    min-width: 5rem;
 }
 #sidebar_top .serendipitySideBarItem.container_serendipity_plugin_freetag {
     display: inline-table;
@@ -1902,7 +1902,9 @@ section#blog {
     height: auto;
     max-height: 18em;
     overflow: auto;
+    text-rendering: auto;
 }
+
 #sidebar_left {
     margin-right: 1%;
     margin-bottom: .8em;
