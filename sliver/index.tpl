@@ -113,8 +113,8 @@
     <header id="header" class="clearfix col{if $template_option.sitenavpos != 'below'} spacer{/if}">
       {* #serendipity_banner: this is the header area. it holds the blog title and description headlines *}
       <hgroup id="serendipity_banner">
-        <h1><span class="{if !$template_option.firbtitle}in{/if}visible"><a class="homelink1" href="{$serendipityBaseURL}">{$head_title|default:$blogTitle|truncate:80:"&hellip;"}</a></span></h1>
-        <h2><span class="{if !$template_option.firbdescr}in{/if}visible"><a class="homelink2" href="{$serendipityBaseURL}">{$head_subtitle|default:$blogDescription}</a></span> [{$view}]</h2>
+        <h1><span class="{if NOT $template_option.firbtitle}in{/if}visible"><a class="homelink1" href="{$serendipityBaseURL}">{$head_title|default:$blogTitle|truncate:80:"&hellip;"}</a></span></h1>
+        <h2><span class="{if NOT $template_option.firbdescr}in{/if}visible"><a class="homelink2" href="{$serendipityBaseURL}">{$head_subtitle|default:$blogDescription}</a></span> [{$view}]</h2>
       </hgroup>
     </header>
       {if $template_option.sitenavpos == 'below'}

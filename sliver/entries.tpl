@@ -155,7 +155,7 @@
                     </div>
                 {/if}
                 {if $template_option.entryfooterpos == 'splitfoot'}
-                  {if !$template_option.footerauthor and !$template_option.footercategories and !$template_option.footertimestamp}
+                  {if NOT $template_option.footerauthor and !$template_option.footercategories and !$template_option.footertimestamp}
                   {else}
 
                     <div class='serendipity_entryFooter byline'>
@@ -507,13 +507,13 @@
 
 {if $footer_totalPages > 1}
 {if $taglist}{* this is for case taglist 100+ entries *}
-    {if NOT empty($footer_prev_page)}{assign var="footer_prev_page" value=$footer_prev_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
-    {if NOT empty($footer_next_page)}{assign var="footer_next_page" value=$footer_next_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
+    {if $footer_prev_page}{assign var="footer_prev_page" value=$footer_prev_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
+    {if $footer_next_page}{assign var="footer_next_page" value=$footer_next_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
 {/if}
 
 <section id="section_pagination">
-  <div id='center'{if !$template_option.show_pagination} class='serendipity_entriesFooter'{/if}>
-    {if NOT empty($footer_prev_page)}
+  <div id="center"{if NOT $template_option.show_pagination} class="serendipity_entriesFooter"{/if}>
+    {if $footer_prev_page}
         {if $template_option.prev_next_style == 'texticon'}
 
             <a title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><img alt="{$CONST.PREVIOUS_PAGE}" title="{$CONST.PREVIOUS_PAGE}" src="{serendipity_getFile file="img/back.png"}">{$CONST.PREVIOUS_PAGE}</a>
@@ -529,7 +529,7 @@
 
         ({$footer_info})
     {/if}
-    {if NOT empty($footer_next_page)}
+    {if $footer_next_page}
         {if $template_option.prev_next_style == 'texticon'}
 
             <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}">{$CONST.NEXT_PAGE}<img alt="{$CONST.NEXT_PAGE}" title="{$CONST.NEXT_PAGE}" src="{serendipity_getFile file="img/forward.png"}"></a>
@@ -551,7 +551,7 @@
             {if $paginationStartPage <= 0}
                 {assign var="paginationStartPage" value="1"}
             {/if}
-            {if NOT empty($footer_prev_page)}
+            {if $footer_prev_page}
 
                 <a title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><span class="pagearrow">&#9668;</span></a>
             {/if}
@@ -574,7 +574,7 @@
 
                 <a href="{$footer_pageLink|replace:'%s':$footer_totalPages}">{$footer_totalPages}</a>
             {/if}
-            {if NOT empty($footer_next_page)}
+            {if $footer_next_page}
 
                 <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><span class="pagearrow">&#9658;</span></a>
             {/if}
