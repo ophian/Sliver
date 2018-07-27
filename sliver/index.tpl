@@ -1,4 +1,4 @@
-{* Sliver v4 template: last modified 2018-07-16 v.4.52 - view README.md *}{if $is_embedded != true}
+{* Sliver v4 template: last modified 2018-07-27 v.4.52 - view README.md *}{if $is_embedded != true}
 <!DOCTYPE html>
 <html class="no-js" lang="{$lang}">
   <head>
@@ -12,19 +12,19 @@
 
     <meta name="robots" content="noindex,follow">
 {/if}
-{if $staticpage_custom.meta_description}
+{if NOT empty($staticpage_custom.meta_description)}
 
     <meta name="description" content="{$staticpage_custom.meta_description|escape}">
 {/if}
-{if $staticpage_custom.meta_keywords}
+{if NOT empty($staticpage_custom.meta_keywords)}
 
     <meta name="keywords" content="{$staticpage_custom.meta_keywords|escape}">
 {/if}
-{if $is_single_entry && $test}
+{if $is_single_entry}
 
     <meta property="og:description" content="{$entry.body|strip_tags:false|strip|truncate:160:'...'}">
 {/if}
-{if $staticpage_custom.title_element}
+{if NOT empty($staticpage_custom.title_element)}
 
     <title>{$staticpage_custom.title_element|escape}</title>
 {else}

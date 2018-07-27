@@ -1,7 +1,7 @@
 <!-- ENTRIES START -->
 {capture name="plugin_hook_entries_header" assign="pluginHook_entries"}{serendipity_hookPlugin hook="entries_header" addData=$entry_id}{/capture}
 
-{if $smarty_entrypaging AND $is_single_entry AND NOT $is_preview}
+{if NOT empty($smarty_entrypaging) AND $is_single_entry AND NOT $is_preview}
 <svg display="none" width="0" height="0" version="1.1" fill-opacity="1" xmlns:xlink="http://www.w3.org/1999/xlink" color-rendering="auto" color-interpolation="auto" text-rendering="auto" stroke="black" stroke-linecap="square" stroke-miterlimit="10" shape-rendering="auto" stroke-opacity="1" fill="black" stroke-dasharray="none" font-weight="normal" stroke-width="1" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <symbol id="icon-left-pointer" viewBox="0 0 340 340">
@@ -22,7 +22,7 @@
 
 </section><!-- // "id:#section_hookPlugin_entries" end -->
 {/if}
-{if ($view == 'archives' && isset($head_subtitle)) || ($view == 'frontpage')}
+{if ($view == 'archives' AND isset($head_subtitle) AND NOT empty($archives_summary_page)) OR ($view == 'frontpage')}
 
     <div id="archives_nav" class="archives_index_navigation">
         <ul class="archives_index">
@@ -38,7 +38,7 @@
         </ul>
     </div>
 {/if}
-{if $taglist}
+{if NOT empty($taglist)}
 
     <article id="taglistentries" class="clearfix serendipity_entry">
         <div class="clearfix content serendipity_entry_body">
@@ -354,7 +354,7 @@
           </section><!-- // "id:#section_entry_author" end -->
         </article><!-- // "id:#article_dategroup_entry" end -->
 
-        {if NOT $is_preview}
+        {if NOT $is_single_entry AND NOT $is_preview}
 
         <!--
         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -403,7 +403,7 @@
             </div>
         {/if}
         {if $is_single_entry AND NOT $is_preview}
-            {if $smarty_entrypaging}
+            {if NOT empty($smarty_entrypaging)}
 
             <div id="entrypaging" class="serendipity_entrypaging">
             {if $pagination_prev_link}
@@ -505,8 +505,8 @@
 
 {/if}{* not taglist end *}
 
-{if $footer_totalPages > 1}
-{if $taglist}{* this is for case taglist 100+ entries *}
+{if NOT $is_single_entry AND NOT $is_preview AND NOT $startpage AND $view != 'plugin' AND isset($footer_totalPages) AND $footer_totalPages > 1}
+{if NOT empty($taglist)}{* this is for case taglist 100+ entries *}
     {if $footer_prev_page}{assign var="footer_prev_page" value=$footer_prev_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
     {if $footer_next_page}{assign var="footer_next_page" value=$footer_next_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
 {/if}

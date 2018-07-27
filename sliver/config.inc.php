@@ -1,5 +1,5 @@
 <?php
-// Sliver template v.4.50 2018-05-30
+// Sliver template v.4.52 2018-07-27
 /*
  Sidebars left, Sidebars right, no Sidebars via templates config.
  Additional middle, top, footer Sidebars via admin panel plugin section.
@@ -16,7 +16,7 @@ if (IN_serendipity !== true) {
 
 $serendipity['smarty']->assign(array('currpage' => "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
                                      'currpage2'=> $_SERVER['REQUEST_URI'],
-                                     'sliver_credit' => 'Sliver &copy; 2018, v4.50'));
+                                     'sliver_credit' => 'Sliver &copy; 2018, v4.52'));
 
 /*************************************************************************/
 /* Staticpage related article by freetags.
@@ -34,8 +34,14 @@ function smarty_sliver_show_tags($params, SMARTY_INTERNAL_TEMPLATE &$template) {
         unset($serendipity['GET']['tag']);
     }
 }
-
 $serendipity['smarty']->registerPlugin('function', 'sliver_show_tags', 'smarty_sliver_show_tags');
+
+if (isset($serendipity['plugindata']['smartyvars']['uriargs'])) {
+    #"archives/2018/07/P1.html"
+    if (preg_match('/archives\/(\d{4})\/(\d{2})+/', $serendipity['plugindata']['smartyvars']['uriargs'])) {
+        $serendipity['smarty']->assign('archives_summary_page', true);
+    }
+}
 
 $template_config = array(
     array(
@@ -266,8 +272,9 @@ $serendipity['smarty']->assignByRef('topSidebarElements', $topSidebarElements);
 $serendipity['smarty']->assignByRef('middleSidebarElements', $middleSidebarElements);
 $serendipity['smarty']->assignByRef('footerSidebarElements', $footerSidebarElements);
 
+$top = isset($serendipity['smarty_vars']['template_option']) ? $serendipity['smarty_vars']['template_option'] : '';
 $template_global_config = array('navigation' => true);
-$template_loaded_config = serendipity_loadThemeOptions($template_config, $serendipity['smarty_vars']['template_option'], true);
+$template_loaded_config = serendipity_loadThemeOptions($template_config, $top, true);
 $serendipity['template_loaded_config'][$serendipity['template']] = $template_loaded_config; // copy into global scope for extended plugin API usage
 serendipity_loadGlobalThemeOptions($template_config, $template_loaded_config, $template_global_config); // since $template_loaded_config can somehow not be loaded global
 
@@ -282,9 +289,9 @@ asort($navonly);
 sort($navonly);
 
 $template_config_groups = array(
-    THEME_WELCOME   => array('about'),
-    THEME_LAYOUT    => array('sidebars', 'webfonts', 'use_slivers_jQueryMin', 'use_google_analytics', 'google_id', 'layouttype', 'firbtitle', 'firbdescr'),
-    THEME_ENTRIES   => array('date_format', 'entryfooterpos', 'footerauthor', 'send2printer', 'footercategories', 'footertimestamp', 'footercomments', 'footertrackbacks', 'altcommtrack', 'show_sticky_entry_footer', 'show_sticky_entry_heading', 'prev_next_style', 'show_pagination'),
-    THEME_SITENAV   => array('sitenavpos', 'sitenavstyle', 'sitenav_footer', 'sitenav_quicksearch', 'sitenav_sidebar_title'),
-    THEME_NAV       => $navonly
+    'THEME_WELCOME'   => array('about'),
+    'THEME_LAYOUT'    => array('sidebars', 'webfonts', 'use_slivers_jQueryMin', 'use_google_analytics', 'google_id', 'layouttype', 'firbtitle', 'firbdescr'),
+    'THEME_ENTRIES'   => array('date_format', 'entryfooterpos', 'footerauthor', 'send2printer', 'footercategories', 'footertimestamp', 'footercomments', 'footertrackbacks', 'altcommtrack', 'show_sticky_entry_footer', 'show_sticky_entry_heading', 'prev_next_style', 'show_pagination'),
+    'THEME_SITENAV'   => array('sitenavpos', 'sitenavstyle', 'sitenav_footer', 'sitenav_quicksearch', 'sitenav_sidebar_title'),
+    'THEME_NAV'       => $navonly
 );

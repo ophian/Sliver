@@ -1,5 +1,5 @@
 <!-- CONTENT START -->
-{if $content_message}
+{if NOT empty($content_message)}
 
         <section id="section_content_alert">
   {if $searchresult_tooShort}
