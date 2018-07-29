@@ -155,7 +155,7 @@
                     </div>
                 {/if}
                 {if $template_option.entryfooterpos == 'splitfoot'}
-                  {if NOT $template_option.footerauthor and !$template_option.footercategories and !$template_option.footertimestamp}
+                  {if NOT $template_option.footerauthor AND NOT $template_option.footercategories AND NOT $template_option.footertimestamp}
                   {else}
 
                     <div class='serendipity_entryFooter byline'>

@@ -59,7 +59,7 @@
             {if $res}
                 <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <b>{$CONST.ERROR}:</b><br> {$res}</span>
             {else}
-                {if isset($lastSavedEntry) && (int)$lastSavedEntry}
+                {if isset($lastSavedEntry) AND (int)$lastSavedEntry}
 
                     <script type="text/javascript">
                         window.onload = function() {ldelim}

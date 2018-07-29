@@ -145,7 +145,7 @@
        // include the top sidebar, if set in admin panels plugin section
        ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       *}
-    {if $is_single_entry !== true && ($view == "entry" || $view == "start" || $view == "archives")}
+    {if $is_single_entry !== true AND ($view == "entry" OR $view == "start" OR $view == "archives")}
     {if $topSidebarElements > 0}
     <nav id="sidebar_top" class="clearfix col">
       {serendipity_printSidebar side="top"}
