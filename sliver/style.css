@@ -1467,7 +1467,7 @@ ul#serendipity_categories_list input {
     margin: 0;
     padding: 0;
     line-height: 1em;
-    display: initial;
+    display: block;
 }
 .serendipity_comment.comment_author_admin,
 .serendipity_comment.serendipity_comment_author_self {
