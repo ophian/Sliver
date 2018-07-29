@@ -1,4 +1,4 @@
-{* Sliver v4 template: last modified 2018-07-27 v.4.52 - view README.md *}{if $is_embedded != true}
+{* Sliver v4 template: last modified 2018-07-29 v.4.55 - view README.md *}{if $is_embedded != true}
 <!DOCTYPE html>
 <html class="no-js" lang="{$lang}">
   <head>
@@ -151,6 +151,10 @@
       {serendipity_printSidebar side="top"}
     </nav><!-- // "id:#sidebar_top" end -->
     {/if}
+    {/if}
+    {if $template_option.layouttype != '1col' AND $middleSidebarElements < 1}
+
+    <div id="ham"><input class="burger-check" id="burger-check" type="checkbox" aria-controls="sidebar_left"><label for="burger-check" class="burger"></label></div>
     {/if}
 
     {*

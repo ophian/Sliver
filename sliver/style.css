@@ -24,7 +24,6 @@ html {
  * https://stackoverflow.com/a/16982510/7133471
  *
  * Customize the background color to match your design.
- */
 
 ::-moz-selection {
     background: #b3d4fc;
@@ -35,6 +34,7 @@ html {
     background: #b3d4fc;
     text-shadow: none;
 }
+ */
 
 /*
  * A better looking default horizontal rule
@@ -943,8 +943,8 @@ img.serendipity_entryIcon {
 div.serendipitySideBarItem, .serendipitySideBarItem {
     border: 0 none;
     border-bottom: 1px solid #EFEFEF;
-    margin: 0.5em;
-    padding-bottom: 30px;
+    margin: 0.5rem;
+    padding-bottom: 1.5rem;
 }
 .serendipitySideBarTitle {
     margin: 0;
@@ -1808,12 +1808,210 @@ section#blog {
     box-shadow: 1px 2px 3px #606E9F; /* giving a tad more contrast in blue for the main content area until downsized to fit screen */
     display: table-cell;
 }
-#blog.onebar-right {
-    max-width: 81%;
+
+
+@media screen and (max-width: 767px) {
+  #sidebar-toggle {
+    display: inline-flex;
+  }
+  #serendipity_banner {
+    display: inline-table;
+  }
+  a#sidebar_left:target,
+  #sidebar_right.oneside,
+  #sidebar_left.oneside {
+    position: absolute;
+    /* This transform moves the drawer off canvas. */
+    -webkit-transform: translate(-1000px, 0);
+    transform: translate(-1000px, 0);
+    /* Optionally, we animate the drawer. */
+    transition: transform 0.3s ease;
+    display: inline-table;
+    margin-left: -300px;
+  }
+
+  #ham {
+    z-index: 100;
+    top: 2rem;
+    right: 1rem;
+    background: #FEFEFE;
+    padding: 1.25rem 0.25rem 0 0.25rem;
+    border: 1px solid #DDD;
+     -moz-box-shadow: 3px 0 12px rgba(0,0,0,.25);
+    -webkit-box-shadow: 3px 0 12px rgba(0,0,0,.25);
+    box-shadow: 3px 0 12px rgba(0,0,0,.25);
+  }
+  #ham .burger {
+    display: inline-block;
+    background: none;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    cursor: pointer;
+    border-bottom: 4px solid currentColor;
+    width: 28px;
+    z-index: 100;
+    transition: border-bottom 1s ease-in-out;
+    -webkit-transition: border-bottom 1s ease-in-out;
+  }
+  #ham .burger::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+  #ham .burger:before {
+    content: "";
+    display: block;
+    border-bottom: 4px solid currentColor;
+    width: 100%;
+    margin-bottom: 5px;
+    transition: -webkit-transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+    -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  }
+  #ham .burger:after {
+    content: "";
+    display: block;
+    border-bottom: 4px solid currentColor;
+    width: 100%;
+    margin-bottom: 5px;
+    transition: -webkit-transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+    -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  }
+
+  #ham .burger-check {
+    display: none;
+    z-index: 0;
+  }
+
+  #ham .burger-check:checked ~ #ham .burger {
+    border-bottom: 4px solid transparent;
+    transition: border-bottom 0.8s ease-in-out;
+    -webkit-transition: border-bottom 0.8s ease-in-out;
+   }
+  #ham .burger-check:checked ~ #ham .burger:before {
+    transform: rotate(-405deg) translateY(1px) translateX(-3px);
+    -webkit-transform: rotate(-405deg) translateY(1px) translateX(-3px);
+    transition: -webkit-transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+    -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  }
+  #ham .burger-check:checked ~ #ham .burger:after {
+    transform: rotate(405deg) translateY(-4px) translateX(-5px);
+    -webkit-transform: rotate(405deg) translateY(-4px) translateX(-5px);
+    transition: -webkit-transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+    -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  }
+
+  #sidebar_right.oneside,
+  #sidebar_left.oneside {
+    overflow: auto;
+    max-height: 0%;
+    transition: max-height 0.5s ease-in-out;
+  }
+
+  #sidebar_right.oneside.open,
+  #sidebar_left.oneside.open {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    z-index: 10;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin-left: -1%;
+    transition: max-height 0.5s ease-in-out;
+    max-height: 100%;
+    outline: none;
+    display: block;
+    -moz-box-shadow: 3px 0 12px rgba(0,0,0,.25);
+    -webkit-box-shadow: 3px 0 12px rgba(0,0,0,.25);
+    box-shadow: 3px 0 12px rgba(0,0,0,.25);
+  }
+  #sidebar_right.open .serendipitySideBarItem ul li {
+    float: inherit;
+  }
+  @supports (position: fixed) {
+    #ham,
+    #sidebar_right.oneside.open,
+    #sidebar_left.oneside.open {
+      position: fixed;
+    }
+  }
+  #ham.hidden {
+    display: none;
+    visibility: hidden;
+  }
 }
+
+.active_nav #main_menu {
+    box-shadow: 1px 1px 4px rgba(0,0,0,.5);
+    left: 0;
+    z-index: 10;
+}
+
+#blog.onebar-right,
 #blog.onebar-left {
-    max-width: 81%;
+    max-width: 100%;
+    float: left;
 }
+@media screen and (min-width: 768px) {
+  #burger-check,
+  #sidebar-toggle {
+    display: none;
+    visibility: hidden;
+  }
+  #sidebar_right.oneside,
+  #sidebar_left.oneside {
+     display: table-cell;
+  }
+  #blog.onebar-right,
+  #blog.onebar-left {
+    max-width: 71%;
+    width: inherit;
+  }
+}
+@media screen and (min-width: 900px) {
+  #blog.onebar-right,
+  #blog.onebar-left {
+    max-width: 74%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #blog.onebar-right,
+  #blog.onebar-left {
+    max-width: 77%;
+  }
+}
+@media screen and (min-width: 1084px) {
+  #blog.onebar-right,
+  #blog.onebar-left {
+    max-width: 78%;
+  }
+}
+@media screen and (min-width: 1124px) {
+  #blog.onebar-right,
+  #blog.onebar-left {
+    max-width: 79%;
+  }
+}
+@media screen and (min-width: 1184px) {
+  #blog.onebar-right,
+  #blog.onebar-left {
+    max-width: 80%;
+  }
+}
+@media screen and (min-width: 1264px) {
+  #blog.onebar-right,
+  #blog.onebar-left {
+    max-width: 81%;
+  }
+}
+
 #blog.twobar-right {
     max-width: 66%;
     min-height: 42em;
@@ -1824,7 +2022,7 @@ section#blog {
     margin-left: 1%;
 }
 #blogone {
-    padding: 0 0 16px;
+    padding: 0 1em;
     text-align: left;
     max-width: 100%;
     /* rounded corners */
@@ -1837,14 +2035,14 @@ section#blog {
     -moz-box-shadow: #BBB 0px 0px 3px inset;
     -o-box-shadow: #BBB 0px 0px 3px inset;
     box-shadow: #BBB 0px 0px 3px inset;
-    display: table-cell;
+    display: block;
 }
 
 #sidebar_top, #sidebar_left, #sidebar_middle, #sidebar_right {
     background: rgb(237,237,237); /* Old browsers and standard color no gradient #EDEDED; */
     /* moz syntax: linear-gradient( [<point> || <angle>,]? <stop>, <stop> [, <stop>]* ) */
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
-    /* background: url(data:image/svg+xml moved into sidebar_top only - it does not make sence in dynamic height sidebars! */
+    /* background: url(data:image/svg+xml moved into sidebar_top only - it does not make sense in dynamic height sidebars! */
     background: -moz-linear-gradient(top,  rgba(237,237,237,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(237,237,237,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
@@ -2103,7 +2301,13 @@ section#blog {
 a.node:link, a.node:visited, a.node:hover,
 a.folder:link, a.folder:visited, a.folder:hover {
     background: transparent none;
-    color: #333 !important;
+    color: #333;
+}
+/**/
+.dTreeNode { width: max-content; }
+#oneblog .dTreeNode a {
+    color: #FFF;
+    padding-left: .5em;
 }
 /* recententries sidebar date list */
 .serendipity_recententries_entrydate {

@@ -1,5 +1,5 @@
-/* Author:
-    Sliver v.4 main.js
+/* Author: Ian
+   Sliver v.4.55 main.js
 */
 
 /* Check if selector is after or before another certain selector */
@@ -9,6 +9,7 @@ $.fn.isAfter = function(sel){
 $.fn.isBefore= function(sel){
   return this.nextAll(sel).length !== 0;
 }
+
 $(function () {
     $(window).on("resize", function () {
         var windowsize = $(this).width();
@@ -23,13 +24,13 @@ $(function () {
                 $('#sidebar_middle.sbjs').removeClass('sbm_right sbjs').addClass('sbm_left');
             }
             if ($('#blog').hasClass('twobar-left') && ($('#blog.twobar-left').isBefore('#sidebar_left') || $('#blog.twobar-left').isBefore('#sidebar_middle'))) {
-                $('#blog.twobar-left').insertAfter('#sidebar_left').insertAfter('#sidebar_middle'); // insert twice, since we dont know if both sidebars were set
+                $('#blog.twobar-left').insertAfter('#sidebar_left').insertAfter('#sidebar_middle'); // insert twice, since we don't know if both sidebars were set
 
             }
         }
         if (windowsize <= 1200) {
             if ($('#blog').hasClass('twobar-left') && ($('#blog.twobar-left').isAfter('#sidebar_left') || $('#blog.twobar-left').isAfter('#sidebar_middle'))) {
-                $('#blog').removeClass('twobar-left').addClass('twobar-right sbjs').insertBefore('#sidebar_middle').insertBefore('#sidebar_left'); // insert twice, since we dont know if both sidebars were set
+                $('#blog').removeClass('twobar-left').addClass('twobar-right sbjs').insertBefore('#sidebar_middle').insertBefore('#sidebar_left'); // insert twice, since we don't know if both sidebars were set
                 //console.log('check resize 1200');
                 $('#sidebar_left').attr('sidebar_left','sidebar_right').addClass('sbmoveright');
             }
@@ -63,3 +64,11 @@ $(function() {
         // it exists
     }
 });
+
+$(function() {
+    $('.burger').click(function () {
+        $('#sidebar_left').toggleClass('open');
+        $('#sidebar_right').toggleClass('open');
+    });
+});
+
