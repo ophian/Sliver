@@ -354,8 +354,6 @@
           </section><!-- // "id:#section_entry_author" end -->
         </article><!-- // "id:#article_dategroup_entry" end -->
 
-        {if NOT $is_single_entry AND NOT $is_preview}
-
         <!--
         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
@@ -367,6 +365,8 @@
                  dc:identifier="{$entry.rdf_ident}">
         </rdf:RDF>
         -->
+
+        {if $is_single_entry AND NOT $is_preview}
 
         <footer id="footer_dategroup_entry">
         {$entry.plugin_display_dat}
