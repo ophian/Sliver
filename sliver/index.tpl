@@ -367,7 +367,7 @@
   </script>
 {/if}
 
-{if $tagcanvasrotate === true}
+{if isset($tagcanvasrotate) AND $tagcanvasrotate === true}
 
   <script>
     // using rotating tags canvas
@@ -381,7 +381,7 @@
     });
   </script>
 {/if}
-{if $tagcanvascloud === true}
+{if isset($tagcanvascloud) AND $tagcanvascloud === true}
 
   <script>
     // using awesome tags canvas wordcloud

@@ -33,7 +33,7 @@
                         {/if}
 
                     </span>
-                    <time class="comment-date" datetime="{$comment.timestamp|serendipity_html5time}">{if $template_option.comment_time_format == 'time'}{$comment.timestamp|formatTime:'%b %e. %Y'} {$CONST.AT} {$comment.timestamp|formatTime:'%I:%M %p'}{/if}</time>
+                    <time class="comment-date" datetime="{$comment.timestamp|serendipity_html5time}">{if isset($template_option.comment_time_format) AND $template_option.comment_time_format == 'time'}{$comment.timestamp|formatTime:'%b %e. %Y'} {$CONST.AT} {$comment.timestamp|formatTime:'%I:%M %p'}{/if}</time>
                 </h5>
                 <div class="comment-content{if $comment.type == 'PINGBACK'} ping{/if}">
                     {if $comment.body == 'COMMENT_DELETED'}
