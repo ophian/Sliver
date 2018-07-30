@@ -541,7 +541,7 @@
              <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}">{$CONST.NEXT_PAGE} &#187;</a>
         {/if}
     {/if}
-    {if $template_option.show_pagination && $footer_totalPages > 1}
+    {if $template_option.show_pagination AND $footer_totalPages > 1}
 
         <div class="pagination">
             {assign var="paginationStartPage" value="`$footer_currentPage-3`"}
