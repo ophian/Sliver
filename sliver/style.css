@@ -943,8 +943,8 @@ img.serendipity_entryIcon {
 div.serendipitySideBarItem, .serendipitySideBarItem {
     border: 0 none;
     border-bottom: 1px solid #EFEFEF;
-    margin: 0.5rem;
-    padding-bottom: 1.5rem;
+    margin: 5px 5px 20px;
+    margin: 0.3125rem 0.3125rem 1.25rem;
 }
 .serendipitySideBarTitle {
     margin: 0;
