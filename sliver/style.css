@@ -2092,7 +2092,7 @@ section#blog {
     min-width: 5rem;
 }
 #sidebar_top .serendipitySideBarItem.container_serendipity_plugin_freetag {
-    display: inline-table;
+    display: inline-block;
     min-width: 60%;
     width: auto;
     max-width: 100%;
