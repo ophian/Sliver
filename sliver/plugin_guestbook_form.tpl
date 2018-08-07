@@ -1,4 +1,4 @@
-{* plugin_guestbook_form.tpl v.3.27 - 2012-04-28 ian sliver template *}
+{* plugin_guestbook_form.tpl v.3.28 - 2018-08-07 Ian sliver template *}
 
     <!-- Needed for Captchas -->
     {foreach $plugin_guestbook_messagestack AS $message}
@@ -40,7 +40,7 @@
         </div>
 
         <div id="directions">
-             <div class="serendipity_commentDirection">{$plugin_guestbook_captcha}</div>
+             <div class="serendipity_commentDirection">{$plugin_guestbook_captcha|default:''}</div>
         </div>
 
         <div class="input-buttons">

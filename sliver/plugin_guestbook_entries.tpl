@@ -1,4 +1,4 @@
-{* plugin_guestbook_entries.tpl v.3.40 - 2013-08-21 Ian Sliver template *}
+{* plugin_guestbook_entries.tpl v.3.41 - 2013-08-07 Ian Sliver template *}
 
 {if $plugin_guestbook_articleformat}
   <div class="serendipity_Entry_Date serendipity_guestbook">
@@ -8,13 +8,13 @@
       <div class="serendipity_entry_body">
 {/if}
 
-        <div id='guestbook_wrapper'>
+        <div id="guestbook_wrapper">
 
           <div class="clearfix">
 
             <div class="entry-info">
-              {if !$plugin_guestbook_articleformat}<h2 class="page-title">{$staticpage_headline}</h1>{/if}
-              {if !$is_contactform_sent and $plugin_guestbook_intro}
+              {if NOT $plugin_guestbook_articleformat}<h2 class="page-title">{$staticpage_headline}</h1>{/if}
+              {if empty($is_contactform_sent) and $plugin_guestbook_intro}
 
               <div id="preface" class="preface guestbook_intro">{$plugin_guestbook_intro}</div>
               {/if}
@@ -24,7 +24,7 @@
             {if $staticpage_formorder == 'top'}{$GUESTBOOK_FORM}{/if}
 
             <div class="entry-body">
-            {if $is_guestbook_message}
+            {if NOT empty($is_guestbook_message)}
               <p class="serendipity_center serendipity_msg_important guestbook_errorbundled">{$error_occured}</p>
               {if $guestbook_messages}
                 <ul>
