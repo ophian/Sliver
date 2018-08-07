@@ -10,7 +10,7 @@
     <div class="clearfix">
         <div class="entry-info">
             <h1 class="page-title" class="entry-title">{$plugin_contactform_pagetitle}</h1>
-            {if !$is_contactform_sent}
+            {if empty($is_contactform_sent)}
 
             <div id="preface" class="preface">{$plugin_contactform_preface}</div>
             {/if}
@@ -18,11 +18,11 @@
         </div>
 
         <div class="entry-body">
-        {if $is_contactform_sent}
+        {if NOT empty($is_contactform_sent)}
 
             <a name="feedback"></a><p class="serendipity_center serendipity_msg_notice">{$plugin_contactform_sent}</p>
         {else}
-            {if $is_contactform_error}
+            {if NOT empty($is_contactform_error)}
 
             <p class="serendipity_center serendipity_msg_important">{$plugin_contactform_error}</p>
 
@@ -44,22 +44,22 @@
                     </div>
 
                     <div class="input-text">
-                        <label for="serendipity_commentform_name">{$CONST.NAME}{if $required_fields.name} &lowast;{/if}</label>
+                        <label for="serendipity_commentform_name">{$CONST.NAME}{if NOT empty($required_fields.name)} &lowast;{/if}</label>
                         <input type="text" size="30" value="{$commentform_name}" name="serendipity[name]" id="serendipity_commentform_name">
                     </div>
 
                     <div class="input-text">
-                        <label for="serendipity_commentform_email">{$CONST.EMAIL}{if $required_fields.email} &lowast;{/if}</label>
+                        <label for="serendipity_commentform_email">{$CONST.EMAIL}{if NOT empty($required_fields.email)} &lowast;{/if}</label>
                         <input type="text" size="30" value="{$commentform_email}" name="serendipity[email]" id="serendipity_commentform_email">
                     </div>
 
                     <div class="input-text">
-                        <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}{if $required_fields.url} &lowast;{/if}</label>
+                        <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}{if NOT empty($required_fields.url)} &lowast;{/if}</label>
                         <input type="text" size="30" value="{$commentform_url}" name="serendipity[url]" id="serendipity_commentform_url">
                     </div>
 
                     <div class="input-textarea">
-                        <label for="serendipity_commentform_comment">{$plugin_contactform_message}{if $required_fields.comment} &lowast;{/if}</label>
+                        <label for="serendipity_commentform_comment">{$plugin_contactform_message}{if NOT empty($required_fields.comment)} &lowast;{/if}</label>
                         <textarea name="serendipity[comment]" id="serendipity_commentform_comment" cols="40" rows="10">{$commentform_data}</textarea>
                     </div>
 

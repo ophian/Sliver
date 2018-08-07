@@ -7,7 +7,7 @@
             <div class="serendipity_entry_body">
 {/if}
 
-{if $is_contactform_error}
+{if NOT empty($is_contactform_error)}
 
     <div class="serendipity_center serendipity_msg_important">{$plugin_contactform_error}</div>
     <!-- Needed for Captchas -->
@@ -16,11 +16,11 @@
         <div class="serendipity_center serendipity_msg_important">{$message}</div>
     {/foreach}
 {/if}
-{if (empty($is_contactform_sent))}
+{if empty($is_contactform_sent)}
 
     <div>{$plugin_contactform_preface}</div>
 {/if}
-{if $is_contactform_sent}
+{if NOT empty($is_contactform_sent)}
 
     <div class="serendipity_center serendipity_msg_notice">{$plugin_contactform_sent}</div>
 {else}
@@ -51,7 +51,7 @@
                     {if $field.type != "hidden"}
 
                         <dt class="serendipity_commentsLabel">
-                           {if $field.required}<sup>*</sup>{/if}<label for="serendipity_commentform_{$field.id}">{$field.name}</label>
+                           {if $field.required}<sup>&#8727;</sup>{/if}<label for="serendipity_commentform_{$field.id}">{$field.name}</label>
                         </dt>
                         <dd class="serendipity_commentsValue">
                             {if $field.type == "checkbox"}
@@ -76,7 +76,7 @@
                                 <input class="frm" type="password" id="serendipity_commentform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" size="30">
                             {elseif $field.type == "textarea"}
 
-                                <textarea class="frm" rows="10" cols="40" id="serendipity_commentform_{$field.id}" name="serendipity[{$field.id}]">{$field.default}</textarea>
+                                <textarea class="frm" rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[{$field.id}]">{$field.default}</textarea>
                             {else}
 
                                 <input class="frm" type="text" id="serendipity_commentform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" size="30">
