@@ -2,7 +2,7 @@
 {if $plugin_contactform_articleformat}
 
     <div class="serendipity_Entry_Date">
-    {if !$plugin_contactform_pagetitle}  <h3 class="serendipity_date">{$plugin_contactform_name}</h3>{/if}
+    {if NOT empty($plugin_contactform_pagetitle)}  <h3 class="serendipity_date">{$plugin_contactform_name}</h3>{/if}
         <div class="serendipity_entry">
             <div class="serendipity_entry_body">
 {/if}

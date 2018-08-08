@@ -1,11 +1,11 @@
-{* Sliver v4 template: last modified 2018-07-29 v.4.55 - view README.md *}{if $is_embedded != true}
+{* Sliver v4 template: last modified 2018-08-08 v.4.56 - view README.md *}{if $is_embedded != true}
 <!DOCTYPE html>
 <html class="no-js" lang="{$lang}">
   <head>
     <meta charset="{$head_charset}">
     <meta name="generator" content="Serendipity Styx Edition">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-{if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR NOT empty($staticpage_pagetitle) OR (isset($robots_index) AND $robots_index == 'index')}
+{if (isset($view) AND in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin'])) OR NOT empty($staticpage_pagetitle) OR (isset($robots_index) AND $robots_index == 'index')}
 
     <meta name="robots" content="index,follow">
 {else}
@@ -47,7 +47,7 @@
 
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic">
 {/if}
-{if $view == 'entry'}
+{if isset($view) AND $view == 'entry'}
 
     <link rel="canonical" href="{$entry.rdf_ident}">
 {/if}
@@ -59,7 +59,7 @@
 
     <link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}">
 {/if}
-{if in_array($view, ['start', 'entries'])}
+{if isset($view) AND in_array($view, ['start', 'entries'])}
 
     <link rel="canonical" href="{$serendipityBaseURL}">
 {/if}
@@ -114,7 +114,7 @@
       {* #serendipity_banner: this is the header area. it holds the blog title and description headlines *}
       <hgroup id="serendipity_banner">
         <h1><span class="{if NOT $template_option.firbtitle}in{/if}visible"><a class="homelink1" href="{$serendipityBaseURL}">{$head_title|default:$blogTitle|truncate:80:"&hellip;"}</a></span></h1>
-        <h2><span class="{if NOT $template_option.firbdescr}in{/if}visible"><a class="homelink2" href="{$serendipityBaseURL}">{$head_subtitle|default:$blogDescription}</a></span> [{$view}]</h2>
+        <h2><span class="{if NOT $template_option.firbdescr}in{/if}visible"><a class="homelink2" href="{$serendipityBaseURL}">{$head_subtitle|default:$blogDescription}</a></span> [{$view|default:''}]</h2>
       </hgroup>
     </header>
       {if $template_option.sitenavpos == 'below'}
@@ -145,7 +145,7 @@
        // include the top sidebar, if set in admin panels plugin section
        ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       *}
-    {if $is_single_entry !== true AND ($view == "entry" OR $view == "start" OR $view == "archives")}
+    {if $is_single_entry !== true AND (isset($view) AND in_array($view, ['entry', 'start', 'archives']))}
     {if $topSidebarElements > 0}
     <nav id="sidebar_top" class="clearfix col">
       {serendipity_printSidebar side="top"}

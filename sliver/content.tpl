@@ -2,37 +2,37 @@
 {if NOT empty($content_message)}
 
         <section id="section_content_alert">
-  {if $searchresult_tooShort}
+  {if !empty($searchresult_tooShort)}
 
           <div id="search_results_nav" class="serendipity_Entry_Date results_navigation">
             <h3 class="serendipity_date">{$CONST.QUICKSEARCH}</h3>
             <div class="serendipity_search serendipity_search_tooshort">{$content_message}</div>
           </div>
-  {elseif $searchresult_error}
+  {elseif !empty($searchresult_error)}
 
           <div id="search_results_nav" class="serendipity_Entry_Date results_navigation">
             <h3 class="serendipity_date">{$CONST.QUICKSEARCH}</h3>
             <div class="serendipity_search serendipity_search_error">{$content_message}</div>
           </div>
-  {elseif $searchresult_noEntries}
+  {elseif !empty($searchresult_noEntries)}
 
           <div id="search_results_nav" class="serendipity_Entry_Date results_navigation">
             <h3 class="serendipity_date">{$CONST.QUICKSEARCH}</h3>
             <div class="serendipity_search serendipity_search_noentries">{$content_message|replace:'"':''}</div>
           </div>
-  {elseif $searchresult_results}
+  {elseif !empty($searchresult_results)}
 
           <div id="search_results_nav" class="serendipity_Entry_Date results_navigation">
             <h3 class="serendipity_date">{$CONST.QUICKSEARCH}</h3>
             <div class="serendipity_search serendipity_search_results">{$content_message|replace:'"':''}</div>
           </div>
-  {elseif $subscribe_confirm_error}
+  {elseif !empty($subscribe_confirm_error)}
 
           <div class="serendipity_Entry_Date">
             <h3 class="serendipity_date">{$CONST.ERROR}</h3>
             <div class="serendipity_msg_important comment_subscribe_error">{$content_message}</div>
           </div>
-  {elseif $subscribe_confirm_success}
+  {elseif !empty($subscribe_confirm_success)}
 
           <div class="serendipity_Entry_Date">
             <h3 class="serendipity_date">{$CONST.SUCCESS}</h3>

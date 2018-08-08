@@ -22,7 +22,7 @@
 
 </section><!-- // "id:#section_hookPlugin_entries" end -->
 {/if}
-{if ($view == 'archives' AND isset($head_subtitle) AND NOT empty($archives_summary_page)) OR ($view == 'frontpage')}
+{if isset($view) AND (($view == 'archives' AND isset($head_subtitle) AND NOT empty($archives_summary_page)) OR ($view == 'frontpage'))}
 
     <div id="archives_nav" class="archives_index_navigation">
         <ul class="archives_index">
@@ -30,7 +30,7 @@
         </ul>
     </div>
 {/if}
-{if $view == 'categories'}
+{if isset($view) AND $view == 'categories'}
 
     <div id="categories_nav" class="categories_index_navigation">
         <ul class="categories_index">
@@ -366,7 +366,7 @@
         </rdf:RDF>
         -->
 
-        {if $is_single_entry AND NOT $is_preview}
+    {if $is_single_entry AND NOT $is_preview}
 
         <footer id="footer_dategroup_entry">
         {$entry.plugin_display_dat}
@@ -490,8 +490,9 @@
     </article><!-- // "id:#article_dategroup_entries" end -->
 </section><!-- // "id:#section_dategroup_entries" end -->
 
-{foreachelse}
-{if NOT $plugin_clean_page AND $view != '404'}
+{/foreach}
+{else}
+    {if NOT $plugin_clean_page AND isset($view) AND $view != '404'}
 
 <section id="section_noentries">
   <div class="serendipity_overview_noentries">
@@ -499,13 +500,12 @@
 
   </div>
 </section>
-{/if}
-{/foreach}
+    {/if}
 {/if}
 
 {/if}{* not taglist end *}
 
-{if NOT $is_single_entry AND NOT $is_preview AND NOT $startpage AND $view != 'plugin' AND isset($footer_totalPages) AND $footer_totalPages > 1}
+{if NOT $is_single_entry AND NOT $is_preview AND empty($startpage) AND isset($view) AND $view != 'plugin' AND isset($footer_totalPages) AND $footer_totalPages > 1}
 {if NOT empty($taglist)}{* this is for case taglist 100+ entries *}
     {if $footer_prev_page}{assign var="footer_prev_page" value=$footer_prev_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
     {if $footer_next_page}{assign var="footer_next_page" value=$footer_next_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
@@ -525,7 +525,7 @@
             <a title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}">&#171; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
         {/if}
     {/if}
-    {if $footer_info}
+    {if NOT empty($footer_info)}
 
         ({$footer_info})
     {/if}
