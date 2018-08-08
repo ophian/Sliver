@@ -86,3 +86,9 @@
 @define('SITENAV_STYLE_BLAHBLAH', 'Simple = use slim and easy CSS style (id:#nav). - Extended = use extended style with CSS3 technics (id:#sitenav-extended).');
 @define('SITENAV_SLIM', 'simple');
 @define('SITENAV_EXTENDED', 'extended');
+/* Config groups */
+@define('THEME_WELCOME', 'Welcome');
+@define('THEME_LAYOUT', 'Layout related');
+@define('THEME_ENTRIES', 'Entries related');
+@define('THEME_SITENAV', 'Navigation');
+@define('THEME_NAV', 'Navigation entries');

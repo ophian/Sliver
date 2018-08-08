@@ -273,6 +273,7 @@ $serendipity['smarty']->assignByRef('middleSidebarElements', $middleSidebarEleme
 $serendipity['smarty']->assignByRef('footerSidebarElements', $footerSidebarElements);
 
 $top = isset($serendipity['smarty_vars']['template_option']) ? $serendipity['smarty_vars']['template_option'] : '';
+#$template_config_groups = NULL;
 $template_global_config = array('navigation' => true);
 $template_loaded_config = serendipity_loadThemeOptions($template_config, $top, true);
 $serendipity['template_loaded_config'][$serendipity['template']] = $template_loaded_config; // copy into global scope for extended plugin API usage
@@ -289,9 +290,9 @@ asort($navonly);
 sort($navonly);
 
 $template_config_groups = array(
-    'THEME_WELCOME'   => array('about'),
-    'THEME_LAYOUT'    => array('sidebars', 'webfonts', 'use_slivers_jQueryMin', 'use_google_analytics', 'google_id', 'layouttype', 'firbtitle', 'firbdescr'),
-    'THEME_ENTRIES'   => array('date_format', 'entryfooterpos', 'footerauthor', 'send2printer', 'footercategories', 'footertimestamp', 'footercomments', 'footertrackbacks', 'altcommtrack', 'show_sticky_entry_footer', 'show_sticky_entry_heading', 'prev_next_style', 'show_pagination'),
-    'THEME_SITENAV'   => array('sitenavpos', 'sitenavstyle', 'sitenav_footer', 'sitenav_quicksearch', 'sitenav_sidebar_title'),
-    'THEME_NAV'       => $navonly
+    THEME_WELCOME   => array('about'),
+    THEME_LAYOUT    => array('sidebars', 'webfonts', 'use_slivers_jQueryMin', 'use_google_analytics', 'google_id', 'layouttype', 'firbtitle', 'firbdescr'),
+    THEME_ENTRIES   => array('date_format', 'entryfooterpos', 'footerauthor', 'send2printer', 'footercategories', 'footertimestamp', 'footercomments', 'footertrackbacks', 'altcommtrack', 'show_sticky_entry_footer', 'show_sticky_entry_heading', 'prev_next_style', 'show_pagination'),
+    THEME_SITENAV   => array('sitenavpos', 'sitenavstyle', 'sitenav_footer', 'sitenav_quicksearch', 'sitenav_sidebar_title'),
+    THEME_NAV       => $navonly
 );
