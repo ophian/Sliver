@@ -35,13 +35,13 @@
                     </span>
                     <time class="comment-date" datetime="{$comment.timestamp|serendipity_html5time}">{if isset($template_option.comment_time_format) AND $template_option.comment_time_format == 'time'}{$comment.timestamp|formatTime:'%b %e. %Y'} {$CONST.AT} {$comment.timestamp|formatTime:'%I:%M %p'}{/if}</time>
                 </h5>
-                <div class="comment-content{if $comment.type == 'PINGBACK'} ping{/if}">
+                <div class="comment-content{if isset($comment.type) AND $comment.type == 'PINGBACK'} ping{/if}">
                     {if $comment.body == 'COMMENT_DELETED'}
 
                         {$CONST.COMMENT_IS_DELETED}
                     {else}
 
-                        {if isset($comment.type) AND $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{if $comment.type == 'PINGBACK'}[PingBack]{else}{$comment.body}{/if}{/if}
+                        {if isset($comment.type) AND $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{if isset($comment.type) AND $comment.type == 'PINGBACK'}[PingBack]{else}{$comment.body}{/if}{/if}
                     {/if}
 
                 </div>
