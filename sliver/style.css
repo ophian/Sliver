@@ -2450,7 +2450,8 @@ pre {
     overflow: auto;
     padding: .8em;
     min-width: 20rem;
-    display: inline-block;
+    width: auto;
+    display: block;
 }
 /* We do not want IE to word-wrap: break-word here, as intended in style.css.
    But we don't want to have these right scrollbar either, if a pre's content is wider than set.
