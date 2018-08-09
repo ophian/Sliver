@@ -1,5 +1,5 @@
 <?php
-// Sliver template v.4.55 2018-07-29
+// Sliver template v.4.56 2018-08-09
 /*
  Sidebars left, Sidebars right, no Sidebars via templates config.
  Additional middle, top, footer Sidebars via admin panel plugin section.
@@ -16,7 +16,7 @@ if (IN_serendipity !== true) {
 
 $serendipity['smarty']->assign(array('currpage' => "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
                                      'currpage2'=> $_SERVER['REQUEST_URI'],
-                                     'sliver_credit' => 'Sliver &copy; 2018, v4.55'));
+                                     'sliver_credit' => 'Sliver &copy; 2018, v4.56'));
 
 /*************************************************************************/
 /* Staticpage related article by freetags.
@@ -80,7 +80,7 @@ $template_config = array(
     array(
         'var'           => 'use_slivers_codeprettifier',
         'name'          => SLIVERS_PRETTIFY,
-        'description'   => SLIVERS_PRETTIFY_BLAHBLAH,
+        'description'   => sprintf(SLIVERS_PRETTIFY_BLAHBLAH, '<pre class="prettyprint lang-scm">(friends \'of \'(parentheses))</pre>'),
         'type'          => 'boolean',
         'default'       => true
     ),
@@ -273,26 +273,21 @@ $serendipity['smarty']->assignByRef('middleSidebarElements', $middleSidebarEleme
 $serendipity['smarty']->assignByRef('footerSidebarElements', $footerSidebarElements);
 
 $top = isset($serendipity['smarty_vars']['template_option']) ? $serendipity['smarty_vars']['template_option'] : '';
-#$template_config_groups = NULL;
+$template_config_groups = NULL;
 $template_global_config = array('navigation' => true);
 $template_loaded_config = serendipity_loadThemeOptions($template_config, $top, true);
 $serendipity['template_loaded_config'][$serendipity['template']] = $template_loaded_config; // copy into global scope for extended plugin API usage
 serendipity_loadGlobalThemeOptions($template_config, $template_loaded_config, $template_global_config); // since $template_loaded_config can somehow not be loaded global
 
-foreach($template_loaded_config AS $key=>$value) {
-    if (preg_match('#^(amount)#', $key, $matches)===1 || preg_match('#^(navlink+)#', $key, $matches)===1) {
-        $navonly[] = $key; // if key has sublink follow until end, then proceed
-    }
+$navlinks = array( 'use_corenav', 'amount');
+for ($i = 0; $i < $template_loaded_config['amount']; $i++) {
+    array_push($navlinks, 'navlink' . $i . 'text' ,'navlink' . $i . 'url');
 }
-// sort by amount and navlink[digit]
-asort($navonly);
-// asorted Elements will be arranged from lowest to highest with new keys
-sort($navonly);
 
 $template_config_groups = array(
     THEME_WELCOME   => array('about'),
-    THEME_LAYOUT    => array('sidebars', 'webfonts', 'use_slivers_jQueryMin', 'use_google_analytics', 'google_id', 'layouttype', 'firbtitle', 'firbdescr'),
+    THEME_LAYOUT    => array('sidebars', 'webfonts', 'use_slivers_jQueryMin', 'use_slivers_codeprettifier', 'use_google_analytics', 'google_id', 'layouttype', 'firbtitle', 'firbdescr'),
     THEME_ENTRIES   => array('date_format', 'entryfooterpos', 'footerauthor', 'send2printer', 'footercategories', 'footertimestamp', 'footercomments', 'footertrackbacks', 'altcommtrack', 'show_sticky_entry_footer', 'show_sticky_entry_heading', 'prev_next_style', 'show_pagination'),
     THEME_SITENAV   => array('sitenavpos', 'sitenavstyle', 'sitenav_footer', 'sitenav_quicksearch', 'sitenav_sidebar_title'),
-    THEME_NAV       => $navonly
+    THEME_NAV       => $navlinks
 );

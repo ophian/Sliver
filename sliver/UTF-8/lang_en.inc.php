@@ -48,15 +48,17 @@
 @define('USE_FOOTER_TEXT', 'Integrate footer text');
 // jquery support
 @define('SLIVERS_JQUERY', 'Use Slivers jQuery?');
-@define('SLIVERS_JQUERY_BLAHBLAH', 'Includes slivers und ajax.googleapis.com jquery.min.js into the index.tpl');
+@define('SLIVERS_JQUERY_BLAHBLAH', 'Includes slivers and/or ajax.googleapis.com jquery.min.js in index.tpl');
 // code prettify support
 @define('SLIVERS_PRETTIFY', 'Use Slivers Code Prettify?');
-@define('SLIVERS_PRETTIFY_BLAHBLAH', 'Includes local prettify.js file (minified origin Google Code). Use with "&lt;pre class="prettyprint lang-scm"&gt;(friends \'of \'(parentheses))&lt;/pre&gt;"');
+@define('SLIVERS_PRETTIFY_BLAHBLAH', 'Includes local prettify.js file (minified origin Google Code). Use with "%s"');
 // google analytics support
 @define('GOOGLE_ANALYTICS', 'Use Google analytics?');
 @define('GOOGLE_ANALYTICS_BLAHBLAH', 'Includes google-analytics.com/ga.js into the index.tpl');
 @define('GOOGLE_ANALYTICS_ID', 'Your Google analytics ID');
-//Sitenav
+// Navigation
+@define('USE_CORENAV', 'Use global navigation?');
+// Sitenav
 @define('SITENAV_POSITION', 'Position of the navbar');
 @define('SITENAV_BLAHBLAH', 'Commonly the Static Pages Plugin (serendipity_event_staticpage) is used, to create CMS like navigation pages, which you can link for here.');
 @define('SITENAV_NONE', 'No navbar');
@@ -74,7 +76,7 @@
 
 @define('ARCHIVE_TEXT_INTRO', 'Sliver Templates Archives provides useful ways to find older items. Blog-Entries are divided into <a href="#bycats">Categories</a> (number of entries per cat in brackets) and can also be found by <a href="#bytags">Tags</a> (in frequency of occurrence). Also there is an ordered by <a href="#bydate">Date</a> Archive.');
 @define('ARCHIVE_TEXT_ADD', ''); // disable this empty one to use next
-@define('ARCHIVE_TEXT_ADD', 'There is also the <a href="%spages/xxx.html"> XXX </ a>, where I list grouped articles worth reading from this blog or other pages on selected topics.');
+#@define('ARCHIVE_TEXT_ADD', 'There is also the <a href="%spages/xxx.html"> XXX </ a>, where I list grouped articles worth reading from this blog or other pages on selected topics.');
 @define('ARCHIVE_TEXT_YEARMONTH', 'The Archive pages linked here show a listing of the entries in the respective months.');
 @define('ARCHIVE_TEXT_SUMMARY', 'Archive Overview');
 /* Additional sidebars */
@@ -86,3 +88,10 @@
 @define('SITENAV_STYLE_BLAHBLAH', 'These styles are for navbars above or below banner, not in sidebars. Default = use default CSS with background picture (id:#sitenav). - Simple = use slim and easy CSS style (id:#nav). - Extended = use extended style with CSS3 technics (id:#sitenav-extended).');
 @define('SITENAV_SLIM', 'simple');
 @define('SITENAV_EXTENDED', 'extended');
+/* Config groups */
+@define('THEME_WELCOME', 'Welcome');
+@define('THEME_LAYOUT', 'Layout related');
+@define('THEME_ENTRIES', 'Entries related');
+@define('THEME_SITENAV', 'Navigation');
+@define('THEME_NAV', 'Navigation entries');
+
