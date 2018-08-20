@@ -406,11 +406,11 @@
             {if NOT empty($smarty_entrypaging)}
 
             <div id="entrypaging" class="serendipity_entrypaging">
-            {if $pagination_prev_link}
+            {if NOT empty($pagination_prev_link)}
 
                 <a href="{$pagination_prev_link}" title="{$pagination_prev_title}" class="entrypagination_left"><svg class="icon icon-left-pointer"><use xlink:href="#icon-left-pointer"></use></svg></a>
             {/if}
-            {if $pagination_next_link}
+            {if NOT empty($pagination_next_link)}
 
                 <a href="{$pagination_next_link}" title="{$pagination_next_title}" class="entrypagination_right"><svg class="icon icon-right-pointer"><use xlink:href="#icon-right-pointer"></use></svg></a>
             {/if}
