@@ -2339,9 +2339,8 @@ a.serendipity_image_link:hover {
 /* plugin_categories.tpl, plugin authors container */
 .serendipitySideBarContent form input[type="checkbox"],
 #serendipity_categories_list input[type="checkbox"] {
-    width: auto;
-    vertical-align: text-bottom;
-}
+    vertical-align: middle;
+    margin-right: 0.25em; }
 .serendipitySideBarItem a.serendipity_xml_icon img {
     border: 0 none;
     display: inline;
