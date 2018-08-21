@@ -492,7 +492,7 @@
 
 {/foreach}
 {else}
-    {if NOT $plugin_clean_page AND isset($view) AND $view != '404'}
+    {if empty($plugin_clean_page) AND isset($view) AND $view != '404'}
 
 <section id="section_noentries">
   <div class="serendipity_overview_noentries">
@@ -505,7 +505,7 @@
 
 {/if}{* not taglist end *}
 
-{if NOT $is_single_entry AND NOT $is_preview AND empty($startpage) AND isset($view) AND $view != 'plugin' AND isset($footer_totalPages) AND $footer_totalPages > 1}
+{if empty($is_single_entry) AND empty($is_preview) AND isset($view) AND $view != 'plugin' AND isset($footer_totalPages) AND $footer_totalPages > 1}
 {if NOT empty($taglist)}{* this is for case taglist 100+ entries *}
     {if $footer_prev_page}{assign var="footer_prev_page" value=$footer_prev_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
     {if $footer_next_page}{assign var="footer_next_page" value=$footer_next_page|replace:'/plugin/':'/plugin/taglist/'}{/if}
