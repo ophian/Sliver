@@ -559,7 +559,7 @@ blockquote:lang(de) p:last-child:after { content: '“'; content: close-quote; }
     border-bottom: 2px solid #BBB;
     border-top: 0 none;
     color: #AAA;
-    height: 100%;
+    height: auto;
     margin: 0 auto;
     padding: .8em 0;
     text-align: center;
