@@ -1,5 +1,5 @@
 <?php
-// Sliver template v.4.56 2018-08-09
+// Sliver template v.4.57 2018-08-22
 /*
  Sidebars left, Sidebars right, no Sidebars via templates config.
  Additional middle, top, footer Sidebars via admin panel plugin section.
@@ -16,15 +16,15 @@ if (IN_serendipity !== true) {
 
 $serendipity['smarty']->assign(array('currpage' => "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
                                      'currpage2'=> $_SERVER['REQUEST_URI'],
-                                     'sliver_credit' => 'Sliver &copy; 2018, v4.56'));
+                                     'sliver_credit' => 'Sliver &copy; 2018, v4.57'));
 
 /*************************************************************************/
 /* Staticpage related article by freetags.
    Better use a theme unique name, eg. mytheme_related_articles.tpl*/
 /*************************************************************************/
-function smarty_sliver_show_tags($params, SMARTY_INTERNAL_TEMPLATE &$template) {
+function smarty_sliver_show_tags($params, Smarty_Internal_Template $template) {
     global $serendipity;
-    $o = $serendipity['GET']['tag'];
+    $o = isset($serendipity['GET']['tag']) ? $serendipity['GET']['tag'] : null;
     $serendipity['GET']['tag'] = $params['tag'];
     $e = serendipity_smarty_fetchPrintEntries($params, $template);
     echo $e;
