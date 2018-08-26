@@ -1,20 +1,6 @@
 <!-- ENTRIES START -->
 {capture name="plugin_hook_entries_header" assign="pluginHook_entries"}{serendipity_hookPlugin hook="entries_header" addData=$entry_id}{/capture}
 
-{if NOT empty($smarty_entrypaging) AND $is_single_entry AND NOT $is_preview}
-<svg display="none" width="0" height="0" version="1.1" fill-opacity="1" xmlns:xlink="http://www.w3.org/1999/xlink" color-rendering="auto" color-interpolation="auto" text-rendering="auto" stroke="black" stroke-linecap="square" stroke-miterlimit="10" shape-rendering="auto" stroke-opacity="1" fill="black" stroke-dasharray="none" font-weight="normal" stroke-width="1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<symbol id="icon-left-pointer" viewBox="0 0 340 340">
-	<title>left</title>
-	<path class="path1" d="M133.5938 338.625 L18.4219 277.875 L133.5938 217.125 L133.5938 338.625 Z" stroke="none"></path>
-</symbol>
-<symbol id="icon-right-pointer" viewBox="0 0 340 340">
-	<title>right</title>
-	<path d="M154.4062 277.875 L39.2344 338.625 L39.2344 217.125 L154.4062 277.875 Z" stroke="none"></path>
-</symbol>
-</defs>
-</svg>
-{/if}
 {if NOT empty($pluginHook_entries)}
 
 <section id="section_hookPlugin_entries">
@@ -55,6 +41,18 @@
         </div>
     </article>
 {else}
+
+{if $is_single_entry AND NOT $is_preview AND NOT empty($smarty_entrypaging)}
+    <div id="serendipity_smarty_entrypaging">
+        {if NOT empty($pagination_prev_link)}
+            <div class="smarty_pagination_left"><a href="{$pagination_prev_link}" title="{$pagination_prev_title}"><svg viewbox="0 0 100 100"><path class="arrow" d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" /></svg></a></div>
+        {/if}
+        {if NOT empty($pagination_next_link)}
+            <div class="smarty_pagination_right"><a href="{$pagination_next_link}" title="{$pagination_next_title}"><svg viewbox="0 0 100 100"><path class="arrow" d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" /></svg></a></div>
+        {/if}
+    </div>
+{/if}
+
 {if NOT empty($entries)}{* catch a staticpage startpage which has no $entries array set *}
 {foreach $entries AS $dategroup}{if $is_preview AND $dategroup@index > 0}{break}{/if}
 
@@ -403,20 +401,6 @@
             </div>
         {/if}
         {if $is_single_entry AND NOT $is_preview}
-            {if NOT empty($smarty_entrypaging)}
-
-            <div id="entrypaging" class="serendipity_entrypaging">
-            {if NOT empty($pagination_prev_link)}
-
-                <a href="{$pagination_prev_link}" title="{$pagination_prev_title}" class="entrypagination_left"><svg class="icon icon-left-pointer"><use xlink:href="#icon-left-pointer"></use></svg></a>
-            {/if}
-            {if NOT empty($pagination_next_link)}
-
-                <a href="{$pagination_next_link}" title="{$pagination_next_title}" class="entrypagination_right"><svg class="icon icon-right-pointer"><use xlink:href="#icon-right-pointer"></use></svg></a>
-            {/if}
-
-            </div>
-            {/if}
 
             <div class="serendipity_comments serendipity_section_comments">
                 <a id="comments"></a>

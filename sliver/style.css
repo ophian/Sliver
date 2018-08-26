@@ -1442,42 +1442,14 @@ ul#serendipity_categories_list input {
     text-align: center;
 }
 
-.serendipity_entrypaging:after {
-    clear: both;
-    content: ".";
-    display: block;
-    height: 0;
-    visibility: hidden;
-}
-.serendipity_entrypaging {
-    display: inline-block;
-}
-* html .serendipity_entrypaging {
-    height: 1%;
-}
-.serendipity_entrypaging {
-    display: block;
-}
-.serendipity_entrypaging {
-    margin-bottom: 1em;
-    width: 100%;
-}
-.serendipity_entrypaging_left {
-    display: inline;
-    float: left;
-    margin-left: 38px;
-}
-.serendipity_entrypaging_right {
-    display: inline;
-    float: right;
-    margin-right: 38px;
-}
-.epicon {
-    display: none;
-}
-.serendipity_entrypaging_left, .serendipity_entrypaging_right, .serendipity_entrypaging_left .epicon, .serendipity_entrypaging_right .epicon {
-    display: inline;
-}
+#serendipity_smarty_entrypaging { display: inline-block; width: 100%; height: 34px; margin: 1rem auto; }
+#serendipity_smarty_entrypaging div { width: 32px; }
+.serendipity_smarty_entrypaging .arrow { fill: #333; }
+.smarty_pagination_left { float: left; margin-left: 1rem; }
+.smarty_pagination_right { float: right; margin-right: 1rem; }
+.smarty_pagination_right svg { transform: rotateY(180deg); }
+#serendipity_smarty_entrypaging div::after { clear: both; }
+
 .serendipity_image_left, .serendipity_image_right, .serendipity_image_center, .serendipity_imageComment_center, .serendipity_imageComment_left, .serendipity_imageComment_right {
   background: transparent;
   border: 0 none; }
