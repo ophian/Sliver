@@ -32,7 +32,7 @@
 
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/css/endandprint.css">
 {/if}
-    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}{$template}/admin/preview_iconizr.css">
+    <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
 {if $mode == 'save'}
 
     <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
