@@ -1,4 +1,4 @@
-{* plugin_guestbook_entries.tpl v.3.41 - 2013-08-07 Ian Sliver template *}
+{* plugin_guestbook_entries.tpl v.3.42 - 2013-11-03 Ian Sliver template *}
 
 {if $plugin_guestbook_articleformat}
   <div class="serendipity_Entry_Date serendipity_guestbook">
@@ -35,9 +35,9 @@
               {/if}
             {/if}
 
-            {if $guestbook_entry_paging}<div id="guestbook_entrypaging">{$guestbook_paging}</div>{/if}
+            {if isset($guestbook_entry_paging) AND $guestbook_entry_paging}<div id="guestbook_entrypaging">{$guestbook_paging}</div>{/if}
 
-            {if $guestbook_entries}
+            {if isset($guestbook_entries) AND is_array($guestbook_entries)}
               {foreach $guestbook_entries AS $entry}
 
                 <div id="guestbook_entrybundle">
@@ -61,7 +61,7 @@
             {/if}
 
 
-            {if $guestbook_entry_paging}<div id="guestbook_entrypaging">{$guestbook_paging}</div>{/if}
+            {if isset($guestbook_entry_paging) AND $guestbook_entry_paging}<div id="guestbook_entrypaging">{$guestbook_paging}</div>{/if}
 
             </div><!-- //- class:entry-body end -->
 
