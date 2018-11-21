@@ -1561,7 +1561,7 @@ ul#serendipity_categories_list input {
    ========================================================================== */
 
 /* Reusable column setup */
-.col {
+.column {
     border: 0px solid rgba(0,0,0,0);
     float: left;
     -moz-background-clip: padding-box !important;

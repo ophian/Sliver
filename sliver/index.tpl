@@ -1,4 +1,4 @@
-{* Sliver v4 template: last modified 2018-08-08 v.4.56 - view README.md *}{if $is_embedded != true}
+{* Sliver v4 template: last modified 2018-11-21 v.4.57 - view README.md *}{if $is_embedded != true}
 <!DOCTYPE html>
 <html class="no-js" lang="{$lang}">
   <head>
@@ -110,7 +110,7 @@
         {/if}
       </nav>
       {/if}
-    <header id="header" class="clearfix col{if $template_option.sitenavpos != 'below'} spacer{/if}">
+    <header id="header" class="clearfix column{if $template_option.sitenavpos != 'below'} spacer{/if}">
       {* #serendipity_banner: this is the header area. it holds the blog title and description headlines *}
       <hgroup id="serendipity_banner">
         <h1><span class="{if NOT $template_option.firbtitle}in{/if}visible"><a class="homelink1" href="{$serendipityBaseURL}">{$head_title|default:$blogTitle|truncate:80:"&hellip;"}</a></span></h1>
@@ -147,7 +147,7 @@
       *}
     {if $is_single_entry !== true AND (isset($view) AND in_array($view, ['entry', 'start', 'archives']))}
     {if $topSidebarElements > 0}
-    <nav id="sidebar_top" class="clearfix col">
+    <nav id="sidebar_top" class="clearfix column">
       {serendipity_printSidebar side="top"}
     </nav><!-- // "id:#sidebar_top" end -->
     {/if}
@@ -169,7 +169,7 @@
     <!-- case 1: 1-2 columns, left sidebar(s) only -->
 
     {* left sidebar stuff in here *}
-    <aside id="sidebar_left" class="clearfix col {if ($middleSidebarElements > 0)}twoside{else}oneside{/if} layout2sb_left">
+    <aside id="sidebar_left" class="clearfix column{if ($middleSidebarElements > 0)} twoside{else} oneside{/if} layout2sb_left">
 
       {if $template_option.sitenavpos == 'left' OR $template_option.sitenavpos == 'right'}
       {* #sbsitenav: like #sitenav, but placed within the sidebar *}
@@ -189,13 +189,13 @@
 
     {* middle sidebar stuff in here *}
     {if $middleSidebarElements > 0}
-    <aside id="sidebar_middle" class="clearfix col sbm_left">
+    <aside id="sidebar_middle" class="clearfix column sbm_left">
       {serendipity_printSidebar side="middle"}
      </aside><!-- // "id:#sidebar_middle" end --> 
     {/if}
 
     {* blog content stuff in here *}
-    <section id="blog" class="clearfix col {if $middleSidebarElements > 0}twobar-left{else}onebar-left{/if}">
+    <section id="blog" class="clearfix column {if $middleSidebarElements > 0}twobar-left{else}onebar-left{/if}">
       <section id="content" class="twomain layout2sb_content hfeed">
         {$CONTENT}
       </section><!-- // "section id:#content" end -->
@@ -216,7 +216,7 @@
     <!-- case 2: 1-2 columns, right sidebar(s) only -->
 
     {* blog content stuff in here *}
-    <section id="blog" class="clearfix col {if $middleSidebarElements > 0}twobar-right{else}onebar-right{/if}">
+    <section id="blog" class="clearfix column {if $middleSidebarElements > 0}twobar-right{else}onebar-right{/if}">
       <section id="content" class="twomain layout2bs_content hfeed">
         {$CONTENT}
       </section><!-- // "section id:#content" end -->
@@ -225,13 +225,13 @@
     {* middle sidebar stuff in here *}
     {if $middleSidebarElements > 0}
 
-    <aside id="sidebar_middle" class="clearfix col sbm_right">
+    <aside id="sidebar_middle" class="clearfix column sbm_right">
       {serendipity_printSidebar side="middle"}
     </aside><!-- // "id:#sidebar_middle" end --> 
     {/if}
 
     {* right sidebar stuff in here *}
-    <aside id="sidebar_right" class="clearfix col {if ($middleSidebarElements > 0)}twoside{else}oneside{/if} layout2bs_right">
+    <aside id="sidebar_right" class="clearfix column{if ($middleSidebarElements > 0)} twoside{else} oneside{/if} layout2bs_right">
 
       {if $template_option.sitenavpos == 'left' OR $template_option.sitenavpos == 'right'}
       {* #sbsitenav: like #sitenav, but placed within the sidebar *}
@@ -273,7 +273,7 @@
     </section><!-- #maingrid blogone end -->
 
     {* onefull sidebar stuff in here *}
-    <aside id="sidebar_footer" class="onefull col layout1col_right_full">
+    <aside id="sidebar_footer" class="onefull column layout1col_right_full">
 
       {if $leftSidebarElements > 0}{serendipity_printSidebar side="left"}{/if}
       {if $middleSidebarElements > 0}{serendipity_printSidebar side="middle"}{/if}
@@ -300,7 +300,7 @@
        ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       *}
 
-    <nav id="sidebar_footer" class="clearfix col">
+    <nav id="sidebar_footer" class="clearfix column">
       {if $footerSidebarElements > 0}{serendipity_printSidebar side="footer"}{/if}
       {if ($template_option.sitenavpos != 'none' and $template_option.sitenav_footer)}
       <div class="clearfix footer_sitenav">
@@ -322,7 +322,7 @@
        +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       *}
 
-    <footer id="footer" class="clearfix col">
+    <footer id="footer" class="clearfix column">
       <div id="serendipity_credit_line">&#160;<em>{$sliver_credit}</em>&#160;</div>
     </footer>
 
