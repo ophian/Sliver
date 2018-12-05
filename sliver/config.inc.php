@@ -1,5 +1,5 @@
 <?php
-// Sliver template v.4.57 2018-08-22
+// Sliver template v.4.58 2018-12-04
 /*
  Sidebars left, Sidebars right, no Sidebars via templates config.
  Additional middle, top, footer Sidebars via admin panel plugin section.
@@ -16,7 +16,7 @@ if (IN_serendipity !== true) {
 
 $serendipity['smarty']->assign(array('currpage' => "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
                                      'currpage2'=> $_SERVER['REQUEST_URI'],
-                                     'sliver_credit' => 'Sliver &copy; 2018, v4.57'));
+                                     'sliver_credit' => 'Sliver &copy; 2018, v4.58'));
 
 /*************************************************************************/
 /* Staticpage related article by freetags.
@@ -69,6 +69,12 @@ $template_config = array(
                                  'osans' => 'Open Sans',
                                  'cabin' => 'Cabin',
                                  'ubuntu' => 'Ubuntu')
+    ),
+    array(
+        'var'           => 'use_corenav',
+        'name'          => USE_CORENAV,
+        'type'          => 'boolean',
+        'default'       => true,
     ),
     array(
         'var'           => 'use_slivers_jQueryMin',
@@ -273,11 +279,15 @@ $serendipity['smarty']->assignByRef('middleSidebarElements', $middleSidebarEleme
 $serendipity['smarty']->assignByRef('footerSidebarElements', $footerSidebarElements);
 
 $top = isset($serendipity['smarty_vars']['template_option']) ? $serendipity['smarty_vars']['template_option'] : '';
-$template_config_groups = NULL;
+$template_config_groups = null;
 $template_global_config = array('navigation' => true);
 $template_loaded_config = serendipity_loadThemeOptions($template_config, $top, true);
 $serendipity['template_loaded_config'][$serendipity['template']] = $template_loaded_config; // copy into global scope for extended plugin API usage
 serendipity_loadGlobalThemeOptions($template_config, $template_loaded_config, $template_global_config); // since $template_loaded_config can somehow not be loaded global
+
+if (isset($_SESSION['serendipityUseTemplate'])) {
+    $template_loaded_config['use_corenav'] = false;
+}
 
 $navlinks = array( 'use_corenav', 'amount');
 for ($i = 0; $i < $template_loaded_config['amount']; $i++) {

@@ -1,4 +1,4 @@
-{* Sliver v4 template: last modified 2018-11-21 v.4.57 - view README.md *}{if $is_embedded != true}
+{* Sliver v4 template: last modified 2018-12-05 v.4.58 - view README.md *}{if $is_embedded != true}
 <!DOCTYPE html>
 <html class="no-js" lang="{$lang}">
   <head>
@@ -216,7 +216,7 @@
     <!-- case 2: 1-2 columns, right sidebar(s) only -->
 
     {* blog content stuff in here *}
-    <section id="blog" class="clearfix column {if $middleSidebarElements > 0}twobar-right{else}onebar-right{/if}">
+    <section id="blog" class="clearfix column{if $middleSidebarElements > 0} twobar-right{else} onebar-right{/if}">
       <section id="content" class="twomain layout2bs_content hfeed">
         {$CONTENT}
       </section><!-- // "section id:#content" end -->
