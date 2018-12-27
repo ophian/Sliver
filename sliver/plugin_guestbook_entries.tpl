@@ -1,4 +1,4 @@
-{* plugin_guestbook_entries.tpl v.3.42 - 2013-11-03 Ian Sliver template *}
+{* plugin_guestbook_entries.tpl v.3.43 - 2018-12-27 Ian Sliver template *}
 
 {if $plugin_guestbook_articleformat}
   <div class="serendipity_Entry_Date serendipity_guestbook">
@@ -25,7 +25,7 @@
 
             <div class="entry-body">
             {if NOT empty($is_guestbook_message)}
-              <p class="serendipity_center serendipity_msg_important guestbook_errorbundled">{$error_occured}</p>
+              <p class="serendipity_center serendipity_msg_important guestbook_errorbundled">{$error_occurred}</p>
               {if $guestbook_messages}
                 <ul>
                 {foreach $guestbook_messages AS $messages}
