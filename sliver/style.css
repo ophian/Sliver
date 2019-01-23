@@ -1199,8 +1199,7 @@ ul#serendipity_categories_list input {
 }
 .serendipity_freetag_taglist {
     background: none #FBFBFB;
-    margin-top: .8em;
-    padding: 8px;
+    padding: .8em !important;
     border: 1px solid #AAA;
 }
 .serendipity_freetag_taglist_related {
