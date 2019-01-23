@@ -1,8 +1,8 @@
-Name: Sliver (v.4.58)
+Name: Sliver
 Author: Ian
-Date: 2018-12-05
+Date: 2019-01-23
 Require Serendipity: 2.2.0
-Version: 4.58
+Version: 4.59
 Recommended: Yes
-Summary: Silver slivered left/right, up to 4 Sidebars Responsive Coding-Theme for the Serendipity Styx Blog system
+Summary: Silver (v.4.59) slivered left/right, up to 4 Sidebars responsive Coding-Theme for the Serendipity Styx Blog system (origin base&colon; "bulletproof")
 Description: Sidebars left, Sidebars right and no Sidebars via templates config. Additional middle, top and footer Sidebars via admin panels plugin section.

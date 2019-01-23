@@ -1,5 +1,5 @@
 <?php
-// Sliver template v.4.58 2018-12-04
+// Sliver template v.4.59 2019-01-23
 /*
  Sidebars left, Sidebars right, no Sidebars via templates config.
  Additional middle, top, footer Sidebars via admin panel plugin section.
@@ -16,7 +16,7 @@ if (IN_serendipity !== true) {
 
 $serendipity['smarty']->assign(array('currpage' => "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
                                      'currpage2'=> $_SERVER['REQUEST_URI'],
-                                     'sliver_credit' => 'Sliver &copy; 2018, v4.58'));
+                                     'sliver_credit' => 'Sliver &copy; 2011-'.date('Y').', v4.59'));
 
 /*************************************************************************/
 /* Staticpage related article by freetags.
