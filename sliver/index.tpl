@@ -1,4 +1,4 @@
-{* Sliver v4 template: last modified 2018-12-05 v.4.58 - view README.md *}{if $is_embedded != true}
+{* Sliver v4 template: last modified 2019-01-23 v.4.59 - view README.md *}{if $is_embedded != true}
 <!DOCTYPE html>
 <html class="no-js" lang="{$lang}">
   <head>
@@ -114,7 +114,7 @@
       {* #serendipity_banner: this is the header area. it holds the blog title and description headlines *}
       <hgroup id="serendipity_banner">
         <h1><span class="{if NOT $template_option.firbtitle}in{/if}visible"><a class="homelink1" href="{$serendipityBaseURL}">{$head_title|default:$blogTitle|truncate:80:"&hellip;"}</a></span></h1>
-        <h2><span class="{if NOT $template_option.firbdescr}in{/if}visible"><a class="homelink2" href="{$serendipityBaseURL}">{$head_subtitle|default:$blogDescription}</a></span> [{$view|default:''}]</h2>
+        <h2><span class="{if NOT $template_option.firbdescr}in{/if}visible"><a class="homelink2" href="{$serendipityBaseURL}">{if $view == 'plugin'}{$blogDescription}{else}{$head_subtitle|default:$blogDescription}{/if}</a></span></h2>
       </hgroup>
     </header>
       {if $template_option.sitenavpos == 'below'}
