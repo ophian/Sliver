@@ -327,22 +327,22 @@
     </footer>
 
   </div><!-- // "id:#wrapper" end -->
-{/if}
-
-{$raw_data}
 
 {if $template_option.use_slivers_jQueryMin}
   <script>window.jQuery || document.write('<script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/jquery-3.3.1.min.js"><\/script>')</script>
 {/if}
+{/if}
 
-  {serendipity_hookPlugin hook="frontend_footer"}
+{$raw_data}
+
+{serendipity_hookPlugin hook="frontend_footer"}
+
+{if $is_embedded != true}
+  {* JavaScript at the bottom for fast page loading *}
 
 {if $template_option.use_slivers_codeprettifier}
   <script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/prettify.js"></script>
 {/if}
-{if $is_embedded != true}
-  {* JavaScript at the bottom for fast page loading *}
-
 {if $template_option.use_slivers_codeprettifier}
 {literal}
   <script>
