@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="{$lang}">
 <head>
     <meta charset="{$head_charset}">
