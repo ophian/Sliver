@@ -33,7 +33,7 @@
         {/foreach}
         {/if}
 
-            <div id="serendipity_comment" class="serendipityCommentForm">
+            <div id="serendipity_comment" class="serendipity_commentForm">
                 <a id="serendipity_CommentForm"></a>
 
                 <form id="serendipity_comment" action="{$commentform_action}#feedback" method="post">
