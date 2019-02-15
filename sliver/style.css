@@ -255,7 +255,6 @@ body {
     background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(220,220,220,1) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(220,220,220,1))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(220,220,220,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(220,220,220,1) 100%); /* Opera 11.10+ */
     background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(220,220,220,1) 100%); /* IE10+ */
     background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(220,220,220,1) 100%); /* W3C */
     color: #111;
@@ -1696,7 +1695,6 @@ a.homelink2:hover {
     background: -moz-linear-gradient(top,  rgba(220,220,220,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(220,220,220,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top,  rgba(220,220,220,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  rgba(220,220,220,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
     background: -ms-linear-gradient(top,  rgba(220,220,220,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
     background: linear-gradient(top,  rgba(220,220,220,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
 }
@@ -1747,7 +1745,6 @@ section#blog {
     background: -moz-linear-gradient(left,  rgba(255,255,255,1) 20%, rgba(200,210,220,0) 95%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right top, color-stop(20%,rgba(255,255,255,1)), color-stop(95%,rgba(200,210,220,0))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 20%,rgba(200,210,220,0) 95%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left,  rgba(255,255,255,1) 20%,rgba(200,210,220,0) 95%); /* Opera 11.10+ */
     background: -ms-linear-gradient(left,  rgba(255,255,255,1) 20%,rgba(200,210,220,0) 95%); /* IE10+ */
     background: linear-gradient(left,  rgba(255,255,255,1) 20%,rgba(200,210,220,0) 95%); /* W3C */
     /*background: -moz-linear-gradient(left center , #FFF 20%, rgba(242, 225, 219, 0) 95%) repeat scroll 0% 0% transparent test with a tad more rouge */
@@ -2004,7 +2001,6 @@ section#blog {
     background: -moz-linear-gradient(top,  rgba(237,237,237,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(237,237,237,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
     background: -ms-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
     background: linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
     border: 1px solid #CCC;
