@@ -483,11 +483,11 @@ blockquote:lang(de) p:last-child:after { content: '“'; content: close-quote; }
     background: #EEE;
 }
 .serendipity_msg_important {
-    color: red;
+    color: #ff4136;
     margin-bottom: 1em;
 }
 .serendipity_msg_notice {
-    color: green;
+    color: #2ecc40;
     margin-bottom: 1em;
 }
 #navbar {
