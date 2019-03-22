@@ -80,7 +80,7 @@
         </header>
 
         <article id="article_dategroup_entry">
-          <section id="section_entry_author" class="serendipity_entry serendipity_entry_author_{$entry.author|makeFilename} {if NOT empty($entry.is_entry_owner)}serendipity_entry_author_self{/if}">
+          <section id="section_entry_author" class="serendipity_entry serendipity_entry_author_{$entry.author|makeFilename}{if NOT empty($entry.is_entry_owner)} serendipity_entry_author_self{/if}">
 
             <header id="header_entry_author">
             {if (NOT $dategroup.is_sticky OR ($dategroup.is_sticky and $template_option.show_sticky_entry_footer))}
