@@ -24,7 +24,7 @@
 
 {elseif NOT empty($is_showtrackbacks)}
 
-    <div class="serendipity_commentsTitle">{$CONST.TRACKBACKS}</div>
+    <h3 class="serendipity_commentsTitle">{$CONST.TRACKBACKS}</h3>
     <dl>
         <dt><strong>{$CONST.TRACKBACK_SPECIFIC}:</strong></dt>
         <dd><a rel="nofollow" href="{$comment_url}">{$comment_url}</a></dd>
@@ -39,7 +39,10 @@
 
 {elseif $is_showcomments}
 
-    <div class="serendipity_commentsTitle">{$CONST.COMMENTS}</div>
+    {* we need the $entry array assigned for comment author_self comparison in commentpopup template file *}
+    {serendipity_fetchPrintEntries id=$entry_id returncode="assign" full=false use_hooks=false skip_smarty_hooks=true}
+
+    <h3 class="serendipity_commentsTitle">{$CONST.COMMENTS}</h3>
 
     <div id="serendipity_commentlist">
     {serendipity_printComments entry=$entry_id}
