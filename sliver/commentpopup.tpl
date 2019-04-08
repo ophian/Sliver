@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}">
     <link rel="stylesheet" type="text/css" href="{$serendipityHTTPPath}serendipity.css.php">
+{serendipity_hookPlugin hook="frontend_header"}
 </head>
 
 <body id="serendipity_comment_page" class="s9y_wrap">
@@ -38,9 +39,6 @@
     </div>
 
 {elseif $is_showcomments}
-
-    {* we need the $entry array assigned for comment author_self comparison in commentpopup template file *}
-    {serendipity_fetchPrintEntries id=$entry_id returncode="assign" full=false use_hooks=false skip_smarty_hooks=true}
 
     <h3 class="serendipity_commentsTitle">{$CONST.COMMENTS}</h3>
 
