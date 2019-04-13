@@ -86,7 +86,7 @@
             {if (NOT $dategroup.is_sticky OR ($dategroup.is_sticky and $template_option.show_sticky_entry_footer))}
                 {if $template_option.entryfooterpos == 'belowtitle'}
 
-                    <div class='serendipity_entryFooter belowtitle'>
+                    <div class="serendipity_entryFooter belowtitle">
                         {if $template_option.footerauthor}
 
                             {$CONST.POSTED_BY} <address class="author"><a href="{$entry.link_author}">{$entry.author}</a></address>
@@ -156,7 +156,7 @@
                   {if NOT $template_option.footerauthor AND NOT $template_option.footercategories AND NOT $template_option.footertimestamp}
                   {else}
 
-                    <div class='serendipity_entryFooter byline'>
+                    <div class="serendipity_entryFooter byline">
                         {if $template_option.footerauthor}
 
                             {$CONST.POSTED_BY} <address class="author"><a href="{$entry.link_author}">{$entry.author}</a></address>
@@ -197,7 +197,7 @@
                 {$entry.body}
                 {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
 
-                    <div class="clear continue_reading"><a href="{$entry.link}#extended" title='{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title|truncate:50:"&hellip;"}'>{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title|truncate:50:"&hellip;"} &#187;</a></div>
+                    <div class="clear continue_reading"><a href="{$entry.link}#extended" title="{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title|truncate:50:"&hellip;"}">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title|truncate:50:"&hellip;"} &#187;</a></div>
                 {/if}
 
               </div>
@@ -289,7 +289,7 @@
                 {/if}
 
                 {if $template_option.entryfooterpos == 'splitfoot'}
-                    <div class='serendipity_entryFooter infofooter'>
+                    <div class="serendipity_entryFooter infofooter">
                         {if $template_option.footercomments}
                             {if $entry.has_comments}
                                 {if $use_popups}
