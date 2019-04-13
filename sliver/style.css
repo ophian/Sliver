@@ -486,6 +486,7 @@ blockquote:lang(de) p:last-child:after { content: '“'; content: close-quote; }
     color: #ff4136;
     margin-bottom: 1em;
 }
+.serendipity_msg_success,
 .serendipity_msg_notice {
     color: #2ecc40;
     margin-bottom: 1em;
