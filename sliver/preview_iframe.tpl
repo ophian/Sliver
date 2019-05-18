@@ -46,7 +46,7 @@
         {rdelim}
     </script>
   </head>
-  <body id="admin_preview_iframe_body"{if $template_option.webfonts != 'none'} class="{$mode}_preview_body {$template_option.webfonts}"{/if}>
+  <body id="admin_preview_iframe_body"{if isset($template_option.webfonts) AND $template_option.webfonts != 'none'} class="{$mode}_preview_body {$template_option.webfonts}"{/if}>
     <div id="admin_preview_iframe_wrapper" class="{$mode}_preview_container">
         <div id="content" class="clearfix admin_preview_iframe_content {$mode}_preview_content">{* we have to leave the inline style part here in order to the upper ajax working *}
             <div class="clearfix">
