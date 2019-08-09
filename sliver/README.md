@@ -9,7 +9,7 @@ Date: 2012-04-28
 
 Original based on theme [Bulletproof] (https://github.com/ophian/styx) and a rock-solid default for HTML5 awesome [Boilerplate-3] (http://html5boilerplate.com/)
 
-Author: Ian
+Author: Ian Styx
 
 ## Requirement:
 
