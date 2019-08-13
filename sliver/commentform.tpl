@@ -1,4 +1,5 @@
 <div id="comments" class="serendipity_comments serendipity_section_comments">
+    <a id="serendipity_CommentForm"></a>
 
     <form id="serendipity_comment" action="{$commentform_action}#feedback" method="post">
         <div>
