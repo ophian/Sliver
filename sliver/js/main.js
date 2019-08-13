@@ -1,4 +1,4 @@
-/* Author: Ian
+/* Author: Ian Styx
    Sliver v.4.55 main.js
 */
 
