@@ -487,7 +487,7 @@ input#serendipityQuickSearchTermField {
     margin-left: 10px;
     text-align: left;
 }
-.container_serendipity_quicksearch_plugin {
+.container_serendipity_plugin_quicksearch {
     overflow: visible;
 }
 ul#serendipity_categories_list input {
@@ -833,6 +833,7 @@ body {
     color: red;
     margin-bottom: 1em;
 }
+.serendipity_msg_success,
 .serendipity_msg_notice {
     color: green;
     margin-bottom: 1em;
@@ -1257,6 +1258,7 @@ a:hover {
 .serendipity_msg_important {
     color: #FF0055;
 }
+.serendipity_msg_success,
 .serendipity_msg_notice {
     color: #00AA00;
 }
@@ -1881,7 +1883,7 @@ ul.staticpage_navigation li {
 
 /* syndication, quicksearch, archives, categories, authors, superuser, etc.
    staticpage plugin, entrylinks plugin, freetag plugin, guestbook plugin, etc. */
-.serendipitySideBarContent .serendipity_edit_nugget  { 
+.serendipitySideBarContent .serendipity_edit_nugget {
     float: right;
     font-size: 86%;
     margin-top: -3px;
@@ -1890,17 +1892,17 @@ ul.staticpage_navigation li {
     top: 80px;
     margin-bottom: 10px;
 }
-#sidebar_left .container_serendipity_superuser_plugin div.serendipitySideBarContent,
-#sidebar_right .container_serendipity_superuser_plugin div.serendipitySideBarContent { 
+#sidebar_left .container_serendipity_plugin_superuser div.serendipitySideBarContent,
+#sidebar_right .container_serendipity_plugin_superuser div.serendipitySideBarContent {
    line-height: 30px;
 } 
-#sidebar_left .container_serendipity_superuser_plugin .serendipitySideBarContent .serendipity_edit_nugget,
-#sidebar_right .container_serendipity_superuser_plugin .serendipitySideBarContent .serendipity_edit_nugget  { 
+#sidebar_left .container_serendipity_plugin_superuser .serendipitySideBarContent .serendipity_edit_nugget,
+#sidebar_right .container_serendipity_plugin_superuser .serendipitySideBarContent .serendipity_edit_nugget {
     margin-top: -10px;
     margin-bottom: -10px;
 } 
 #sidebar_left .container_serendipity_plugin_guestbook div.serendipitySideBarContent,
-#sidebar_right .container_serendipity_plugin_guestbook div.serendipitySideBarContent { 
+#sidebar_right .container_serendipity_plugin_guestbook div.serendipitySideBarContent {
     color: #555555;
     font-size: 86%;
     margin-top: 10px;

@@ -341,6 +341,17 @@ img {
 
 p { text-align: left; }
 
+p {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hypens: auto;
+    hyphens: auto; }
+    p code, p samp, p kbd {
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hypens: none;
+      hyphens: none; }
+
 pre {
     font-family: Courier,monospace;
     font-size: 90%;
@@ -1138,7 +1149,7 @@ input#serendipityQuickSearchTermField::after {
     margin-left: .8em;
     text-align: left;
 }
-.container_serendipity_quicksearch_plugin {
+.container_serendipity_plugin_quicksearch {
     overflow: visible;
 }
 ul#serendipity_categories_list input {
