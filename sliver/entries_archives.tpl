@@ -8,7 +8,7 @@
   <p>{$CONST.ARCHIVE_TEXT_ADD|sprintf:$serendipityHTTPPath}</p>
 
   <div id="bycats" class="clearfix">
-  {serendipity_showPlugin class="serendipity_categories_plugin"}
+  {serendipity_showPlugin class="serendipity_plugin_categories"}
   </div>
 
   {capture name="archivetags"}{serendipity_showPlugin class="serendipity_plugin_freetag"}{/capture}
