@@ -1,6 +1,6 @@
 /**********************************************************************/
 /* Sliver template: Sidebars left, Sidebars right, no Sidebars        */
-/*                  via templates config.                             */ 
+/*                  via templates config.                             */
 /*                  Additional middle, top, footer Sidebar via        */
 /*                  admin panels plugin section.                      */
 /*                                                                    */
@@ -58,7 +58,7 @@ body {
 * {
     line-height: 1.6;
 }
-img { 
+img {
     border: 0 none;
     display: inline;
     vertical-align: bottom;
@@ -176,11 +176,11 @@ fieldset {
 }
 /********************************************************************
  * extended navigation bar and searchform in header
- * IE7 troubles here with floating elements / without position fixed 
+ * IE7 troubles here with floating elements / without position fixed
  * and breaks our one line rule.
  * Solution: we just float the searchform onto the navigation
  ********************************************************************/
-.lt-ie7 #sitenav-extended #searchform input { 
+.lt-ie7 #sitenav-extended #searchform input {
     float: none;
 }
 
@@ -352,11 +352,11 @@ a.day {
 .serendipity_calendarDay {
     color: #888;
 }
-.serendipity_calendar .Today { 
+.serendipity_calendar .Today {
     background: #D5BFC0;
     border: 1px solid #999;
 }
-/* styles for calendar days rows 
+/* styles for calendar days rows
 .row1 {background: #ddecfb; }
 .row2 {background: #e2eefb; }
 .row3 {background: #e7f1fb; }
@@ -542,7 +542,7 @@ p.break {
 }
 br.clear {
     clear: both;
-} 
+}
 blockquote {
     border-left: 4px solid #2a5a8a;
     padding-left: 10px;
@@ -565,7 +565,7 @@ q q:after { content: '’'; content: close-quote; }
 :lang(de) q q:after { content: '‘'; content: close-quote; }
 
 blockquote p { quotes: '\201C' '\201D'; }/* blockquote { quotes: '“' '”'; }*//* in rendered css, threw:    quotes: "?" "?"; */
-blockquote p:before { content: ''; content: no-open-quote; } 
+blockquote p:before { content: ''; content: no-open-quote; }
 blockquote p:after { content: ''; content: no-close-quote; }
 blockquote p:first-child:before { content: '“'; content: open-quote; }
 blockquote p:last-child:after { content: '”'; content: close-quote; }
@@ -576,7 +576,7 @@ blockquote:lang(de) p { quotes: '\201E' '\201D'; } /*{ quotes: '„' '“'; */
 blockquote:lang(de) p:before { content: ''; content: no-open-quote; }
 :lang(de) blockquote p:after,
 blockquote:lang(de) p:after { content: ''; content: no-close-quote; }
-:lang(de) blockquote p:last-child:before, 
+:lang(de) blockquote p:last-child:before,
 blockquote:lang(de) p:last-child:before { content: ''; content: open-quote; } /* if blockquote -> text with links -> p, there was no open quote then */
 
 :lang(de) blockquote p:first-child:before,
@@ -611,12 +611,12 @@ blockquote:lang(de) p:last-child:after { content: '“'; content: close-quote; }
 
 <no-nl2br>
 <div style="float: left; width: 48%; margin-right: 20px;">
-    <div id="boxed"> 
+    <div id="boxed">
         <pre class="box"> Box 1 </pre>
     </div>
 </div>
 <div>
-    <div id="boxed"> 
+    <div id="boxed">
         <pre class="box"> Box 2 </pre>
     </div>
 </div>
@@ -640,7 +640,7 @@ blockquote:lang(de) p:last-child:after { content: '“'; content: close-quote; }
     position: relative; /* IE PIE lt 9, we need this here */
     behavior: url("/PIE.htc"); /* found best in root */
 }
-pre, .lt-ie8 pre, 
+pre, .lt-ie8 pre,
 code, .lt-ie8 code {
     /*quotes: '\0022' '\0022' '\0027' '\0027'; */
     /*quotes: '"' '"' ''' '''; */
@@ -661,14 +661,14 @@ pre {
     overflow: auto;
     padding: 10px;
 }
-/* We do not want IE to word-wrap: break-word here, as intended in style.css. 
-   But we don't want to have these right srollbar either, if a pre's content is wider than set. 
+/* We do not want IE to word-wrap: break-word here, as intended in style.css.
+   But we don't want to have these right srollbar either, if a pre's content is wider than set.
    This is why we set IE overflow to hidden and use text-overflow: ellipsis (cut...), but as IE9 needs this too, we have to use some ie hacks here */
 /* If you want IEs better to break words in <pre> elements, please disable this crap here - or find a way to disable the right srollbar */
-.lt-ie7 pre, .lt-ie8 pre, :root pre { 
+.lt-ie7 pre, .lt-ie8 pre, :root pre {
     word-wrap: normal;
     overflow: hidden\9;
-    text-overflow: ellipsis\9; 
+    text-overflow: ellipsis\9;
 }
 code {
     color: #007000; /* green or #008000; */
@@ -733,7 +733,7 @@ code {
     color: #8080C0;
     margin: 0;
 }
-/* css, sql, conf, htaccess fallback to code color green - else use this 
+/* css, sql, conf, htaccess fallback to code color green - else use this
 .code-css, .code-sql, .code-conf, .code-htaccess {
     color: #888888;
     margin: 0;
@@ -756,7 +756,7 @@ samp {
 samp.courier {
     /* continue */
 }
-/* This is a sample pre box, as it may be used with wrapped text, 
+/* This is a sample pre box, as it may be used with wrapped text,
  * radial color gradient (IE 7, 8 only show horizontal gradient), rounded corners and shadow.
    <div class="box"> ... </div> (better with html structures like <li> - see below) or <pre class="box"> ... </pre> (better for plain coding or text examples)
  */
@@ -773,7 +773,7 @@ div.box, pre.box {
     background: -ms-radial-gradient(center, ellipse cover,  rgba(222,244,189,1) 0%,rgba(245,252,237,1) 100%); /* IE10+ */
     background: radial-gradient(center, ellipse cover,  rgba(222,244,189,1) 0%,rgba(245,252,237,1) 100%); /* W3C */
     /* IE gradientType=1 is horizontal, 0 is vertical */
-    /* IE 5.5 - 7 Alpha 0.125 = 20 || Alpha 0.3 = 4c || Alpha 0.01 * 255 in hex = 02 || Alpha 0.5 * 255 in hex = 7F || Alpha 0.7 * 255 in hex = b2 || Alpha 0.8 * 255 in hex = cc || Alpha 0.9 * 255 in hex = e5 || 1.0 = ff */ 
+    /* IE 5.5 - 7 Alpha 0.125 = 20 || Alpha 0.3 = 4c || Alpha 0.01 * 255 in hex = 02 || Alpha 0.5 * 255 in hex = 7F || Alpha 0.7 * 255 in hex = b2 || Alpha 0.8 * 255 in hex = cc || Alpha 0.9 * 255 in hex = e5 || 1.0 = ff */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4cdef4bd', endColorstr='#f5fced',GradientType=1 )\9; /* IE6-8 fallback on horizontal gradient - IE9 needs 4c occupacity for upper left corner */
     background-clip: padding-box;
     background-color: #FAFAFB;
@@ -851,7 +851,7 @@ body {
 }
 .lt-ie7 #header,
 .lt-ie8 #header {
-    border-radius: 1em 1em 0 0; 
+    border-radius: 1em 1em 0 0;
 }
 #footer {
     border-bottom: 2px solid #BBBBBB;
@@ -919,11 +919,11 @@ a:hover {
 #nav {
     margin: 0 0 1px;
 }
-#nav.snabove { 
+#nav.snabove {
     border-top: 1px solid #BBBBBB;
     width: 100%;
 }
-#nav.snbelow { 
+#nav.snbelow {
     border-top: 1px solid #BBBBBB;
     width: 100%;
 }
@@ -1303,7 +1303,7 @@ box-shadow: 0px -2px 2px rgba(34,34,34,0.6); */ /* 'blurry' top-edge */
  * http://www.colorzilla.com/gradient-editor/#_
  * and IE rendered by
  * http://css3pie.com/
- * which also adds CSS3 like box-shadows and border-radius 
+ * which also adds CSS3 like box-shadows and border-radius
 ***********************************************************************************/
 
 /**********************************************************************/
@@ -1327,7 +1327,7 @@ body {
     position: relative; /* IE PIE lt 9, we need this here */
     behavior: url("/PIE.htc"); /* found best in root */
 }
-#wrapper { 
+#wrapper {
     background: none repeat scroll 0 0 #FFFFFF;
 /*    border-color: #BBBBBB #383838;*/
     border-color: #AAAAAA #383838;
@@ -1368,7 +1368,7 @@ body#admin_preview_iframe_body { background: none repeat scroll 0 0 #FFFFFF; fon
 }
 #content.admin_preview_iframe_content { padding: 5px; margin: 0; }
 
-.lt-ie7 #wrapper { 
+.lt-ie7 #wrapper {
     top: 12px; /* IE7 needs a position on top (and bottom, which does not work yet) - ie7 bottom margin bug */
 }
 #serendipity_banner {
@@ -1402,7 +1402,7 @@ a.homelink2:hover {
     border-width: 1px 0 0;
     padding: 2px 0;
 }
-#sitenav.snabove, 
+#sitenav.snabove,
 #sitenav-extended.snabove {
     /* rounded corners - no need for PIE */
     -webkit-border-radius: 1em 1em 0 0;
@@ -1429,10 +1429,10 @@ a.homelink2:hover {
     padding-left: 0;
     line-height: 0;
 }
-#sitenav-extended ul li, 
-#header, #footer { 
+#sitenav-extended ul li,
+#header, #footer {
     /** PIE produces unwanted behaviour here in IE7 & IE8, while having roundet corners build by #wrapper **/
-    /** IE filter and round corners do not properly work in IE7 and even IE8, this is why we have to workaround IE7 
+    /** IE filter and round corners do not properly work in IE7 and even IE8, this is why we have to workaround IE7
         and IE8 behaviour - see conditional style (old) ie_hacks.css for IE versions lt IE 9 **/
     background: rgb(220,220,220); /* Old browsers and standard color no gradient #DCDCDC; */
     /* moz syntax: linear-gradient( [<point> || <angle>,]? <stop>, <stop> [, <stop>]* ) */
@@ -1447,10 +1447,10 @@ a.homelink2:hover {
     /** do not use filter, while having PIE gradients; filter: filter; resets it in IE 6-8 (see old ie_hacks.css), but it has to be set in IE9 **/
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcdcdc', endColorstr='#ffffff',GradientType=0 ); /* IE6-8 */
 }
-.lt-ie7 #sitenav-extended ul li, 
-.lt-ie8 #sitenav-extended ul li, 
+.lt-ie7 #sitenav-extended ul li,
+.lt-ie8 #sitenav-extended ul li,
 .lt-ie7 #header, .lt-ie7 #footer,
-.lt-ie8 #header, .lt-ie8 #footer { 
+.lt-ie8 #header, .lt-ie8 #footer {
     filter: filter;
     -pie-background: linear-gradient(rgb(220,220,220), rgb(255,255,255));
     position: relative; /* PIE specific */
@@ -1496,29 +1496,29 @@ a.homelink2:hover {
     box-shadow: 0 0 1px #444444 inset; /* html5 standard */
 }
 /********************************************************************
- * default & extended & simple navigation bars 
+ * default & extended & simple navigation bars
  * corrects gradients in IE 7-8 overlapping border-radius problem
  * and some positioning
  ********************************************************************/
-.lt-ie7 .snabove#nav, 
-.lt-ie8 .snabove#nav, 
-.lt-ie7 .snabove#sitenav, 
-.lt-ie8 .snabove#sitenav, 
+.lt-ie7 .snabove#nav,
+.lt-ie8 .snabove#nav,
+.lt-ie7 .snabove#sitenav,
+.lt-ie8 .snabove#sitenav,
 .lt-ie7 .snabove#sitenav-extended ,
-.lt-ie8 .snabove#sitenav-extended { 
-    border-radius: 1em 1em 0 0; 
+.lt-ie8 .snabove#sitenav-extended {
+    border-radius: 1em 1em 0 0;
     position: relative; /* PIE specific */
     behavior: url("/PIE.htc"); /* found best in root */
 }
 .lt-ie7 .snabove#sitenav-extended ul,
-.lt-ie8 .snabove#sitenav-extended ul { 
+.lt-ie8 .snabove#sitenav-extended ul {
     padding-left: 10px;
     margin: 0;
 }
-.lt-ie7 .snabove#nav #searchform, 
-.lt-ie8 .snabove#nav #searchform, 
+.lt-ie7 .snabove#nav #searchform,
+.lt-ie8 .snabove#nav #searchform,
 .lt-ie7 .snabove#sitenav #searchform,
-.lt-ie8 .snabove#sitenav #searchform { 
+.lt-ie8 .snabove#sitenav #searchform {
     margin-right: 10px;
 }
 
@@ -1527,10 +1527,10 @@ a.homelink2:hover {
     font-family: Arial,sans-serif;
 }
 /* blog entries block - horizontal linear gradient section */
-section#blog { 
+section#blog {
     /* background: rgb(200,210,220); Old browsers and standard color no gradient #DCDCDC; but IE9 standard, not compat mode, has to disable this standard, as we dont have a PIE gradient here, like in sidebars! */
     /* IE gradientType=1 is horizontal, 0 is vertical */
-    /* IE 5.5 - 7 Alpha 0.125 = 20 || Alpha 0.3 = 4c || Alpha 0.01 * 255 in hex = 02 || Alpha 0.5 * 255 in hex = 7F || Alpha 0.7 * 255 in hex = b2 || Alpha 0.8 * 255 in hex = cc || Alpha 0.9 * 255 in hex = e5 || 1.0 = ff */ 
+    /* IE 5.5 - 7 Alpha 0.125 = 20 || Alpha 0.3 = 4c || Alpha 0.01 * 255 in hex = 02 || Alpha 0.5 * 255 in hex = 7F || Alpha 0.7 * 255 in hex = b2 || Alpha 0.8 * 255 in hex = cc || Alpha 0.9 * 255 in hex = e5 || 1.0 = ff */
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
     background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIyMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5NSUiIHN0b3AtY29sb3I9IiNjOGQyZGMiIHN0b3Atb3BhY2l0eT0iMCIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
     background: -moz-linear-gradient(left,  rgba(255,255,255,1) 20%, rgba(200,210,220,0) 95%); /* FF3.6+ */
@@ -1545,11 +1545,11 @@ section#blog {
 }
 /********************************************************************
  * .lt-ie7 and .lt-ie8
- * Entries content blog id sections gradient background 
- * trying to get near by modern browser behaviour - if not good, add filter: filter; 
+ * Entries content blog id sections gradient background
+ * trying to get near by modern browser behaviour - if not good, add filter: filter;
  ********************************************************************/
 .lt-ie7 section#blog,
-.lt-ie8 section#blog { 
+.lt-ie8 section#blog {
     background: #FCFCFC;
     height: 100%;
 }
@@ -1629,13 +1629,13 @@ section#blog {
 #sidebar_top .serendipitySideBarItem.container_serendipity_plugin_freetag {
     width: 40%;
 }
-#sidebar_left { 
+#sidebar_left {
     float: left;
     width: 16%;
     margin-left: 20px;
     padding: 10px 0;
 }
-#sidebar_middle { 
+#sidebar_middle {
     float: left;
     margin-left: 10px;
     padding: 10px 0;
@@ -1647,7 +1647,7 @@ section#blog {
     padding: 10px 0;
     width: 16%;
 }
-#sidebar_top, #sidebar_left, #sidebar_middle, #sidebar_right { 
+#sidebar_top, #sidebar_left, #sidebar_middle, #sidebar_right {
     background: rgb(237,237,237); /* Old browsers and standard color no gradient #EDEDED; */
     /* moz syntax: linear-gradient( [<point> || <angle>,]? <stop>, <stop> [, <stop>]* ) */
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -1673,10 +1673,10 @@ section#blog {
     box-shadow: #BBB 0px 2px 3px; /* html5 standard */
     /* need only if IE 7/8/9 gradient/border-radius/border-shadow */
     padding: 10px 0;
-    text-align: left; 
+    text-align: left;
 }
 .lt-ie7 #sidebar_top, .lt-ie7 #sidebar_left, .lt-ie7 #sidebar_middle, .lt-ie7 #sidebar_right,
-.lt-ie8 #sidebar_top, .lt-ie8 #sidebar_left, .lt-ie8 #sidebar_middle, .lt-ie8 #sidebar_right { 
+.lt-ie8 #sidebar_top, .lt-ie8 #sidebar_left, .lt-ie8 #sidebar_middle, .lt-ie8 #sidebar_right {
     /** do not use filter, while having PIE gradients **/
     filter: filter; /*filter:none !important; -ms-filter: none !important;*/
     /** this works in IE7, IE8, and IE9 Compat Mode only, not in IE9 default mode - see temporary Alpha workaround (for now, we could put this all back to non conditional style) */
@@ -1754,7 +1754,7 @@ section#blog {
 #content div#center table {
     margin: auto;
 }
-.lt-ie7 .entry-content, .lt-ie7 .serendipity_entry_body  { 
+.lt-ie7 .entry-content, .lt-ie7 .serendipity_entry_body  {
     margin: 0 4px; /* move away from l/r border */
 }
 #about-me h2, #social-media h2 {
@@ -1771,7 +1771,7 @@ section#blog {
     position: relative; /* IE PIE lt 9, we need this here */
     behavior: url("/PIE.htc"); /* found best in root */
 }
-/* set back serendipity.css box-shadow 
+/* set back serendipity.css box-shadow
 .input-text input, .input-textarea textarea {
     box-shadow: 0 0 0 0 #FFFFFF;
 }*/
@@ -1887,7 +1887,7 @@ ul.staticpage_navigation li {
     float: right;
     font-size: 86%;
     margin-top: -3px;
-} 
+}
 #sidebar_top.container_serendipity_plugin_freetag.serendipity_edit_nugget {
     top: 80px;
     margin-bottom: 10px;
@@ -1895,12 +1895,12 @@ ul.staticpage_navigation li {
 #sidebar_left .container_serendipity_plugin_superuser div.serendipitySideBarContent,
 #sidebar_right .container_serendipity_plugin_superuser div.serendipitySideBarContent {
    line-height: 30px;
-} 
+}
 #sidebar_left .container_serendipity_plugin_superuser .serendipitySideBarContent .serendipity_edit_nugget,
 #sidebar_right .container_serendipity_plugin_superuser .serendipitySideBarContent .serendipity_edit_nugget {
     margin-top: -10px;
     margin-bottom: -10px;
-} 
+}
 #sidebar_left .container_serendipity_plugin_guestbook div.serendipitySideBarContent,
 #sidebar_right .container_serendipity_plugin_guestbook div.serendipitySideBarContent {
     color: #555555;
