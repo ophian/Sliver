@@ -1,4 +1,4 @@
-{* plugin_guestbook_entries.tpl v.3.43 - 2018-12-27 Ian Sliver template *}
+{* plugin_guestbook_entries.tpl v.3.44 - 2020-06-19, Ian Styx, Sliver template *}
 
 {if $plugin_guestbook_articleformat}
   <div class="serendipity_Entry_Date serendipity_guestbook">
@@ -48,7 +48,7 @@
                            {$entry.timestamp}
                       </dt>
                       {if $entry.homepage}
-                      <dt>{$CONST.TEXT_USERS_HOMEPAGE}: <a href="{$entry.homepage}" target="_blank">{$entry.homepage|truncate:24:'...'}</a></dt>
+                      <dt>{$CONST.TEXT_USERS_HOMEPAGE}: <a href="{$entry.homepage}" target="_blank" rel="noopener">{$entry.homepage|truncate:24:'...'}</a></dt>
                       {/if}
 
                     </dl>
