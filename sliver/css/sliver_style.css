@@ -1315,13 +1315,8 @@ body {
     /* moz syntax: linear-gradient( [<point> || <angle>,]? <stop>, <stop> [, <stop>]* ) */
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
     /* not useful in dynamic height element background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkY2RjZGMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);*/
-    background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(220,220,220,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(220,220,220,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(220,220,220,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(220,220,220,1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(220,220,220,1) 100%); /* IE10+ */
-    background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(220,220,220,1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#dcdcdc',GradientType=0 ); /* IE6-8 */
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(220,220,220,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(220,220,220,1) 100%); /* W3C */
     -pie-background: linear-gradient(#FFFFFF, #DCDCDC);
     /* need only of IE 6/7/8 gradient/border-radius/border-shadow */
     position: relative; /* IE PIE lt 9, we need this here */
@@ -1438,14 +1433,8 @@ a.homelink2:hover {
     /* moz syntax: linear-gradient( [<point> || <angle>,]? <stop>, <stop> [, <stop>]* ) */
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
     background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2RjZGNkYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-    background: -moz-linear-gradient(top,  rgba(220,220,220,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(220,220,220,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  rgba(220,220,220,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  rgba(220,220,220,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  rgba(220,220,220,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
-    background: linear-gradient(top,  rgba(220,220,220,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
-    /** do not use filter, while having PIE gradients; filter: filter; resets it in IE 6-8 (see old ie_hacks.css), but it has to be set in IE9 **/
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcdcdc', endColorstr='#ffffff',GradientType=0 ); /* IE6-8 */
+    background: -webkit-linear-gradient(top, rgba(220,220,220,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: linear-gradient(to top, rgba(220,220,220,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
 }
 .lt-ie7 #sitenav-extended ul li,
 .lt-ie8 #sitenav-extended ul li,
@@ -1652,14 +1641,8 @@ section#blog {
     /* moz syntax: linear-gradient( [<point> || <angle>,]? <stop>, <stop> [, <stop>]* ) */
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
     /* background: url(data:image/svg+xml moved into sidebar_top only - it does not make sence in dynamic height sidebars! */
-    background: -moz-linear-gradient(top,  rgba(237,237,237,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(237,237,237,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
-    background: linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
-    /* only IE9 standard, not compat mode, has this bad upper corner background bug. As a temporary workaround (20111111) we set back gradient color to Alpha 0.01 * 255 in hex = 02, which works with upper old browsers background setting! YEAH! */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#02ededed', endColorstr='#ffffffff',GradientType=0 ); /* IE6-9 */
+    background: -webkit-linear-gradient(top, rgba(237,237,237,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: linear-gradient(to top, rgba(237,237,237,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
     border: 1px solid #CCC;
     /* rounded corners */
     -webkit-border-radius: 1em 1em 1em 1em;
