@@ -1134,6 +1134,12 @@ a:hover {
     font-weight: bold;
     margin: 4px 0;
 }
+.frm_radio_label {
+    padding: 0 .5rem;
+}
+.frm_check_label {
+    padding-left: .5rem;
+}
 #checkbox_remember, #checkbox_subscribe {
     margin-right: 3px;
 }

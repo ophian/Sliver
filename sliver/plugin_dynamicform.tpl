@@ -47,44 +47,45 @@
         <fieldset>
             <legend>{$plugin_contactform_pagetitle}</legend>
             <dl>
-                {foreach $commentform_dynamicfields AS $field}
-                    {if $field.type != "hidden"}
+        {foreach $commentform_dynamicfields AS $field}
+            {if $field.type != "hidden"}
 
-                        <dt class="serendipity_commentsLabel">
-                           {if $field.required}<sup>&#8727;</sup>{/if}<label for="serendipity_commentform_{$field.id}">{$field.name}</label>
-                        </dt>
-                        <dd class="serendipity_commentsValue">
-                            {if $field.type == "checkbox"}
+                <dt class="serendipity_commentsLabel">
+                   {if $field.required}<sup>&#8727;</sup>{/if}<label for="serendipity_contactform_{$field.id}">{$field.name}</label>
+                </dt>
+                <dd class="serendipity_commentsValue">
+                    {if $field.type == "checkbox"}
 
-                                <input class="frm_check" type="checkbox" name="{$field.id}" id="{$field.id}" {$field.default}><label class="frm_check_label" for="{$field.id}">{$field.message}</label>
-                            {elseif $field.type == "radio"}
-                                {foreach $field.options AS $option}
+                        <input class="frm_check" type="checkbox" name="{$field.id}" id="{$field.id}" {$field.default}><label class="frm_check_label" for="{$field.id}">{$field.message}</label>
+                    {elseif $field.type == "radio"}
+                        {foreach $field.options AS $option}
 
-                                    <input class="frm_radio" type="radio" name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default}><label class="frm_radio_label" for="{$field.id}.{$option.id}">{$option.name}</label>
-                                {/foreach}
-                            {elseif $field.type == "select"}
+                            <input class="frm_radio" type="radio" name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default}><label class="frm_radio_label" for="{$field.id}.{$option.id}">{$option.name}</label>
+                        {/foreach}
+                    {elseif $field.type == "select"}
 
-                                <select name="{$field.id}">
-                                    {foreach $field.options AS $option}
+                        <select name="{$field.id}">
+                            {foreach $field.options AS $option}
 
-                                        <option name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default} >{$option.name}</option>
-                                    {/foreach}
+                                <option name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default} >{$option.name}</option>
+                            {/foreach}
 
-                                </select>
-                            {elseif $field.type == "password"}
+                        </select>
+                    {elseif $field.type == "password"}
 
-                                <input class="frm" type="password" id="serendipity_commentform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" size="30">
-                            {elseif $field.type == "textarea"}
+                        <input class="frm" type="password" id="serendipity_contactform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" size="30">
+                    {elseif $field.type == "textarea"}
 
-                                <textarea class="frm" rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[{$field.id}]">{$field.default}</textarea>
-                            {else}
+                        <textarea class="frm" rows="10" cols="40" id="{if $field.name == $CONST.PLUGIN_CONTACTFORM_MESSAGE}serendipity_commentform_comment{else}serendipity_contactform_{$field.id}{/if}" name="serendipity[{$field.id}]">{$field.default}</textarea>
+                        {* If you do NOT need AND run the emoticonchooser plugin, you can as well just use serendipity_contactform_{$field.id} here! *}
+                    {else}
 
-                                <input class="frm" type="text" id="serendipity_commentform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" size="30">
-                            {/if}
-
-                        </dd>
+                        <input class="frm" type="text" id="serendipity_contactform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" size="30">
                     {/if}
-                {/foreach}
+
+                </dd>
+            {/if}
+        {/foreach}
 
                 <dt>&#160;</dt>
                 <dd>
