@@ -932,6 +932,10 @@ ul.archives_row li {
 .archive_summary_postdetails {
     margin: 0;
 }
+.archive_summary_pageof {
+  display: inherit;
+  font-size: small;
+  opacity: .7; }
 .archive_summary {
     margin-bottom: .8em;
 }
@@ -1303,13 +1307,13 @@ ul#serendipity_categories_list input {
 }
 .entries-list {
     display: inline;
-    float: left;
 }
 .entries-list dt {
     clear: both;
     display: inline;
     float: left;
-    width: 20em;
+    min-width: 60%;
+    padding-right: .5rem;
 }
 .entries-list dd {
     display: inline;
